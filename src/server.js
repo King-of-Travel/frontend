@@ -3,6 +3,7 @@ import polka from 'polka';
 import compression from 'compression';
 import * as sapper from '@sapper/server';
 import proxy from 'http-proxy-middleware';
+import { session } from 'session';
 
 const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === 'development';
@@ -19,6 +20,17 @@ app.use(
 			'^/api/': ''
 		},
 		changeOrigin: true
+	})
+);
+
+app.use(session());
+
+app.use(
+	sapper.middleware({
+		session: req => {
+			const user = (req.session && req.session.user) || null;
+			return { user };
+		}
 	})
 );
 

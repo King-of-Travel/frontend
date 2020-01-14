@@ -1,108 +1,107 @@
 {
-	"name": "frontend",
-	"description": "Frontend side of the King of Travel project",
-	"version": "0.0.1",
-	"scripts": {
-		"dev": "sapper dev",
-		"build": "sapper build --legacy",
-		"export": "sapper export --legacy",
-		"start": "node __sapper__/build",
-		"cy:run": "cypress run",
-		"cy:open": "cypress open",
-		"test": "run-p --race dev cy:run",
-		"eslint": "eslint ./src/**/*.svelte"
-	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "npm run eslint"
-		}
-	},
-	"prettier": {
-		"useTabs": true,
-		"singleQuote": true,
-		"tabWidth": 2
-	},
-	"eslintConfig": {
-		"extends": "eslint:recommended",
-		"plugins": [
-			"svelte3"
-		],
-		"parser": "babel-eslint",
-		"rules": {
-			"comma-dangle": [
-				"error",
-				"never"
-			],
-			"object-curly-newline": [
-				"error",
-				{
-					"multiline": true,
-					"consistent": true
-				}
-			],
-			"quotes": [
-				"error",
-				"single"
-			]
-		},
-		"overrides": [
-			{
-				"files": [
-					"./src/routes/**/*.svelte",
-					"./src/components/**/*.svelte"
-				],
-				"processor": "svelte3/svelte3",
-				"rules": {
-					"import/first": "off",
-					"import/no-mutable-exports": "off",
-					"import/prefer-default-export": "off"
-				}
-			}
-		],
-		"env": {
-			"browser": true,
-			"node": true
-		}
-	},
-	"eslintIgnore": [
-		"node_modules"
-	],
-	"dependencies": {
-		"compression": "^1.7.1",
-		"connect-pg-simple": "^6.1.0",
-		"express-session": "^1.17.0",
-		"http-proxy-middleware": "^0.20.0",
-		"pg": "^7.17.1",
-		"polka": "next",
-		"sirv": "^0.4.0"
-	},
-	"devDependencies": {
-		"@babel/core": "^7.0.0",
-		"@babel/plugin-syntax-dynamic-import": "^7.0.0",
-		"@babel/plugin-transform-runtime": "^7.0.0",
-		"@babel/preset-env": "^7.0.0",
-		"@babel/runtime": "^7.0.0",
-		"@rollup/plugin-alias": "^3.0.0",
-		"@rollup/plugin-commonjs": "^11.0.0",
-		"@rollup/plugin-node-resolve": "^6.0.0",
-		"@rollup/plugin-replace": "^2.2.0",
-		"autoprefixer": "^9.7.3",
-		"babel-eslint": "^10.0.3",
-		"dotenv": "^8.2.0",
-		"eslint": "^6.8.0",
-		"eslint-plugin-prettier": "^3.1.2",
-		"eslint-plugin-svelte3": "^2.7.3",
-		"husky": "^4.0.7",
-		"npm-run-all": "^4.1.5",
-		"postcss-custom-media": "^7.0.8",
-		"postcss-import": "^12.0.1",
-		"prettier": "^1.19.1",
-		"rollup": "^1.20.0",
-		"rollup-plugin-babel": "^4.0.2",
-		"rollup-plugin-svelte": "^5.0.1",
-		"rollup-plugin-terser": "^4.0.4",
-		"sapper": "^0.27.0",
-		"svelte": "^3.0.0",
-		"svelte-preprocess": "^3.3.0"
-	}
+  "name": "frontend",
+  "description": "Frontend side of the King of Travel project",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "sapper dev",
+    "build": "sapper build --legacy",
+    "export": "sapper export --legacy",
+    "start": "node __sapper__/build",
+    "cy:run": "cypress run",
+    "cy:open": "cypress open",
+    "test": "run-p --race dev cy:run",
+    "eslint": "eslint ./src/**/*.svelte"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run eslint"
+    }
+  },
+  "prettier": {
+    "singleQuote": true,
+    "tabWidth": 2
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "plugins": [
+      "svelte3"
+    ],
+    "parser": "babel-eslint",
+    "rules": {
+      "comma-dangle": [
+        "error",
+        "never"
+      ],
+      "object-curly-newline": [
+        "error",
+        {
+          "multiline": true,
+          "consistent": true
+        }
+      ],
+      "quotes": [
+        "error",
+        "single"
+      ]
+    },
+    "overrides": [
+      {
+        "files": [
+          "./src/routes/**/*.svelte",
+          "./src/components/**/*.svelte"
+        ],
+        "processor": "svelte3/svelte3",
+        "rules": {
+          "import/first": "off",
+          "import/no-mutable-exports": "off",
+          "import/prefer-default-export": "off"
+        }
+      }
+    ],
+    "env": {
+      "browser": true,
+      "node": true
+    }
+  },
+  "eslintIgnore": [
+    "node_modules"
+  ],
+  "dependencies": {
+    "compression": "^1.7.1",
+    "connect-pg-simple": "^6.1.0",
+    "express-session": "^1.17.0",
+    "http-proxy-middleware": "^0.20.0",
+    "pg": "^7.17.1",
+    "polka": "next",
+    "sirv": "^0.4.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/runtime": "^7.0.0",
+    "@rollup/plugin-alias": "^3.0.0",
+    "@rollup/plugin-commonjs": "^11.0.0",
+    "@rollup/plugin-node-resolve": "^6.0.0",
+    "@rollup/plugin-replace": "^2.2.0",
+    "autoprefixer": "^9.7.3",
+    "babel-eslint": "^10.0.3",
+    "dotenv": "^8.2.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-svelte3": "^2.7.3",
+    "husky": "^4.0.7",
+    "npm-run-all": "^4.1.5",
+    "postcss-custom-media": "^7.0.8",
+    "postcss-import": "^12.0.1",
+    "prettier": "^1.19.1",
+    "rollup": "^1.20.0",
+    "rollup-plugin-babel": "^4.0.2",
+    "rollup-plugin-svelte": "^5.0.1",
+    "rollup-plugin-terser": "^4.0.4",
+    "sapper": "^0.27.0",
+    "svelte": "^3.0.0",
+    "svelte-preprocess": "^3.3.0"
+  }
 }

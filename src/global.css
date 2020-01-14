@@ -2,165 +2,165 @@
 * vars
 */
 :root {
-	--base-black: #1f1f1f;
-	--base-gray: #ababab;
-	--base-red: #e80000;
-	--base-text: var(--black);
-	--base-title: var(--black);
-	--base-background: #fff;
-	--base-border: #ddd;
-	--base-accent: #12aef7;
-	--base-light-accent: #51c4fa;
-	--base-hover: rgba(18, 174, 247, 0.3);
-	--base-focus: 0 0 0 3px var(--base-accent);
-	--base-active: #2da3da;
-	--base-disabled: #5b8fa7;
+  --base-black: #1f1f1f;
+  --base-gray: #ababab;
+  --base-red: #e80000;
+  --base-text: var(--black);
+  --base-title: var(--black);
+  --base-background: #fff;
+  --base-border: #ddd;
+  --base-accent: #12aef7;
+  --base-light-accent: #51c4fa;
+  --base-hover: rgba(18, 174, 247, 0.3);
+  --base-focus: 0 0 0 3px var(--base-accent);
+  --base-active: #2da3da;
+  --base-disabled: #5b8fa7;
 
-	/* typography */
-	--base-unit: 0.8rem;
-	--base-code-fs: 1.3rem;
-	--base-h6: 1.4rem;
-	--base-h5: 1.6rem;
-	--base-h4: 1.8rem; /* default font-size */
-	--base-h3: 2.6rem;
-	--base-h2: 3rem;
-	--base-h1: 3.2rem;
-	--base-linemax: 42em; /* max line-length */
-	--base-lh: 1.5; /* base line-height */
-	--base-lh-article: 1.6;
+  /* typography */
+  --base-unit: 0.8rem;
+  --base-code-fs: 1.3rem;
+  --base-h6: 1.4rem;
+  --base-h5: 1.6rem;
+  --base-h4: 1.8rem; /* default font-size */
+  --base-h3: 2.6rem;
+  --base-h2: 3rem;
+  --base-h1: 3.2rem;
+  --base-linemax: 42em; /* max line-length */
+  --base-lh: 1.5; /* base line-height */
+  --base-lh-article: 1.6;
 
-	/* border */
-	--base-border-w: 0.2rem; /* border-width  */
-	--base-border-r: 0.4rem;
+  /* border */
+  --base-border-w: 0.2rem; /* border-width  */
+  --base-border-r: 0.4rem;
 
-	/* navigation */
-	--width-nav: 200px;
+  /* navigation */
+  --width-nav: 200px;
 }
 
 @custom-media --mobile (max-width: 940px);
 @custom-media --no-mobile (min-width: 940px);
 
 body {
-	--font: 'Open Sans', sans-serif;
-	--font-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-		Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  --font: 'Open Sans', sans-serif;
+  --font-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 }
 
 /*  fonts ----------------------------- */
 @font-face {
-	font-family: 'Open Sans';
-	font-weight: 300;
-	font-style: normal;
-	font-display: swap;
-	src: local('Open Sans Light'), local('OpenSans-Light'),
-		url('/fonts/open-sans-300.woff2') format('woff2');
+  font-family: 'Open Sans';
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  src: local('Open Sans Light'), local('OpenSans-Light'),
+    url('/fonts/open-sans-300.woff2') format('woff2');
 }
 
 @font-face {
-	font-family: 'Open Sans';
-	font-weight: 300;
-	font-style: italic;
-	font-display: swap;
-	src: local('Open Sans Light Italic'), local('OpenSans-LightItalic'),
-		url('/fonts/open-sans-300italic.woff2') format('woff2');
+  font-family: 'Open Sans';
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+  src: local('Open Sans Light Italic'), local('OpenSans-LightItalic'),
+    url('/fonts/open-sans-300italic.woff2') format('woff2');
 }
 
 @font-face {
-	font-family: 'Open Sans';
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-	src: local('Open Sans Regular'), local('OpenSans-Regular'),
-		url('/fonts/open-sans-400.woff2') format('woff2');
+  font-family: 'Open Sans';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: local('Open Sans Regular'), local('OpenSans-Regular'),
+    url('/fonts/open-sans-400.woff2') format('woff2');
 }
 
 @font-face {
-	font-family: 'Open Sans';
-	font-weight: 400;
-	font-style: italic;
-	font-display: swap;
-	src: local('Open Sans Italic'), local('OpenSans-Italic'),
-		url('/fonts/open-sans-400italic.woff2') format('woff2');
+  font-family: 'Open Sans';
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+  src: local('Open Sans Italic'), local('OpenSans-Italic'),
+    url('/fonts/open-sans-400italic.woff2') format('woff2');
 }
 
 @font-face {
-	font-family: 'Open Sans';
-	font-weight: 600;
-	font-style: normal;
-	font-display: swap;
-	src: local('Open Sans SemiBold'), local('OpenSans-SemiBold'),
-		url('/fonts/open-sans-600.woff2') format('woff2');
+  font-family: 'Open Sans';
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  src: local('Open Sans SemiBold'), local('OpenSans-SemiBold'),
+    url('/fonts/open-sans-600.woff2') format('woff2');
 }
 
 @font-face {
-	font-family: 'Open Sans';
-	font-weight: 600;
-	font-style: italic;
-	font-display: swap;
-	src: local('Open Sans SemiBold Italic'), local('OpenSans-SemiBoldItalic'),
-		url('/fonts/open-sans-600italic.woff2') format('woff2');
+  font-family: 'Open Sans';
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+  src: local('Open Sans SemiBold Italic'), local('OpenSans-SemiBoldItalic'),
+    url('/fonts/open-sans-600italic.woff2') format('woff2');
 }
 
 @font-face {
-	font-family: 'Open Sans';
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
-	src: local('Open Sans Bold'), local('OpenSans-Bold'),
-		url('/fonts/open-sans-700.woff2') format('woff2');
+  font-family: 'Open Sans';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: local('Open Sans Bold'), local('OpenSans-Bold'),
+    url('/fonts/open-sans-700.woff2') format('woff2');
 }
 
 @font-face {
-	font-family: 'Open Sans';
-	font-weight: 700;
-	font-style: italic;
-	font-display: swap;
-	src: local('Open Sans Bold Italic'), local('OpenSans-BoldItalic'),
-		url('/fonts/open-sans-700italic.woff2') format('woff2');
+  font-family: 'Open Sans';
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+  src: local('Open Sans Bold Italic'), local('OpenSans-BoldItalic'),
+    url('/fonts/open-sans-700italic.woff2') format('woff2');
 }
 
 @font-face {
-	font-family: 'Open Sans';
-	font-weight: 800;
-	font-style: normal;
-	font-display: swap;
-	src: local('Open Sans ExtraBold'), local('OpenSans-ExtraBold'),
-		url('/fonts/open-sans-800.woff2') format('woff2');
+  font-family: 'Open Sans';
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+  src: local('Open Sans ExtraBold'), local('OpenSans-ExtraBold'),
+    url('/fonts/open-sans-800.woff2') format('woff2');
 }
 
 @font-face {
-	font-family: 'Open Sans';
-	font-weight: 800;
-	font-style: italic;
-	font-display: swap;
-	src: local('Open Sans ExtraBold Italic'), local('OpenSans-ExtraBoldItalic'),
-		url('/fonts/open-sans-800italic.woff2') format('woff2');
+  font-family: 'Open Sans';
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+  src: local('Open Sans ExtraBold Italic'), local('OpenSans-ExtraBoldItalic'),
+    url('/fonts/open-sans-800italic.woff2') format('woff2');
 }
 
 /*  base reset ------------------------ */
 
 html {
-	font-size: 62.5%;
-	box-sizing: border-box;
+  font-size: 62.5%;
+  box-sizing: border-box;
 }
 
 html,
 body,
 #sapper {
-	width: 100%;
-	height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 *,
 *::before,
 *::after {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /* Remove default padding */
 ul[class],
 ol[class] {
-	padding: 0;
+  padding: 0;
 }
 
 /* Remove default margin */
@@ -178,37 +178,37 @@ figcaption,
 blockquote,
 dl,
 dd {
-	margin: 0;
+  margin: 0;
 }
 
 /* Set core body defaults */
 body {
-	min-height: 100vh;
-	scroll-behavior: smooth;
-	text-rendering: optimizeSpeed;
-	line-height: 1.5;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
 }
 
 /* Remove list styles on ul, ol elements with a class attribute */
 ul[class],
 ol[class] {
-	list-style: none;
+  list-style: none;
 }
 
 /* A elements that don't have a class get default styles */
 a:not([class]) {
-	text-decoration-skip-ink: auto;
+  text-decoration-skip-ink: auto;
 }
 
 /* Make images easier to work with */
 img {
-	max-width: 100%;
-	display: block;
+  max-width: 100%;
+  display: block;
 }
 
 /* Natural flow and rhythm in articles by default */
 article > * + * {
-	margin-top: 1em;
+  margin-top: 1em;
 }
 
 /* Inherit fonts for inputs and buttons */
@@ -216,17 +216,17 @@ input,
 button,
 textarea,
 select {
-	font: inherit;
+  font: inherit;
 }
 
 /* Remove all animations and transitions for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
-	* {
-		animation-duration: 0.01ms !important;
-		animation-iteration-count: 1 !important;
-		transition-duration: 0.01ms !important;
-		scroll-behavior: auto !important;
-	}
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /*
@@ -237,31 +237,88 @@ select {
 
 /*	typography ----------------------------- */
 body {
-	font: 400 var(--base-h4) / var(--base-lh) var(--font);
-	background-color: var(--base-background);
-	color: var(--base-text);
+  font: 400 var(--base-h4) / var(--base-lh) var(--font);
+  background-color: var(--base-background);
+  color: var(--base-text);
 }
 
 h6 {
-	font-size: var(--base-h6);
+  font-size: var(--base-h6);
 }
 
 h5 {
-	font-size: var(--base-h5);
+  font-size: var(--base-h5);
 }
 
 h4 {
-	font-size: var(--base-h4);
+  font-size: var(--base-h4);
 }
 
 h3 {
-	font-size: var(--base-h3);
+  font-size: var(--base-h3);
 }
 
 h2 {
-	font-size: var(--base-h2);
+  font-size: var(--base-h2);
 }
 
 h1 {
-	font-size: var(--base-h1);
+  font-size: var(--base-h1);
+}
+
+/*	headers ------------------------------- */
+h1.title {
+  margin: 24px 0;
+  text-align: center;
+}
+
+/*	buttons ------------------------------- */
+
+button:not([class]),
+.button {
+  display: inline-block;
+  height: 44px;
+  padding: 0 18px;
+  line-height: 44px;
+  background-color: var(--base-accent);
+  border: none;
+  border-radius: var(--base-border-r);
+  color: var(--base-text);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+button:not([class]):hover,
+.button:hover {
+  background-color: var(--base-light-accent);
+}
+
+button:not([class]):active,
+.button:active {
+  transform: translateY(1px);
+}
+
+button:not([class]):disabled,
+.button:disabled {
+  background-color: var(--base-disabled);
+  cursor: not-allowed;
+}
+
+/*	form ----------------------------------- */
+.form {
+  width: 100%;
+}
+
+.form_group:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.form_buttons {
+  text-align: center;
+}
+
+/*  positioning ---------------------------- */
+.center-content {
+  margin: auto;
+  padding: 15px;
 }

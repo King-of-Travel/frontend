@@ -13,27 +13,27 @@ const app = polka();
 app.use(compression({ threshold: 0 }), sirv('static', { dev }));
 
 app.use(
-	'/api',
-	proxy({
-		target: process.env.URL_API,
-		pathRewrite: {
-			'^/api/': ''
-		},
-		changeOrigin: true
-	})
+  '/api',
+  proxy({
+    target: 'process.env.URL_API',
+    pathRewrite: {
+      '^/api/': ''
+    },
+    changeOrigin: true
+  })
 );
 
 app.use(session());
 
 app.use(
-	sapper.middleware({
-		session: req => {
-			const user = (req.session && req.session.user) || null;
-			return { user };
-		}
-	})
+  sapper.middleware({
+    session: req => {
+      const user = (req.session && req.session.user) || null;
+      return { user };
+    }
+  })
 );
 
 app.listen(PORT, err => {
-	if (err) console.log('error', err);
+  if (err) console.log('error', err);
 });

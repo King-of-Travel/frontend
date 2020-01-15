@@ -103,7 +103,15 @@ export default {
     plugins: [
       replace({
         'process.browser': false,
-        'process.env.NODE_ENV': JSON.stringify(mode)
+        'process.env.NODE_ENV': JSON.stringify(mode),
+        'process.env.URL_API': process.env.URL_API,
+        'process.env.USER_SESSIONS_NAME': process.env.USER_SESSIONS_NAME,
+        'process.env.USER_SESSIONS_SECRET': process.env.USER_SESSIONS_SECRET,
+        'process.env.USER_SESSIONS_DB_USERNAME':
+          process.env.USER_SESSIONS_DB_USERNAME,
+        'process.env.USER_SESSIONS_DB_NAME': process.env.USER_SESSIONS_DB_NAME,
+        'process.env.USER_SESSIONS_DB_PASSWORD':
+          process.env.USER_SESSIONS_DB_PASSWORD
       }),
       svelte({
         generate: 'ssr',

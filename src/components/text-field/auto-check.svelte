@@ -1,6 +1,9 @@
 <auto-check {src} {required} csrf="none" bind:this="{element}">
-  <TextField {...exclude($$props, ['value','src', 'error' ])} bind:value={value}
-  bind:error="{error}" />
+  <TextField
+    {...exclude($$props, ['value', 'src', 'error'])}
+    bind:value
+    bind:error
+  />
 </auto-check>
 
 <script>

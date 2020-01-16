@@ -4,7 +4,7 @@
 
 <div class="join-container center-content">
   <h1 class="title">Create your account</h1>
-  <Form></Form>
+  <Form />
 </div>
 
 <script context="module">

@@ -1,8 +1,8 @@
 <div style="--accent: {error ? 'var(--base-red)' : 'var(--base-accent)'}">
   <label for="{id}">{label}</label>
-  <Input {...exclude($$props, ['value', 'label', 'error'])}
-  bind:value="{value}"/> {#if error}
-  <label for="{id}" class="error">{error}</label>
+  <Input {...exclude($$props, ['value', 'label', 'error'])} bind:value />
+  {#if error}
+    <label for="{id}" class="error">{error}</label>
   {/if}
 </div>
 

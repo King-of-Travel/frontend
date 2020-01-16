@@ -67,6 +67,7 @@
     "node_modules"
   ],
   "dependencies": {
+    "@github/auto-check-element": "^5.1.0",
     "compression": "^1.7.1",
     "connect-pg-simple": "^6.1.0",
     "express-session": "^1.17.0",

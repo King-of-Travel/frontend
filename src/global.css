@@ -286,6 +286,7 @@ button:not([class]),
   color: var(--base-text);
   font-weight: 700;
   text-decoration: none;
+  cursor: pointer;
 }
 
 button:not([class]):hover,

@@ -1,0 +1,22 @@
+<ul>
+  {#each Object.keys(errors) as key}
+    <li>{errors[key]}</li>
+  {/each}
+</ul>
+
+<script>
+  export let errors;
+</script>
+
+<style>
+  ul {
+    list-style: none;
+  }
+
+  li {
+    margin-bottom: 10px;
+    font-size: var(--base-h6);
+    font-weight: 700;
+    color: var(--base-red);
+  }
+</style>

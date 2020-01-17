@@ -1,7 +1,7 @@
 <form on:submit|preventDefault="{handleSubmit}" class="form" autocomplete="off">
   <div class="form_group">
     <AutoCheckField
-      bind:value="{data.username}"
+      bind:value="{$dataForm.username}"
       bind:error="{$dataErrors.username}"
       src="api/check/signup/username"
       label="Username"
@@ -17,7 +17,7 @@
   </div>
   <div class="form_group">
     <AutoCheckField
-      bind:value="{data.email}"
+      bind:value="{$dataForm.email}"
       bind:error="{$dataErrors.email}"
       src="api/check/signup/email"
       label="Email"
@@ -32,7 +32,7 @@
   </div>
   <div class="form_group">
     <AutoCheckField
-      bind:value="{data.password}"
+      bind:value="{$dataForm.password}"
       bind:error="{$dataErrors.password}"
       src="api/check/signup/password"
       label="Password"
@@ -57,9 +57,8 @@
 
   const { session } = stores();
 
-  const data = $dataForm;
-
   async function handleSubmit() {
+    let data = $dataForm;
     await request('POST', 'user', data);
 
     const loginReq = await request('POST', 'session', {

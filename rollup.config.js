@@ -3,6 +3,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import commonjs from '@rollup/plugin-commonjs';
 import alias from '@rollup/plugin-alias';
+import json from '@rollup/plugin-json';
 import svelte from 'rollup-plugin-svelte';
 import babel from 'rollup-plugin-babel';
 import { terser } from 'rollup-plugin-terser';
@@ -91,7 +92,9 @@ export default {
       !dev &&
         terser({
           module: true
-        })
+        }),
+
+      json()
     ],
 
     onwarn
@@ -123,7 +126,9 @@ export default {
       }),
       commonjs(),
 
-      customAlias
+      customAlias,
+
+      json()
     ],
     external: Object.keys(pkg.dependencies).concat(
       require('module').builtinModules ||

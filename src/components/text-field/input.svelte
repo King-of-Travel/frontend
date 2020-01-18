@@ -38,9 +38,13 @@
   input {
     width: 100%;
     position: relative;
-    margin-top: 5px;
     padding: 5px 10px;
     border: var(--base-border-w) solid var(--accent);
     border-radius: var(--base-border-r);
+  }
+
+  input:focus,
+  input:hover {
+    border-color: var(--base-light-accent);
   }
 </style>

@@ -1,6 +1,10 @@
 <div style="--accent: {error ? 'var(--base-red)' : 'var(--base-accent)'}">
   <label for="{id}">{label}</label>
-  <Input {...exclude($$props, ['value', 'label', 'error'])} bind:value />
+  {#if typeField === 'input'}
+    <Input {...props} bind:value />
+  {:else if typeField === 'select'}
+    <Select {...props} bind:value />
+  {/if}
   {#if error}
     <label for="{id}" class="error">{error}</label>
   {/if}
@@ -9,16 +13,24 @@
 <script>
   import { exclude } from 'common/exclude';
   import Input from './input.svelte';
+  import Select from './select.svelte';
 
   export let id,
     value,
     label,
-    error = '';
+    error = '',
+    typeField = 'input';
+
+  let props = exclude($$props, ['value', 'label', 'error', 'typeField']);
 </script>
 
 <style>
-  .error {
+  label {
     display: block;
+    margin-bottom: 5px;
+  }
+
+  .error {
     padding-top: 5px;
     font-size: var(--base-h6);
     font-weight: 700;

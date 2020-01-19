@@ -9,7 +9,7 @@
 <script>
   import { onMount } from 'svelte';
   import { exclude } from 'common/exclude';
-  import TextField from './index.svelte';
+  import TextField from 'components/text-field/index.svelte';
 
   export let src,
     value,

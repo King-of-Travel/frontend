@@ -53,7 +53,7 @@
   import { goto, stores } from '@sapper/app';
   import { request } from 'api.js';
   import { dataForm, dataErrors, isFormValid } from './_stores';
-  import AutoCheckField from 'components/text-field/auto-check.svelte';
+  import AutoCheckField from './_auto-check.svelte';
 
   const { session } = stores();
 

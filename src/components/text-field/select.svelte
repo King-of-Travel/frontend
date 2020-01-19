@@ -2,7 +2,7 @@
   <Select
     {inputAttributes}
     {...exclude($$props, ['value', 'id', 'name'])}
-    bind:selectedValue="{value}"
+    bind:selectedValue
   />
 </div>
 
@@ -11,6 +11,10 @@
   import { exclude } from 'common/exclude';
 
   export let value, inputAttributes;
+
+  let selectedValue = undefined;
+
+  $: value = selectedValue ? selectedValue.value : null;
 </script>
 
 <style>

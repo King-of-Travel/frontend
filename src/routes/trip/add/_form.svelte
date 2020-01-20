@@ -61,7 +61,8 @@
   let errors = {};
 
   function changeDate(date) {
-    $dataForm.date = { start: date[0], end: date[1] };
+    $dataForm.startDate = date[0];
+    $dataForm.endDate = date[1];
   }
 
   async function handleSubmit() {

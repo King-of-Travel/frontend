@@ -5,8 +5,8 @@
   --base-black: #1f1f1f;
   --base-gray: #ababab;
   --base-red: #e80000;
-  --base-text: var(--black);
-  --base-title: var(--black);
+  --base-text: var(--base-black);
+  --base-title: var(--base-black);
   --base-background: #fff;
   --base-border: #ddd;
   --base-accent: #12aef7;
@@ -203,11 +203,6 @@ a:not([class]) {
 img {
   max-width: 100%;
   display: block;
-}
-
-/* Natural flow and rhythm in articles by default */
-article > * + * {
-  margin-top: 1em;
 }
 
 /* Inherit fonts for inputs and buttons */

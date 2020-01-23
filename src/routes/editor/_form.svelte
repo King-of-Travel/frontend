@@ -34,7 +34,7 @@
   async function handleSubmit() {
     let addArticle = await request('POST', 'article', $articleData);
 
-    goto(`/t/${addArticle.data}`);
+    goto(`/a/${addArticle.data}`);
   }
 </script>
 

@@ -317,3 +317,16 @@ button:not([class]):disabled,
   margin: auto;
   padding: 15px;
 }
+
+/*  links ---------------------------------- */
+
+a:not([class]),
+a.link {
+  /* Thanks to Andrey Sitnik */
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: center bottom 2%;
+  background-size: 100% 0.5px;
+  color: var(--base-text);
+}

@@ -9,12 +9,37 @@
   let editor;
 
   onMount(async () => {
-    let module = await import('@editorjs/editorjs');
-    let EditorJS = module.default;
+    let EditorJS = await import('@editorjs/editorjs').then(m => m.default);
+    let header = await import('@editorjs/header').then(m => m.default);
+    let table = await import('@editorjs/table').then(m => m.default);
+    let marker = await import('@editorjs/marker').then(m => m.default);
+    let list = await import('@editorjs/list').then(m => m.default);
+
+    class customHeader extends header {
+      get levels() {
+        return super.levels.filter(l => [2, 3].includes(l.number));
+      }
+
+      get defaultLevel() {
+        return this.levels[0];
+      }
+    }
 
     editor = new EditorJS({
       holder: 'editorjs',
       placeholder: 'I have been to Moscow and want to tell you about...',
+      tools: {
+        header: {
+          class: customHeader,
+          shortcut: 'CMD+SHIFT+H'
+        },
+        marker: {
+          class: marker,
+          shortcut: 'CMD+SHIFT+M'
+        },
+        table,
+        list
+      },
       ...config
     });
   });

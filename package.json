@@ -36,6 +36,10 @@
     "not android > 0"
   ],
   "dependencies": {
+    "@editorjs/header": "^2.3.2",
+    "@editorjs/list": "^1.4.0",
+    "@editorjs/marker": "^1.2.2",
+    "@editorjs/table": "^1.2.1",
     "@github/auto-check-element": "^5.1.0",
     "@rollup/plugin-json": "^4.0.1",
     "compression": "^1.7.1",

@@ -7,11 +7,7 @@
       rows="1"
       maxlength="120"
     ></textarea>
-    <Editor />
-
-    <div class="editor__text-length">
-      Article length: {$articleTextLength}/20000
-    </div>
+    <div id="editorjs" class="editor__container"></div>
   </div>
 
   <div class="form_group form_buttons">
@@ -20,11 +16,18 @@
 </form>
 
 <script>
+  import { onMount } from 'svelte';
   import { goto } from '@sapper/app';
-  import { articleData, articleTextLength, isFormValid } from './_stores.js';
+  import { articleData, isFormValid } from './_stores.js';
   import { request } from 'api.js';
 
-  import Editor from './_editor.svelte';
+  let editor;
+
+  onMount(async () => {
+    let { createEditor } = await import('./_editor.js');
+
+    editor = createEditor('editorjs');
+  });
 
   function changeHeaderHeight(element) {
     element.target.style.height = '5px';
@@ -32,7 +35,12 @@
   }
 
   async function handleSubmit() {
-    let addArticle = await request('POST', 'article', $articleData);
+    let dataEditor = await editor.save();
+
+    let addArticle = await request('POST', 'article', {
+      ...$articleData,
+      body: dataEditor.blocks
+    });
 
     goto(`/a/${addArticle.data}`);
   }
@@ -55,19 +63,13 @@
     overflow: hidden;
   }
 
-  .editor__text-length {
-    position: sticky;
-    bottom: 0;
-    padding: 10px;
-    text-align: end;
-    user-select: none;
-    font-size: calc(var(--base-unit) * 1.5);
-    font-weight: 600;
-    background-image: linear-gradient(
-      170deg,
-      rgba(243, 248, 255, 0.03) 63.45%,
-      rgba(207, 214, 229, 0.27) 98%
-    );
+  .editor__container {
+    min-height: 350px;
+    cursor: text;
+  }
+
+  .editor__container :global(.ce-block__content, .ce-toolbar__content) {
+    max-width: var(--editor-width);
   }
 
   .form_buttons {

@@ -28,8 +28,8 @@
     });
 
     element.addEventListener('auto-check-error', async event => {
-      const { response } = event.detail;
-      const message = await response.text();
+      let { response } = event.detail;
+      let message = await response.text();
 
       error = message;
     });

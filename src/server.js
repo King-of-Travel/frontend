@@ -28,7 +28,7 @@ app.use(session());
 app.use(
   sapper.middleware({
     session: req => {
-      const user = (req.session && req.session.user) || null;
+      let user = (req.session && req.session.user) || null;
       return { user };
     }
   })

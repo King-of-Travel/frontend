@@ -49,7 +49,7 @@
   async function handleSubmit() {
     errors = {};
 
-    const loginReq = await request('POST', 'session', data);
+    let loginReq = await request('POST', 'session', data);
 
     if (!loginReq.ok) {
       errors = loginReq.data.errors;

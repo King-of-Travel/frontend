@@ -4,7 +4,7 @@
 
 <script context="module">
   export async function preload(page, session) {
-    const { user } = session;
+    let { user } = session;
 
     !user && this.redirect(301, '/login');
   }

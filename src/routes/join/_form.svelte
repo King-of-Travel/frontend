@@ -61,7 +61,7 @@
     let data = $dataForm;
     await request('POST', 'user', data);
 
-    const loginReq = await request('POST', 'session', {
+    let loginReq = await request('POST', 'session', {
       username: data.username,
       password: data.password
     });

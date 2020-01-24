@@ -11,7 +11,7 @@
 
   function toNumber(value) {
     if (value === '') {
-      const nan = new Number(Number.NaN);
+      let nan = new Number(Number.NaN);
       nan.length = 0;
       return nan;
     }

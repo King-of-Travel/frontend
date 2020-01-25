@@ -9,7 +9,9 @@
         <a href="/user/{article.user}" title="Posted by" class="link">
           {isCurrentUserAuthor ? 'You' : article.user}
         </a>
-        <span>{articleCreatedAt(article.createdAt)}</span>
+        <span title="Publication date">
+          {@html articleCreatedAt(article.createdAt)}
+        </span>
       </div>
 
       <h1>{article.title}</h1>

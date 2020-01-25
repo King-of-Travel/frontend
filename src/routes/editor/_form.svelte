@@ -47,6 +47,8 @@
 </script>
 
 <style>
+  @import './_editor.css';
+
   .editor {
     position: relative;
     border-radius: var(--base-border-r);
@@ -61,15 +63,6 @@
     font-size: var(--base-h1);
     resize: none;
     overflow: hidden;
-  }
-
-  .editor__container {
-    min-height: 350px;
-    cursor: text;
-  }
-
-  .editor__container :global(.ce-block__content, .ce-toolbar__content) {
-    max-width: var(--editor-width);
   }
 
   .form_buttons {

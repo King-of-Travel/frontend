@@ -157,12 +157,6 @@ body,
   box-sizing: border-box;
 }
 
-/* Remove default padding */
-ul[class],
-ol[class] {
-  padding: 0;
-}
-
 /* Remove default margin */
 body,
 h1,
@@ -170,8 +164,8 @@ h2,
 h3,
 h4,
 p,
-ul[class],
-ol[class],
+ul,
+ol,
 li,
 figure,
 figcaption,
@@ -186,12 +180,6 @@ body {
   min-height: 100vh;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
-}
-
-/* Remove list styles on ul, ol elements with a class attribute */
-ul[class],
-ol[class] {
-  list-style: none;
 }
 
 /* A elements that don't have a class get default styles */
@@ -211,6 +199,11 @@ button,
 textarea,
 select {
   font: inherit;
+}
+
+mark {
+  padding: 0 3px;
+  background: var(--base-light-accent);
 }
 
 /* Remove all animations and transitions for people that prefer not to see them */
@@ -319,14 +312,28 @@ button:not([class]):disabled,
 }
 
 /*  links ---------------------------------- */
-
 a:not([class]),
 a.link {
   /* Thanks to Andrey Sitnik */
+  --background: var(--base-background);
   text-decoration: none;
   background-image: linear-gradient(currentColor, currentColor);
   background-repeat: no-repeat;
-  background-position: center bottom 2%;
+  background-position: center bottom 5%;
   background-size: 100% 0.5px;
+  background-origin: initial;
+  border-radius: 0.5px;
+  text-shadow: 3px 0 var(--background), 2px 0 var(--background),
+    1px 0 var(--background), -1px 0 var(--background), -2px 0 var(--background),
+    -3px 0 var(--background);
   color: var(--base-text);
+}
+
+a:not([class]):focus,
+a:not([class]):hover,
+a.link:focus,
+a.link:hover {
+  --background: #b7e7fd;
+  background-color: var(--background);
+  box-shadow: 0px 0px 0px 3px var(--background);
 }

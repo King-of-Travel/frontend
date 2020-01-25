@@ -4,7 +4,7 @@
 
 <div class="center-content container">
   <article>
-    <header>
+    <header class="block">
       <div class="meta">
         <a href="/user/{article.user}" title="Posted by" class="link">
           {isCurrentUserAuthor ? 'You' : article.user}
@@ -43,25 +43,15 @@
 </script>
 
 <style>
+  @import './_article.css';
+
   .container {
     margin: 10px auto;
   }
 
-  article {
-    width: 100%;
-    max-width: 900px;
-  }
-
-  article :global(p:not(:last-child)) {
-    padding-bottom: 15px;
-  }
-
-  header {
-    margin-bottom: 20px;
-  }
-
   .meta {
     font-size: var(--base-h6);
+    margin-bottom: 5px;
   }
 
   .meta span {

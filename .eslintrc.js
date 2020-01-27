@@ -46,6 +46,6 @@ module.exports = {
   },
   ignorePatterns: ['node_modules', '*.html', '*.css', '*.json'],
   settings: {
-    'svelte3/ignore-styles': attributes => attributes.global
+    'svelte3/ignore-styles': () => true
   }
 };

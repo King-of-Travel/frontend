@@ -6,9 +6,11 @@
 <main>
   <slot />
 </main>
+<Footer />
 
 <script>
   import Header from 'components/header/index.svelte';
+  import Footer from 'components/footer.svelte';
 </script>
 
 <style global>

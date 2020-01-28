@@ -4,14 +4,14 @@
     transition:fly="{{ y: contentElement.offsetHeight, duration: 300 }}"
     class="content"
   >
-    <header on:click|stopPropagation="{close}" class="{headerClass}">
+    <header on:click|stopPropagation="{closeCard}" class="{headerClass}">
       <slot name="header" />
     </header>
     <slot />
   </div>
 
   <div
-    on:click="{close}"
+    on:click="{closeCard}"
     transition:fade="{{ duration: 300 }}"
     class="background"
   ></div>
@@ -26,6 +26,8 @@
 
   let dispatch = createEventDispatcher();
 
+  let contentElement;
+
   $: {
     if (typeof window !== 'undefined') {
       if (isOpen) {
@@ -36,11 +38,9 @@
     }
   }
 
-  let close = () => {
+  function closeCard() {
     dispatch('close');
-  };
-
-  let contentElement;
+  }
 </script>
 
 <style>

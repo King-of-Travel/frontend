@@ -1,6 +1,6 @@
-<div class="container center-content">
+<main class="center-content">
   <slot />
-</div>
+</main>
 
 <script context="module">
   export async function preload(page, session) {
@@ -11,7 +11,7 @@
 </script>
 
 <style>
-  .container {
+  main {
     width: 100%;
     max-width: 900px;
     --editor-padding: 15px 30px;

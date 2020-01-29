@@ -2,11 +2,11 @@
   <meta name="theme-color" content="#12aef7" />
 </svelte:head>
 
-<Header />
-<main>
+<div class="layout-container">
+  <Header />
   <slot />
-</main>
-<Footer />
+  <Footer />
+</div>
 
 <script>
   import Header from 'components/header/index.svelte';
@@ -16,9 +16,26 @@
 <style global>
   @import '../global.css';
 
-  main {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+  .layout-container {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: auto;
+    grid-template-areas:
+      'header'
+      'main'
+      'footer';
+    height: 100%;
+  }
+
+  .layout-container > header {
+    grid-area: header;
+  }
+
+  .layout-container > main {
+    grid-area: main;
+  }
+
+  .layout-container > footer {
+    grid-area: footer;
   }
 </style>

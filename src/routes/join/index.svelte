@@ -2,10 +2,10 @@
   <title>Join / King of Travel</title>
 </svelte:head>
 
-<div class="join-container center-content">
+<main class="center-content">
   <h1 class="title">Create your account</h1>
   <Form />
-</div>
+</main>
 
 <script context="module">
   export async function preload(page, session) {
@@ -20,8 +20,8 @@
 </script>
 
 <style>
-  .join-container {
-    width: 100%;
+  main {
     max-width: 450px;
+    width: 100%;
   }
 </style>

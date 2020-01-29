@@ -2,10 +2,10 @@
   <title>Add trip / King of Travel</title>
 </svelte:head>
 
-<div class="center-content">
+<main class="center-content">
   <h1 class="title">Add trip</h1>
   <Form />
-</div>
+</main>
 
 <script context="module">
   export async function preload(page, session) {
@@ -22,7 +22,7 @@
 </script>
 
 <style>
-  div {
+  main {
     width: 100%;
     max-width: 500px;
   }

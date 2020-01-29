@@ -147,6 +147,7 @@ html {
 html,
 body,
 #sapper {
+  height: 100%;
   width: 100%;
 }
 

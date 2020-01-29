@@ -1,8 +1,3 @@
-article {
-  width: 100%;
-  max-width: 900px;
-}
-
 article :global(.block:not(:last-child)) {
   padding-bottom: 15px;
 }

@@ -2,7 +2,7 @@
   <title>{article.title} / King of Travel</title>
 </svelte:head>
 
-<div class="center-content container">
+<main class="center-content">
   <article>
     <header class="block">
       <div class="meta">
@@ -18,7 +18,7 @@
     </header>
     {@html article.body}
   </article>
-</div>
+</main>
 
 <script context="module">
   export async function preload(page, session) {
@@ -45,8 +45,10 @@
 <style>
   @import './_article.css';
 
-  .container {
-    margin: 10px auto;
+  main {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
   }
 
   .meta {

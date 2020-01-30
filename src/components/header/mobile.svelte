@@ -1,46 +1,43 @@
 <svelte:window on:scroll|passive="{handleScrollWindow}" />
 
-<div>
-  {#if isButtonShown}
-    <button
-      on:click="{openingOrClosingCard}"
-      transition:fly="{{ y: 50, duration: 500 }}"
-      aria-label="Open navigation"
-      class="open-navigation"
-    >
+{#if isButtonShown}
+  <button
+    on:click="{openingOrClosingCard}"
+    transition:fly="{{ y: 50, duration: 500 }}"
+    aria-label="Open navigation"
+    class="open-navigation"
+  >
+    <span>
+      Menu
+      <Icon size="18">
+        <ChevronUp />
+      </Icon>
+    </span>
+  </button>
+{/if}
+
+<CardMenu bind:isOpen="{isOpenNavigation}" on:close="{openingOrClosingCard}">
+  <div slot="header" class="header">
+    <img
+      slot="header"
+      src="images/logo-64.png"
+      alt="King of Travel Logotype"
+      height="32"
+      width="32"
+    />
+    <button aria-label="Close navigation">
       <span>
-        Menu
+        Close
         <Icon size="18">
-          <ChevronUp />
+          <ChevronDown />
         </Icon>
       </span>
     </button>
-  {/if}
-
-  <CardMenu bind:isOpen="{isOpenNavigation}" on:close="{openingOrClosingCard}">
-    <div slot="header" class="header">
-      <img
-        slot="header"
-        src="images/logo-64.png"
-        alt="King of Travel Logotype"
-        height="32"
-        width="32"
-      />
-      <button aria-label="Close navigation">
-        <span>
-          Close
-          <Icon size="18">
-            <ChevronDown />
-          </Icon>
-        </span>
-      </button>
-    </div>
-    <div on:click="{openingOrClosingCard}">
-      <Navigation {user} />
-    </div>
-  </CardMenu>
-
-</div>
+  </div>
+  <div on:click="{openingOrClosingCard}">
+    <Navigation {user} />
+  </div>
+</CardMenu>
 
 <script>
   import { fly } from 'svelte/transition';
@@ -59,8 +56,9 @@
     isOpenNavigation = isOpenNavigation ? false : true;
   }
 
-  let lastScroll = 0;
   let isButtonShown = true;
+
+  let lastScroll = 0;
 
   function handleScrollWindow() {
     let scroll = window.pageYOffset;

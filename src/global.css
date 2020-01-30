@@ -38,7 +38,7 @@
 }
 
 @custom-media --mobile (max-width: 940px);
-@custom-media --no-mobile (min-width: 940px);
+@custom-media --no-mobile (min-width: 941px);
 
 body {
   --font: 'Open Sans', sans-serif;

@@ -27,6 +27,7 @@
           <DropdownItem href="/editor" rel="prefetch">Create post</DropdownItem>
           <DropdownItem href="/trip/add" rel="prefetch">Add trip</DropdownItem>
           <DropdownItem href="/settings" rel="prefetch">Settings</DropdownItem>
+          <DropdownItem on:click="{signout}">Sign out</DropdownItem>
         </Dropdown>
       {:else}
         <a href="/join" rel="prefetch" class="button">Sign up</a>
@@ -37,10 +38,21 @@
 </header>
 
 <script>
+  import { stores, goto } from '@sapper/app';
+  import { request } from 'api.js';
+
   import Dropdown from 'components/dropdown/index.svelte';
   import DropdownItem from 'components/dropdown/item.svelte';
 
   export let user;
+
+  let { session } = stores();
+
+  async function signout() {
+    await request('DELETE', 'session');
+    $session.user = null;
+    goto('/');
+  }
 </script>
 
 <style type="postcss">

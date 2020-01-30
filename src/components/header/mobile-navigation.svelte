@@ -21,6 +21,7 @@
       </li>
       <li>
         <a href="/settings" rel="prefetch" class="button">Settings</a>
+        <button on:click="{signout}" class="button">Sign out</button>
       </li>
     {:else}
       <li>
@@ -34,7 +35,18 @@
 </nav>
 
 <script>
+  import { stores, goto } from '@sapper/app';
+  import { request } from 'api.js';
+
   export let user;
+
+  let { session } = stores();
+
+  async function signout() {
+    await request('DELETE', 'session');
+    $session.user = null;
+    goto('/');
+  }
 </script>
 
 <style>
@@ -47,9 +59,15 @@
     list-style: none;
   }
 
-  a {
+  a,
+  button {
     width: 100%;
     font-weight: 500;
     background-color: transparent;
+  }
+
+  button {
+    border: none;
+    text-align: left;
   }
 </style>

@@ -8,7 +8,7 @@
 
 <script>
   export let href,
-    rel = 'prefetch';
+    rel = undefined;
 </script>
 
 <style>

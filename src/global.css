@@ -261,6 +261,11 @@ h1.title {
 
 /*	buttons ------------------------------- */
 
+button,
+.button {
+  cursor: pointer;
+}
+
 button:not([class]),
 .button {
   display: inline-block;

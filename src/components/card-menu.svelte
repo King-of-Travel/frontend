@@ -12,7 +12,7 @@
 
   <div
     on:click="{closeCard}"
-    transition:fade="{{ duration: 300 }}"
+    transition:fade="{{ duration: 100 }}"
     class="background"
   ></div>
 {/if}
@@ -54,9 +54,14 @@
   .background {
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(2.5px);
     z-index: 100;
     overflow: hidden;
+  }
+
+  .background::after {
+    content: '';
   }
 
   .content {

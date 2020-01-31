@@ -1,21 +1,16 @@
 <svelte:window on:resize="{resizeWindow}" />
 
 {#if isDesktopVersion}
-  <Desktop {user} />
+  <Desktop />
 {:else}
-  <Mobile {user} />
+  <Mobile />
 {/if}
 
 <script>
   import { onMount } from 'svelte';
-  import { stores } from '@sapper/app';
 
   import Desktop from './desktop.svelte';
   import Mobile from './mobile.svelte';
-
-  let { session } = stores();
-
-  $: user = $session.user;
 
   let isDesktopVersion = true;
 

@@ -9,9 +9,7 @@
   <ol>
     {#if user}
       <li>
-        <a href="/users/{user.username}" rel="prefetch" class="button">
-          Your profile
-        </a>
+        <a href="/profile" rel="prefetch" class="button">Your profile</a>
       </li>
       <li>
         <a href="/editor" rel="prefetch" class="button">Create post</a>
@@ -38,9 +36,9 @@
   import { stores, goto } from '@sapper/app';
   import { request } from 'api.js';
 
-  export let user;
-
   let { session } = stores();
+
+  $: user = $session.user;
 
   async function signout() {
     await request('DELETE', 'session');

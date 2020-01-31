@@ -6,7 +6,7 @@
   <article>
     <header class="block">
       <div class="meta">
-        <a href="/user/{article.user}" title="Posted by" class="link">
+        <a href="/users/{article.user}" title="Posted by" class="link">
           {isCurrentUserAuthor ? 'You' : article.user}
         </a>
         <span title="Publication date">

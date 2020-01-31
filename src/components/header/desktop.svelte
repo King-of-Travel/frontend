@@ -21,7 +21,7 @@
             <span class="profile__triangle"></span>
           </div>
 
-          <DropdownItem href="/users/{user.username}" rel="prefetch">
+          <DropdownItem href="/profile" rel="prefetch">
             Your profile
           </DropdownItem>
           <DropdownItem href="/editor" rel="prefetch">Create post</DropdownItem>
@@ -44,9 +44,9 @@
   import Dropdown from 'components/dropdown/index.svelte';
   import DropdownItem from 'components/dropdown/item.svelte';
 
-  export let user;
-
   let { session } = stores();
+
+  $: user = $session.user;
 
   async function signout() {
     await request('DELETE', 'session');

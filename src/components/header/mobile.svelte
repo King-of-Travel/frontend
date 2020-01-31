@@ -35,7 +35,7 @@
     </button>
   </div>
   <div on:click="{openingOrClosingCard}">
-    <Navigation {user} />
+    <Navigation />
   </div>
 </CardMenu>
 
@@ -47,8 +47,6 @@
   import ChevronUp from 'components/icons/chevron-up.svelte';
   import ChevronDown from 'components/icons/chevron-down.svelte';
   import Navigation from './mobile-navigation.svelte';
-
-  export let user;
 
   let isOpenNavigation = false;
 

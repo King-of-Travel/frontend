@@ -6,7 +6,7 @@
   export async function preload(page, session) {
     let { user } = session;
 
-    !user && this.redirect(301, '/login');
+    !user && this.redirect(302, '/login');
   }
 </script>
 

@@ -1,5 +1,3 @@
-<svelte:window on:resize="{resizeWindow}" />
-
 {#if isDesktopVersion}
   <Desktop />
 {:else}
@@ -15,12 +13,9 @@
   let isDesktopVersion = true;
 
   onMount(() => {
-    resizeWindow();
+    let media = window.matchMedia('(min-width: 941px)');
+    media.addListener(e => (isDesktopVersion = e.matches));
+
+    isDesktopVersion = media.matches;
   });
-
-  function resizeWindow() {
-    let windowWidth = window.innerWidth;
-
-    isDesktopVersion = windowWidth > 940 ? true : false;
-  }
 </script>

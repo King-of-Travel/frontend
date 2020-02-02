@@ -269,9 +269,7 @@ button,
 button:not([class]),
 .button {
   display: inline-block;
-  height: 44px;
-  padding: 0 18px;
-  line-height: 44px;
+  padding: 10px 20px;
   background-color: var(--base-accent);
   border: none;
   border-radius: var(--base-border-r);

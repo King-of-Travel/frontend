@@ -120,6 +120,7 @@
 
   .button {
     margin-left: 10px;
+    padding: 5px 10px;
     font-weight: 400;
     border: 1px solid var(--base-hover);
     background-color: transparent;

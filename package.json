@@ -81,7 +81,9 @@
     "rollup-plugin-terser": "^4.0.4",
     "sapper": "^0.27.0",
     "svelte": "^3.17.1",
+    "svelte-infinite-scroll": "^0.1.1",
     "svelte-preprocess": "^3.3.0",
-    "svelte-select": "^3.3.5"
+    "svelte-select": "^3.3.5",
+    "svelte-tabs": "^1.1.0"
   }
 }

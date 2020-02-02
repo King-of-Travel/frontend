@@ -8,7 +8,7 @@
   stroke-width="2"
   stroke-linecap="round"
 >
-  <slot></slot>
+  <slot />
 </svg>
 
 <script>

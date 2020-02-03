@@ -33,7 +33,7 @@
 
   button {
     width: 100%;
-    background-color: transparent;
+    background: transparent;
     border: none;
     text-align: left;
   }

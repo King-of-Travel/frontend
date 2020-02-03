@@ -9,12 +9,17 @@
   --base-title: var(--base-black);
   --base-background: #fff;
   --base-border: #ddd;
-  --base-accent: #12aef7;
-  --base-light-accent: #51c4fa;
-  --base-hover: rgba(18, 174, 247, 0.3);
+  --base-accent: #b39cd0;
+  --base-light-accent: #e89dcd;
+  --base-hover: #e8e1f1;
   --base-focus: 0 0 0 3px var(--base-accent);
-  --base-active: #2da3da;
-  --base-disabled: #5b8fa7;
+  --base-disabled: rgba(150, 133, 173, 0.8);
+  --base-box-shadow: 0 0px 30px 0 rgba(31, 31, 31, 0.2);
+  --base-gradient: linear-gradient(
+    90deg,
+    var(--base-light-accent),
+    var(--base-accent)
+  );
 
   /* typography */
   --base-unit: 0.8rem;
@@ -30,7 +35,7 @@
   --base-lh-article: 1.6;
 
   /* border */
-  --base-border-w: 0.2rem; /* border-width  */
+  --base-border-w: 0.15rem; /* border-width  */
   --base-border-r: 0.4rem;
 
   /* navigation */
@@ -193,14 +198,6 @@ img {
   display: block;
 }
 
-/* Inherit fonts for inputs and buttons */
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
 mark {
   padding: 0 3px;
   background: var(--base-light-accent);
@@ -214,6 +211,15 @@ mark {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+input,
+button,
+textarea,
+select,
+a {
+  font: inherit;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 /*
@@ -253,6 +259,12 @@ h1 {
   font-size: var(--base-h1);
 }
 
+::selection {
+  color: var(--base-text);
+  background-color: var(--base-light-accent);
+  text-shadow: none;
+}
+
 /*	headers ------------------------------- */
 h1.title {
   margin: 24px 0;
@@ -270,7 +282,7 @@ button:not([class]),
 .button {
   display: inline-block;
   padding: 10px 20px;
-  background-color: var(--base-accent);
+  background: var(--base-gradient);
   border: none;
   border-radius: var(--base-border-r);
   color: var(--base-text);
@@ -336,7 +348,7 @@ a:not([class]):focus,
 a:not([class]):hover,
 a.link:focus,
 a.link:hover {
-  --background: #b7e7fd;
+  --background: var(--base-hover);
   background-color: var(--background);
   box-shadow: 0px 0px 0px 3px var(--background);
 }

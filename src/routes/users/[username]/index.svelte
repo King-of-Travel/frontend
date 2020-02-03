@@ -111,7 +111,7 @@
     padding: 5px 10px;
     font-size: var(--base-h6);
     border: var(--base-border-w) solid var(--base-border);
-    background-color: transparent;
+    background: transparent;
   }
 
   .right-block .button:focus,

@@ -18,8 +18,7 @@
   }
 
   :global(.svelte-tabs li.svelte-tabs__tab[aria-selected='true']) {
-    color: var(--base-active);
-    border-bottom: var(--base-border-w) solid var(--base-active);
+    border-bottom: var(--base-border-w) solid var(--base-accent);
   }
 
   :global(.svelte-tabs div.svelte-tabs__tab-panel) {

@@ -36,7 +36,7 @@
 
   a:focus,
   a:hover {
-    box-shadow: 0 0px 30px 0 rgba(44, 62, 80, 0.24);
+    box-shadow: var(--base-box-shadow);
     transform: scale(1.03);
   }
 

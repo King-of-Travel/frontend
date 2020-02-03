@@ -31,7 +31,7 @@
     />
   </div>
   <div class="form_group form_buttons">
-    <button>Log in</button>
+    <button class="button">Log in</button>
   </div>
 </form>
 

@@ -59,7 +59,7 @@
     margin-top: 5px;
     padding: 10px 0;
     background-color: var(--base-background);
-    box-shadow: 0 0px 30px 0 rgba(44, 62, 80, 0.24);
+    box-shadow: var(--base-box-shadow);
     border-radius: var(--base-border-r);
   }
 </style>

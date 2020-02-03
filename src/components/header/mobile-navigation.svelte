@@ -61,7 +61,7 @@
   button {
     width: 100%;
     font-weight: 500;
-    background-color: transparent;
+    background: transparent;
   }
 
   button {

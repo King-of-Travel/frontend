@@ -58,8 +58,8 @@
 <style type="postcss">
   header {
     z-index: 100;
-    background-color: #b7e7fd;
-    box-shadow: 0 0 15px 0px #b7e7fd;
+    background-color: var(--base-accent);
+    box-shadow: 0 0 20px 0px var(--base-accent);
   }
 
   header > div {
@@ -122,7 +122,11 @@
     margin-left: 10px;
     padding: 5px 10px;
     font-weight: 400;
-    border: 1px solid var(--base-hover);
-    background-color: transparent;
+    background: transparent;
+  }
+
+  .button:focus,
+  .button:hover {
+    background-color: var(--base-light-accent);
   }
 </style>

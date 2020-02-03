@@ -1,9 +1,9 @@
 {
   "background_color": "#ffffff",
-  "theme_color": "#333333",
+  "theme_color": "#b39cd0",
   "name": "King of Travel",
   "short_name": "King of Travel",
-  "display": "minimal-ui",
+  "display": "standalone",
   "start_url": "/",
   "icons": [
     {

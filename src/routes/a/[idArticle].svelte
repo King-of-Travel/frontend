@@ -3,26 +3,36 @@
 </svelte:head>
 
 <main class="center-content">
-  <article>
-    <header class="block">
-      <div class="meta">
-        <a
-          href="/users/{article.user}"
-          rel="prefetch"
-          title="Posted by"
-          class="link"
-        >
-          {isCurrentUserAuthor ? 'You' : article.user}
-        </a>
-        <span title="Publication date">
-          {@html articleCreatedAt(article.createdAt)}
-        </span>
+  <section>
+    <article>
+      <header class="block">
+        <div class="meta">
+          <a
+            href="/users/{article.user}"
+            rel="prefetch"
+            title="Posted by"
+            class="link"
+          >
+            {isCurrentUserAuthor ? 'You' : article.user}
+          </a>
+          <span title="Publication date">
+            {@html articleCreatedAt(article.createdAt)}
+          </span>
+        </div>
+
+        <h1>{article.title}</h1>
+      </header>
+      {@html article.body}
+    </article>
+    <footer>
+      <div class="left-block">
+        <Share />
       </div>
 
-      <h1>{article.title}</h1>
-    </header>
-    {@html article.body}
-  </article>
+      <div class="right-block">
+      </div>
+    </footer>
+  </section>
 </main>
 
 <script context="module">
@@ -37,14 +47,23 @@
     let isCurrentUserAuthor =
       article.user === (session.user && session.user.username);
 
-    return { article, isCurrentUserAuthor };
+    return {
+      article,
+      isCurrentUserAuthor
+    };
   }
 </script>
 
 <script>
+  import { setContext } from 'svelte';
   import { articleCreatedAt } from 'date-formatting';
 
+  import Icon from 'components/icon.svelte';
+  import Share from './_share.svelte';
+
   export let article, isCurrentUserAuthor;
+
+  setContext('article', { ...article, isCurrentUserAuthor });
 </script>
 
 <style>
@@ -65,5 +84,15 @@
     margin-left: 5px;
     color: var(--base-gray);
     text-transform: lowercase;
+  }
+
+  footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 15px;
+  }
+
+  .right-block {
+    text-align: end;
   }
 </style>

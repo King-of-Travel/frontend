@@ -293,7 +293,7 @@ button:not([class]),
 
 button:not([class]):hover,
 .button:hover {
-  background-color: var(--base-light-accent);
+  background: var(--base-light-accent);
 }
 
 button:not([class]):active,
@@ -303,7 +303,7 @@ button:not([class]):active,
 
 button:not([class]):disabled,
 .button:disabled {
-  background-color: var(--base-disabled);
+  background: var(--base-disabled);
   cursor: not-allowed;
 }
 

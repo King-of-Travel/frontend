@@ -30,6 +30,7 @@
       </div>
 
       <div class="right-block">
+        <Likes />
       </div>
     </footer>
   </section>
@@ -39,7 +40,10 @@
   export async function preload(page, session) {
     let { idArticle } = page.params;
 
-    let getArticle = await this.fetch(`/api/article?id=${idArticle}`);
+    let getArticle = await this.fetch(`/api/article?id=${idArticle}`, {
+      credentials: 'same-origin'
+    });
+
     if (!getArticle.ok) return this.error(404, 'Article not found or deleted');
 
     let article = await getArticle.json();
@@ -58,7 +62,7 @@
   import { setContext } from 'svelte';
   import { articleCreatedAt } from 'date-formatting';
 
-  import Icon from 'components/icon.svelte';
+  import Likes from './_likes.svelte';
   import Share from './_share.svelte';
 
   export let article, isCurrentUserAuthor;

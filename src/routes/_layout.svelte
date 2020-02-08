@@ -1,7 +1,3 @@
-<svelte:head>
-  <meta name="theme-color" content="#12aef7" />
-</svelte:head>
-
 <div class="layout-container">
   <Header />
   <slot />

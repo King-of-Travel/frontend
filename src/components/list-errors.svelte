@@ -1,4 +1,4 @@
-<ul>
+<ul title="Errors list">
   {#each Object.keys(errors) as key}
     <li>{errors[key]}</li>
   {/each}
@@ -11,7 +11,8 @@
 <style>
   ul {
     margin: 0;
-    padding: 0 20px;
+    padding: 0;
+    list-style: none;
   }
 
   li {

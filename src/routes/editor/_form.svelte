@@ -1,6 +1,7 @@
 <form on:submit|preventDefault="{handleSubmit}" class="form">
   <div class="form_group editor">
     <textarea
+      on:keypress="{focusEditorPressEnter}"
       bind:value="{$articleData.title}"
       on:input="{changeHeaderHeight}"
       placeholder="My trip to Moscow"
@@ -43,6 +44,13 @@
     });
 
     goto(`/a/${addArticle.data}`);
+  }
+
+  function focusEditorPressEnter(e) {
+    if (e.keyCode === 13) {
+      editor.focus();
+      e.preventDefault();
+    }
   }
 </script>
 

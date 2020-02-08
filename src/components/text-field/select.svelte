@@ -21,33 +21,37 @@
   div {
     --height: 41px;
     --padding: 0 10px;
-    --borderHoverColor: var(--base-light-accent);
-    --borderFocusColor: var(--base-accent);
     --virtualListHeight: 300px;
-    --listShadow: 0 0px 30px 0 rgba(44, 62, 80, 0.24);
-    --itemIsActiveBG: var(--base-accent);
-    --border: var(--base-border-w) solid var(--base-accent);
-    --borderRadius: var(--base-border-r);
     --inputFontSize: var(--base-h4);
+
     --clearSelectTop: 0;
     --clearSelectBottom: 0;
+
+    --itemHoverBG: var(--base-hover);
+    --listShadow: var(--base-box-shadow);
+    --itemIsActiveBG: var(--base-accent);
+
+    --border: var(--base-border-w) solid var(--base-accent);
+    --borderRadius: var(--base-border-r);
+    --borderHoverColor: var(--base-light-accent);
+    --borderFocusColor: var(--base-focus);
   }
 
-  :global(.selectContainer > *) {
+  div :global(.selectContainer > *) {
     height: 100% !important;
     line-height: normal !important;
   }
 
-  :global(.selectContainer > .selectedItem) {
+  div :global(input) {
+    cursor: text !important;
+  }
+
+  div :global(.selectedItem) {
     display: flex;
     align-items: center;
   }
 
-  :global(.selectContainer > input) {
-    cursor: text !important;
-  }
-
-  :global(.selectContainer > .listItem, .selectContainer > .clearSelect) {
+  div :global(.listItem .item, .clearSelect) {
     cursor: pointer;
   }
 </style>

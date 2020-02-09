@@ -8,12 +8,12 @@
       <header class="block">
         <div class="meta">
           <a
-            href="/users/{article.user}"
+            href="/users/{article.user.username}"
             rel="prefetch"
             title="Posted by"
             class="link"
           >
-            {isCurrentUserAuthor ? 'You' : article.user}
+            {isCurrentUserAuthor ? 'You' : article.user.username}
           </a>
           <span title="Publication date">
             {@html articleCreatedAt(article.createdAt)}
@@ -38,9 +38,9 @@
 
 <script context="module">
   export async function preload(page, session) {
-    let { idArticle } = page.params;
+    let { articleId } = page.params;
 
-    let getArticle = await this.fetch(`/api/article?id=${idArticle}`, {
+    let getArticle = await this.fetch(`/api/article?id=${articleId}`, {
       credentials: 'same-origin'
     });
 
@@ -49,7 +49,7 @@
     let article = await getArticle.json();
 
     let isCurrentUserAuthor =
-      article.user === (session.user && session.user.username);
+      article.user.id === (session.user && session.user.id);
 
     return {
       article,

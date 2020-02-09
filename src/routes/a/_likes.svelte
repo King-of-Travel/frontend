@@ -19,7 +19,7 @@
   import Icon from 'components/icon.svelte';
   import HeartIcon from 'components/icons/heart.svelte';
 
-  let { likes, id: idArticle } = getContext('article');
+  let { likes, id: articleId } = getContext('article');
 
   let { session } = stores();
 
@@ -42,7 +42,7 @@
       likes.count++;
     }
 
-    request('PUT', `article/like?idArticle=${idArticle}`);
+    request('PUT', `article/like?articleId=${articleId}`);
   }
 </script>
 

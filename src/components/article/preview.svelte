@@ -7,9 +7,21 @@
   <article>
     <h4>{article.title}</h4>
     <div class="meta">
-      <div class="published-data" title="Publication date">
-        Published:
-        {@html articleCreatedAt(article.createdAt)}
+      <div class="left-block">
+        {#if article.user}
+          <span title="Author" class="author">{article.user.username}</span>
+        {/if}
+        <span class="published-data" title="Publication date">
+          {@html articleCreatedAt(article.createdAt)}
+        </span>
+      </div>
+      <div class="right-block">
+        <span class="likes" title="Article likes">
+          <Icon size="15">
+            <HeartIcon />
+          </Icon>
+          {article.likes}
+        </span>
       </div>
     </div>
   </article>
@@ -17,6 +29,9 @@
 
 <script>
   import { articleCreatedAt } from 'date-formatting.js';
+
+  import Icon from 'components/icon.svelte';
+  import HeartIcon from 'components/icons/heart.svelte';
 
   export let article, className;
   export { className as class };
@@ -41,11 +56,34 @@
   }
 
   .meta {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-gap: 15px;
+    align-items: center;
     margin-top: 10px;
-  }
-
-  .published-data {
     font-size: var(--base-h6);
     color: var(--base-gray);
+  }
+
+  .author::after {
+    content: ',';
+  }
+
+  .author ~ .published-data {
+    text-transform: lowercase;
+  }
+
+  .right-block {
+    display: grid;
+    justify-content: end;
+  }
+
+  .likes {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .likes :global(svg) {
+    margin-right: 3px;
   }
 </style>

@@ -84,7 +84,8 @@
 
   header {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, auto);
+    grid-gap: 15px;
     margin-bottom: 15px;
   }
 
@@ -98,13 +99,12 @@
   }
 
   .left-block .meta {
+    margin-top: 5px;
     font-size: var(--base-h6);
   }
 
   .right-block {
-    display: grid;
-    align-items: center;
-    justify-content: end;
+    text-align: end;
   }
 
   .right-block .button {

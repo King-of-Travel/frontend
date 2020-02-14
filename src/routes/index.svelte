@@ -1,18 +1,18 @@
 <svelte:head>
-  <title>Popular daily articles</title>
+  <title>The best articles of the week</title>
 </svelte:head>
 
 <main class="center-content">
-  <MainNavigation tab="articles" />
+  <MainNavigation tab="articles" filterPeriod="week" />
   <ArticlesList
     {defaultArticles}
-    requestConfig="{{ path: 'articles/popular' }}"
+    requestConfig="{{ path: 'articles/popular', query: 'period=week' }}"
   />
 </main>
 
 <script context="module">
   export async function preload() {
-    let getArticles = await this.fetch('/api/articles/popular');
+    let getArticles = await this.fetch('/api/articles/popular?period=week');
 
     let defaultArticles = await getArticles.json();
 
@@ -23,7 +23,7 @@
 </script>
 
 <script>
-  import MainNavigation from 'components/main-navigation.svelte';
+  import MainNavigation from 'components/navigation/main.svelte';
   import ArticlesList from 'components/article/list.svelte';
 
   export let defaultArticles;

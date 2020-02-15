@@ -3,7 +3,7 @@
 </svelte:head>
 
 <main class="center-content">
-  <MainNavigation tab="articles" filterPeriod="week" />
+  <MainNavigation tab="articles" filterPeriodTop="week" />
   <ArticlesList
     {articles}
     requestConfig="{{ path: 'articles/popular', query: 'period=week' }}"

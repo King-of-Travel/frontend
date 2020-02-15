@@ -2,7 +2,7 @@
   <title>The best articles of the year</title>
 </svelte:head>
 
-<MainNavigation tab="articles" filterPeriod="year" />
+<MainNavigation tab="articles" filterPeriodTop="year" />
 <ArticlesList
   {articles}
   requestConfig="{{ path: 'articles/popular', query: 'period=year' }}"

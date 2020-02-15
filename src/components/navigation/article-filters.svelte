@@ -12,10 +12,11 @@
     </li>
   </ul>
   {#if filterCategory === 'top'}
-    <ul>
+  <ul>
+    {#if filterCategory === 'top'}
       <li>
         <a
-          class:active="{filterPeriod === 'day'}"
+          class:active="{filterPeriodTop === 'day'}"
           class="button"
           rel="prefetch"
           href="/top/day"
@@ -25,7 +26,7 @@
       </li>
       <li>
         <a
-          class:active="{filterPeriod === 'week'}"
+          class:active="{filterPeriodTop === 'week'}"
           class="button"
           rel="prefetch"
           href="/"
@@ -35,7 +36,7 @@
       </li>
       <li>
         <a
-          class:active="{filterPeriod === 'month'}"
+          class:active="{filterPeriodTop === 'month'}"
           class="button"
           rel="prefetch"
           href="/top/month"
@@ -45,7 +46,7 @@
       </li>
       <li>
         <a
-          class:active="{filterPeriod === 'year'}"
+          class:active="{filterPeriodTop === 'year'}"
           class="button"
           rel="prefetch"
           href="/top/year"
@@ -53,13 +54,15 @@
           Year
         </a>
       </li>
-    </ul>
+    {/if}
+  </ul>
   {/if}
 </nav>
 
 <script>
   export let filterCategory = 'top',
-    filterPeriod = 'day';
+    filterPeriodTop = 'day',
+    filterRatingNew = 0;
 </script>
 
 <style>

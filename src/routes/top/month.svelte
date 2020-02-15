@@ -2,7 +2,7 @@
   <title>The best articles of the month</title>
 </svelte:head>
 
-<MainNavigation tab="articles" filterPeriod="month" />
+<MainNavigation tab="articles" filterPeriodTop="month" />
 <ArticlesList
   {articles}
   requestConfig="{{ path: 'articles/popular', query: 'period=month' }}"

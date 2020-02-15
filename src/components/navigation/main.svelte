@@ -14,7 +14,7 @@
 </nav>
 
 {#if tab === 'articles'}
-  <ArticleFilters {filterCategory} {filterPeriod} />
+  <ArticleFilters {filterCategory} {filterPeriodTop} {filterRatingNew} />
 {/if}
 
 <script>
@@ -22,7 +22,8 @@
 
   export let tab = 'articles',
     filterCategory,
-    filterPeriod;
+    filterPeriodTop,
+    filterRatingNew;
 </script>
 
 <style>

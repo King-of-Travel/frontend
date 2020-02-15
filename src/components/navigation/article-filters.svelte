@@ -6,12 +6,23 @@
         class="button"
         rel="prefetch"
         href="/"
+        title="Top artiles"
       >
         Top
       </a>
     </li>
+    <li>
+      <a
+        class:active="{filterCategory === 'new'}"
+        class="button"
+        rel="prefetch"
+        href="/new"
+        title="New Articles"
+      >
+        New
+      </a>
+    </li>
   </ul>
-  {#if filterCategory === 'top'}
   <ul>
     {#if filterCategory === 'top'}
       <li>
@@ -20,6 +31,7 @@
           class="button"
           rel="prefetch"
           href="/top/day"
+          title="Daily articles"
         >
           Day
         </a>
@@ -30,6 +42,7 @@
           class="button"
           rel="prefetch"
           href="/"
+          title="Articles for the week"
         >
           Week
         </a>
@@ -40,6 +53,7 @@
           class="button"
           rel="prefetch"
           href="/top/month"
+          title="Monthly Articles"
         >
           Month
         </a>
@@ -50,13 +64,58 @@
           class="button"
           rel="prefetch"
           href="/top/year"
+          title="Articles for the year"
         >
           Year
         </a>
       </li>
+    {:else if filterCategory === 'new'}
+      <li>
+        <a
+          class:active="{filterRatingNew === 0}"
+          class="button"
+          rel="prefetch"
+          href="/new"
+          title="No rating restrictions"
+        >
+          All
+        </a>
+      </li>
+      <li>
+        <a
+          class:active="{filterRatingNew === 5}"
+          class="button"
+          rel="prefetch"
+          href="/new/5"
+          title="Articles rating 5 or more"
+        >
+          ≥ 5
+        </a>
+      </li>
+      <li>
+        <a
+          class:active="{filterRatingNew === 10}"
+          class="button"
+          rel="prefetch"
+          href="/new/10"
+          title="Articles rating 10 or more"
+        >
+          ≥ 10
+        </a>
+      </li>
+      <li>
+        <a
+          class:active="{filterRatingNew >= 25}"
+          class="button"
+          rel="prefetch"
+          href="/new/25"
+          title="Articles rating 25 or more"
+        >
+          ≥ 25
+        </a>
+      </li>
     {/if}
   </ul>
-  {/if}
 </nav>
 
 <script>

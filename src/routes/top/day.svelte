@@ -3,19 +3,16 @@
 </svelte:head>
 
 <MainNavigation tab="articles" />
-<ArticlesList
-  {defaultArticles}
-  requestConfig="{{ path: 'articles/popular' }}"
-/>
+<ArticlesList {articles} requestConfig="{{ path: 'articles/popular' }}" />
 
 <script context="module">
   export async function preload() {
     let getArticles = await this.fetch('/api/articles/popular');
 
-    let defaultArticles = await getArticles.json();
+    let articles = await getArticles.json();
 
     return {
-      defaultArticles
+      articles
     };
   }
 </script>
@@ -24,5 +21,5 @@
   import MainNavigation from 'components/navigation/main.svelte';
   import ArticlesList from 'components/article/list.svelte';
 
-  export let defaultArticles;
+  export let articles;
 </script>

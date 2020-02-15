@@ -26,12 +26,12 @@
 
   <TabsContainer>
     <TabList>
-      <Tab>Articles ({defaultArticles.count})</Tab>
+      <Tab>Articles</Tab>
     </TabList>
 
     <TabPanel>
       <ArticlesList
-        {defaultArticles}
+        {articles}
         requestConfig="{{ path: 'user/articles', query: `userId=${user.id}` }}"
       />
     </TabPanel>
@@ -49,7 +49,7 @@
     let getArticles = await this.fetch(
       `/api/user/articles?userId=${userData.id}&limit=10`
     );
-    let defaultArticles = await getArticles.json();
+    let articles = await getArticles.json();
 
     let isCurrentUserProfile =
       userData.id === (session.user && session.user.id);
@@ -57,7 +57,7 @@
     return {
       user: userData,
       isCurrentUserProfile,
-      defaultArticles
+      articles
     };
   }
 </script>
@@ -69,7 +69,7 @@
   import TabsContainer from 'components/tabs/container.svelte';
   import ArticlesList from 'components/article/list.svelte';
 
-  export let user, isCurrentUserProfile, defaultArticles;
+  export let user, isCurrentUserProfile, articles;
 </script>
 
 <style>

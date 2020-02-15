@@ -4,7 +4,7 @@
 
 <MainNavigation tab="articles" filterPeriod="month" />
 <ArticlesList
-  {defaultArticles}
+  {articles}
   requestConfig="{{ path: 'articles/popular', query: 'period=month' }}"
 />
 
@@ -12,10 +12,10 @@
   export async function preload() {
     let getArticles = await this.fetch('/api/articles/popular?period=month');
 
-    let defaultArticles = await getArticles.json();
+    let articles = await getArticles.json();
 
     return {
-      defaultArticles
+      articles
     };
   }
 </script>
@@ -24,5 +24,5 @@
   import MainNavigation from 'components/navigation/main.svelte';
   import ArticlesList from 'components/article/list.svelte';
 
-  export let defaultArticles;
+  export let articles;
 </script>

@@ -1,15 +1,5 @@
-<svelte:window
-  on:scroll="{infiniteScrollArticles({
-    containerElement,
-    callback: loadingArticles,
-    countLinks: articles.count,
-    countLinksUploaded,
-    isLoading
-  })}"
-/>
-
 <div bind:this="{containerElement}" class="container" role="feed">
-  {#each articles.list as article (article.id)}
+  {#each articles as article (article.id)}
     <ArticlePreview {article} class="article-preview" />
   {/each}
 
@@ -23,31 +13,59 @@
 </div>
 
 <script>
-  import { infiniteScrollArticles } from 'articles.js';
+  import { onMount } from 'svelte';
   import { request } from 'api.js';
 
   import ArticlePreview from 'components/article/preview.svelte';
   import Icon from 'components/icon.svelte';
   import LoaderIcon from 'components/icons/loader.svelte';
 
-  export let defaultArticles, requestConfig;
+  export let articles = [],
+    requestConfig;
 
   let containerElement;
 
-  let articles = defaultArticles,
-    countLinksUploaded = articles.list.length,
-    isLoading = false;
+  let isLoading = false;
+
+  onMount(() => {
+    document.addEventListener('scroll', infiniteScrollArticles);
+
+    return () => {
+      removeInfiniteScrollArticles();
+    };
+  });
+
+  function removeInfiniteScrollArticles() {
+    document.removeEventListener('scroll', infiniteScrollArticles);
+  }
+
+  function infiniteScrollArticles() {
+    if (isLoading) return;
+
+    if (articles.length < 20) removeInfiniteScrollArticles();
+
+    let pageYoffset = window.pageYOffset + window.innerHeight;
+    let containerOffset =
+      containerElement.offsetTop + containerElement.clientHeight;
+
+    if (pageYoffset + 300 >= containerOffset) {
+      loadingArticles();
+    }
+  }
 
   async function loadingArticles() {
     isLoading = true;
 
-    let query = `?${requestConfig.query}&limit=30&offset=${countLinksUploaded}`;
+    let query = `?${requestConfig.query}&offset=${articles.length}`;
     let getArticles = await request('GET', `${requestConfig.path}${query}`);
 
-    let newArticles = getArticles.data.list;
+    let newArticles = getArticles.data;
 
-    articles.list.push(...newArticles);
-    countLinksUploaded += newArticles.length;
+    articles.push(...newArticles);
+
+    if (newArticles.length < 20) {
+      removeInfiniteScrollArticles();
+    }
 
     isLoading = false;
   }

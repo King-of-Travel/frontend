@@ -297,12 +297,13 @@ button:not([class]):hover,
 }
 
 button:not([class]):active,
-.button:active {
+.button:not(:disabled):not(.disabled):active {
   transform: translateY(1px);
 }
 
 button:not([class]):disabled,
-.button:disabled {
+.button:disabled,
+.button.disabled {
   background: var(--base-disabled);
   cursor: not-allowed;
 }

@@ -2,7 +2,7 @@
   {title}
   on:click="{changeRating}"
   disabled="{!user}"
-  class:like="{likes.currentUserRating}"
+  class:active="{likes.currentUserRating}"
   class="button"
 >
   <Icon size="19">
@@ -54,11 +54,7 @@
     background: transparent;
   }
 
-  button:disabled {
-    background: transparent;
-  }
-
-  button.like {
+  button.active {
     color: #6c9007;
   }
 
@@ -66,6 +62,10 @@
   button:hover {
     background: var(--base-light-accent);
     color: var(--base-text);
+  }
+
+  button:disabled {
+    background: transparent;
   }
 
   span {

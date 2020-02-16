@@ -4,15 +4,18 @@
       on:keypress="{focusEditorPressEnter}"
       bind:value="{article.title}"
       on:input="{changeHeaderHeight}"
-      placeholder="My trip to Moscow"
+      placeholder="{isNewArticle ? 'My trip to Moscow' : defaultArticle.title}"
       rows="1"
+      minlength="3"
       maxlength="120"
     ></textarea>
     <div id="editorjs" class="editor__container"></div>
   </div>
 
   <div class="form_group form_buttons">
-    <button disabled="{!isFormValid}">Publish</button>
+    <button disabled="{!isFormValid}">
+      {isNewArticle ? 'Publish' : 'Edit'}
+    </button>
   </div>
 </form>
 
@@ -21,16 +24,24 @@
   import { goto } from '@sapper/app';
   import { request } from 'api.js';
 
-  export let article = { title: '', body: [] };
+  export let defaultArticle = { title: '', body: [] };
+
+  let article = defaultArticle;
 
   $: isFormValid = article.title.length >= 3;
+  let isNewArticle = article.title ? false : true;
 
   let editor;
 
   onMount(async () => {
     let { createEditor } = await import('./_editor.js');
 
-    editor = createEditor('editorjs');
+    editor = createEditor({
+      holder: 'editorjs',
+      config: {
+        data: { blocks: article.body }
+      }
+    });
   });
 
   function changeHeaderHeight(element) {
@@ -41,12 +52,21 @@
   async function handleSubmit() {
     let dataEditor = await editor.save();
 
-    let addArticle = await request('POST', 'article', {
+    if (isNewArticle) {
+      let addArticle = await request('POST', 'article', {
+        ...article,
+        body: dataEditor.blocks
+      });
+
+      return goto(`/a/${addArticle.data}`);
+    }
+
+    await request('POST', `article/edit?id=${article.id}`, {
       ...article,
       body: dataEditor.blocks
     });
 
-    goto(`/a/${addArticle.data}`);
+    goto(`/a/${article.id}`);
   }
 
   function focusEditorPressEnter(e) {

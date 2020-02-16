@@ -2,7 +2,7 @@
   <div class="form_group editor">
     <textarea
       on:keypress="{focusEditorPressEnter}"
-      bind:value="{$articleData.title}"
+      bind:value="{article.title}"
       on:input="{changeHeaderHeight}"
       placeholder="My trip to Moscow"
       rows="1"
@@ -12,15 +12,18 @@
   </div>
 
   <div class="form_group form_buttons">
-    <button disabled="{!$isFormValid}">Publish</button>
+    <button disabled="{!isFormValid}">Publish</button>
   </div>
 </form>
 
 <script>
   import { onMount } from 'svelte';
   import { goto } from '@sapper/app';
-  import { articleData, isFormValid } from './_stores.js';
   import { request } from 'api.js';
+
+  export let article = { title: '', body: [] };
+
+  $: isFormValid = article.title.length >= 3;
 
   let editor;
 
@@ -39,7 +42,7 @@
     let dataEditor = await editor.save();
 
     let addArticle = await request('POST', 'article', {
-      ...$articleData,
+      ...article,
       body: dataEditor.blocks
     });
 

@@ -53,6 +53,9 @@
 
     if (!loginReq.ok) {
       errors = loginReq.data.errors;
+
+      window.navigator.vibrate(2);
+
       return;
     }
 

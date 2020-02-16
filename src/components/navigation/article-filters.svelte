@@ -3,7 +3,6 @@
     <li>
       <a
         class:active="{filterCategory === 'top'}"
-        class="button"
         rel="prefetch"
         href="/"
         title="Top artiles"
@@ -14,7 +13,6 @@
     <li>
       <a
         class:active="{filterCategory === 'new'}"
-        class="button"
         rel="prefetch"
         href="/new"
         title="New Articles"
@@ -28,7 +26,6 @@
       <li>
         <a
           class:active="{filterPeriodTop === 'day'}"
-          class="button"
           rel="prefetch"
           href="/top/day"
           title="Daily articles"
@@ -39,7 +36,6 @@
       <li>
         <a
           class:active="{filterPeriodTop === 'week'}"
-          class="button"
           rel="prefetch"
           href="/"
           title="Articles for the week"
@@ -50,7 +46,6 @@
       <li>
         <a
           class:active="{filterPeriodTop === 'month'}"
-          class="button"
           rel="prefetch"
           href="/top/month"
           title="Monthly Articles"
@@ -61,7 +56,6 @@
       <li>
         <a
           class:active="{filterPeriodTop === 'year'}"
-          class="button"
           rel="prefetch"
           href="/top/year"
           title="Articles for the year"
@@ -73,7 +67,6 @@
       <li>
         <a
           class:active="{filterRatingNew === 0}"
-          class="button"
           rel="prefetch"
           href="/new"
           title="No rating restrictions"
@@ -84,7 +77,6 @@
       <li>
         <a
           class:active="{filterRatingNew === 5}"
-          class="button"
           rel="prefetch"
           href="/new/5"
           title="Articles rating 5 or more"
@@ -95,7 +87,6 @@
       <li>
         <a
           class:active="{filterRatingNew === 10}"
-          class="button"
           rel="prefetch"
           href="/new/10"
           title="Articles rating 10 or more"
@@ -106,7 +97,6 @@
       <li>
         <a
           class:active="{filterRatingNew >= 25}"
-          class="button"
           rel="prefetch"
           href="/new/25"
           title="Articles rating 25 or more"
@@ -150,11 +140,11 @@
   }
 
   a {
+    display: block;
     padding: 10px;
     font-size: var(--base-h5);
     font-weight: 600;
-    background: transparent;
-    border-radius: 0;
+    color: var(--base-text);
   }
 
   a.active {

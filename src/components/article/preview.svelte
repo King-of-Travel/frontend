@@ -20,7 +20,7 @@
           <Icon size="15">
             <HeartIcon />
           </Icon>
-          {article.likes}
+          {article.likes || 0}
         </span>
       </div>
     </div>

@@ -1,48 +1,64 @@
 <form on:submit|preventDefault="{handleSubmit}" class="form" autocomplete="off">
   <div class="form_group">
     <AutoCheckField
-      bind:value="{$dataForm.username}"
-      bind:error="{$dataErrors.username}"
       src="api/check/signup/username"
       label="Username"
       id="username"
       name="username"
-      type="text"
-      placeholder="Your username"
-      autocomplete="off"
-      autocapitalize="off"
-      spellcheck="false"
       required
-    />
+    >
+      <input
+        bind:value="{$dataForm.username}"
+        id="username"
+        name="username"
+        type="text"
+        placeholder="Your username"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+      />
+    </AutoCheckField>
   </div>
+
   <div class="form_group">
     <AutoCheckField
-      bind:value="{$dataForm.email}"
-      bind:error="{$dataErrors.email}"
       src="api/check/signup/email"
       label="Email"
       id="email"
       name="email"
-      type="email"
-      placeholder="Your email"
-      autocomplete="off"
-      spellcheck="false"
       required
-    />
+    >
+      <input
+        bind:value="{$dataForm.email}"
+        id="email"
+        name="email"
+        type="email"
+        placeholder="Your email"
+        autocomplete="off"
+        spellcheck="false"
+      />
+    </AutoCheckField>
   </div>
+
   <div class="form_group">
     <AutoCheckField
-      bind:value="{$dataForm.password}"
-      bind:error="{$dataErrors.password}"
       src="api/check/signup/password"
       label="Password"
       id="password"
       name="password"
-      type="password"
-      placeholder="Your password"
-      autocomplete="new-password"
       required
-    />
+    >
+      <input
+        bind:value="{$dataForm.password}"
+        label="Password"
+        id="password"
+        name="password"
+        type="password"
+        placeholder="Your password"
+        autocomplete="new-password"
+      />
+    </AutoCheckField>
+
   </div>
   <div class="form_group form_buttons">
     <button disabled="{!$isFormValid}">Sign up</button>
@@ -52,7 +68,7 @@
 <script>
   import { goto, stores } from '@sapper/app';
   import { request } from 'api.js';
-  import { dataForm, dataErrors, isFormValid } from './_stores';
+  import { dataForm, isFormValid } from './_stores';
   import AutoCheckField from './_auto-check.svelte';
 
   const { session } = stores();

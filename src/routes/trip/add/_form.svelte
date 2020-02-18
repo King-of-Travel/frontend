@@ -1,40 +1,40 @@
 <ListErrors {errors} />
-<form on:submit|preventDefault="{handleSubmit}" class="form">
+<form on:submit|preventDefault="{handleSubmit}" class="form" novalidate>
   <div class="form_group">
-    <TextField
-      component="{Select}"
-      bind:value="{$dataForm.countryCode}"
-      items="{countries}"
-      isVirtualList="{true}"
-      listAutoWidth="{false}"
-      inputAttributes="{{ id: 'country', name: 'country' }}"
-      label="Country"
-      id="country"
-      placeholder="Country trip"
-    />
+    <TextField label="Country" id="country">
+      <Select
+        bind:value="{$dataForm.countryCode}"
+        items="{countries}"
+        isVirtualList="{true}"
+        listAutoWidth="{false}"
+        inputAttributes="{{ id: 'country', name: 'country' }}"
+        placeholder="Country trip"
+      />
+    </TextField>
   </div>
   <div class="form_group">
-    <TextField
-      bind:value="{$dataForm.city}"
-      label="City"
-      id="city"
-      name="city"
-      type="text"
-      placeholder="City trip"
-      autocomplete="off"
-      maxlength="300"
-      required
-    />
+    <TextField label="City" id="city">
+      <input
+        bind:value="{$dataForm.city}"
+        id="city"
+        name="city"
+        type="text"
+        placeholder="City trip"
+        autocomplete="off"
+        maxlength="300"
+      />
+    </TextField>
   </div>
   <div class="form_group">
-    <TextField
-      component="{DatePicker}"
-      pickerOptions="{{ mode: 'range', onChange: changeDate }}"
-      label="Date(optional)"
-      id="date"
-      name="date-range"
-      placeholder="Choose a start and end date for your trip"
-    />
+    <TextField label="Date(optional)" id="date">
+      <DatePicker
+        pickerOptions="{{ mode: 'range', onChange: changeDate }}"
+        label="Date(optional)"
+        id="date"
+        name="date-range"
+        placeholder="Choose a start and end date for your trip"
+      />
+    </TextField>
   </div>
 
   <div class="form_group form_buttons">

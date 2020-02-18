@@ -1,37 +1,36 @@
 <auto-check {src} {required} csrf="none" bind:this="{element}">
-  <TextField
-    {...exclude($$props, ['value', 'src', 'error'])}
-    bind:value
-    bind:error
-  />
+  <TextField {label} {id} bind:error="{$dataErrors[name]}">
+    <slot />
+  </TextField>
 </auto-check>
 
 <script>
   import { onMount } from 'svelte';
-  import { exclude } from 'common/exclude';
+
+  import { dataForm, dataErrors } from './_stores';
   import TextField from 'components/text-field/index.svelte';
 
   export let src,
-    value,
     required = false,
-    error;
+    name,
+    label,
+    id;
 
   let element;
 
-  $: if (value.length === 0) error = '';
+  $: if ($dataForm[name].length === 0) $dataErrors[name] = '';
 
   onMount(async () => {
     await import('@github/auto-check-element');
 
     element.addEventListener('auto-check-success', () => {
-      error = '';
+      $dataErrors[name] = '';
     });
 
     element.addEventListener('auto-check-error', async event => {
       let { response } = event.detail;
-      let message = await response.text();
 
-      error = message;
+      $dataErrors[name] = await response.text();
     });
   });
 </script>

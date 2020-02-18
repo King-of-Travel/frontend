@@ -12,9 +12,51 @@
     <div id="editorjs" class="editor__container"></div>
   </div>
 
+  {#if isSettingsOpen}
+    <div class="form_group settings-block">
+      <div class="form_group">
+        <TextField id="country" label="The country you are writing about">
+          <Select
+            bind:value="{article.countryCode}"
+            defaultSelected="{defaultCountryCode}"
+            items="{Countries}"
+            isVirtualList="{true}"
+            listAutoWidth="{false}"
+            inputAttributes="{{ id: 'country', name: 'country' }}"
+            placeholder="Russian Federation"
+          />
+        </TextField>
+
+      </div>
+
+      <div class="form_group">
+        <TextField label="The city you are writing about" id="city">
+          <input
+            bind:value="{article.city}"
+            id="city"
+            type="text"
+            placeholder="Moscow"
+            autocomplete="off"
+            maxlength="300"
+          />
+        </TextField>
+      </div>
+    </div>
+  {/if}
+
   <div class="form_group form_buttons">
     <button disabled="{!isFormValid}">
       {isNewArticle ? 'Publish' : 'Edit'}
+    </button>
+    <button
+      on:click="{() => (isSettingsOpen = !isSettingsOpen)}"
+      type="button"
+      class="button button__open-settings"
+      title="Article settings"
+    >
+      <Icon size="17">
+        <SettingsIcon />
+      </Icon>
     </button>
   </div>
 </form>
@@ -24,14 +66,30 @@
   import { goto } from '@sapper/app';
   import { request } from 'api.js';
 
-  export let defaultArticle = { title: '', body: [] };
+  import TextField from 'components/text-field/index.svelte';
+  import Select from 'components/text-field/select.svelte';
+  import Countries from 'components/locales/countries/en.json';
+  import Icon from 'components/icon.svelte';
+  import SettingsIcon from 'components/icons/settings.svelte';
 
-  let article = defaultArticle;
+  export let defaultArticle = {
+    title: '',
+    body: [],
+    countryCode: null,
+    city: null
+  };
+
+  let article = defaultArticle,
+    isNewArticle = article.title ? false : true,
+    defaultCountryCode =
+      defaultArticle.countryCode &&
+      Countries.find(country => country.value === defaultArticle.countryCode);
 
   $: isFormValid = article.title.length >= 3;
-  let isNewArticle = article.title ? false : true;
 
   let editor;
+
+  let isSettingsOpen = false;
 
   onMount(async () => {
     let { createEditor } = await import('./_editor.js');
@@ -39,7 +97,7 @@
     editor = createEditor({
       holder: 'editorjs',
       config: {
-        data: { blocks: article.body }
+        data: { blocks: defaultArticle.body }
       }
     });
   });
@@ -96,7 +154,26 @@
     overflow: hidden;
   }
 
+  .settings-block {
+    max-width: 400px;
+    width: 100%;
+    margin: 30px auto;
+    padding: 20px;
+    box-shadow: var(--base-box-shadow);
+    border-radius: var(--base-border-r);
+  }
+
   .form_buttons {
+    display: grid;
+    grid-template-columns: repeat(2, min-content);
+    grid-gap: 10px;
+    justify-content: center;
     margin-top: 20px;
+  }
+
+  .button__open-settings {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 </style>

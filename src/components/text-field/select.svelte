@@ -1,7 +1,6 @@
 <div>
   <Select
-    {inputAttributes}
-    {...exclude($$props, ['value', 'id', 'name'])}
+    {...exclude($$props, ['value', 'defaultSelected'])}
     bind:selectedValue
   />
 </div>
@@ -10,11 +9,19 @@
   import Select from 'svelte-select';
   import { exclude } from 'common/exclude';
 
-  export let value, inputAttributes;
+  export let value, defaultSelected;
 
-  let selectedValue = undefined;
+  let selectedValue = null;
 
-  $: value = selectedValue ? selectedValue.value : null;
+  $: {
+    if (selectedValue) {
+      value = selectedValue.value;
+    } else {
+      value = null;
+    }
+  }
+
+  selectedValue = defaultSelected;
 </script>
 
 <style>

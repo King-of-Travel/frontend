@@ -4,7 +4,7 @@
     <TextField label="Country" id="country">
       <Select
         bind:value="{$dataForm.countryCode}"
-        items="{countries}"
+        items="{Countries}"
         isVirtualList="{true}"
         listAutoWidth="{false}"
         inputAttributes="{{ id: 'country', name: 'country' }}"
@@ -51,12 +51,7 @@
   import Select from 'components/text-field/select.svelte';
   import DatePicker from 'components/text-field/date-picker.svelte';
   import ListErrors from 'components/list-errors.svelte';
-  import AllCountries from 'components/locales/countries/en.json';
-
-  let countries = AllCountries.map(country => ({
-    value: country.code,
-    label: country.name
-  }));
+  import Countries from 'components/locales/countries/en.json';
 
   let errors = {};
 

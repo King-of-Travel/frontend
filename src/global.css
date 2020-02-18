@@ -14,7 +14,7 @@
   --base-hover: #e8e1f1;
   --base-focus: 0 0 0 3px var(--base-accent);
   --base-disabled: rgba(150, 133, 173, 0.8);
-  --base-box-shadow: 0 0px 30px 0 rgba(31, 31, 31, 0.2);
+  --base-box-shadow: 0 0px 10px 0 rgba(31, 31, 31, 0.15);
   --base-gradient: linear-gradient(
     90deg,
     var(--base-light-accent),

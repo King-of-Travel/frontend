@@ -1,3 +1,7 @@
+article h1 {
+  padding: 7.5px 0;
+}
+
 article :global(.block:not(:last-child)) {
   padding-bottom: 15px;
 }

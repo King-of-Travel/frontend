@@ -8,11 +8,36 @@
   stroke-width="2"
   stroke-linecap="round"
 >
-  <slot />
+  {#if name}
+    <svelte:component this="{icons[name]}" />
+  {:else}
+    <slot />
+  {/if}
 </svg>
 
 <script>
-  export let size = 24,
+  import heart from 'components/icons/heart.svelte';
+  import settings from 'components/icons/settings.svelte';
+  import check from 'components/icons/check.svelte';
+  import chevronDown from 'components/icons/chevron-down.svelte';
+  import chevronUp from 'components/icons/chevron-up.svelte';
+  import loader from 'components/icons/loader.svelte';
+  import share from 'components/icons/share.svelte';
+  import x from 'components/icons/x.svelte';
+
+  export let name = '',
+    size = 24,
     color = 'currentColor',
     viewBox = '0 0 24 24';
+
+  let icons = {
+    'chevron-up': chevronUp,
+    'chevron-down': chevronDown,
+    heart,
+    settings,
+    check,
+    loader,
+    share,
+    x
+  };
 </script>

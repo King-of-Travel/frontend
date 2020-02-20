@@ -1,8 +1,6 @@
 {#if show}
   <button on:click="{share}" class="button share">
-    <Icon size="18">
-      <ShareIcon />
-    </Icon>
+    <Icon name="share" size="18" />
   </button>
 {/if}
 
@@ -11,7 +9,6 @@
   import { onMount } from 'svelte';
 
   import Icon from 'components/icon.svelte';
-  import ShareIcon from 'components/icons/share.svelte';
 
   let { title } = getContext('article');
 

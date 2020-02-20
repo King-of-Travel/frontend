@@ -5,9 +5,7 @@
 
   {#if isLoading}
     <div class="loader" title="Download articles. Please wait">
-      <Icon>
-        <LoaderIcon />
-      </Icon>
+      <Icon name="loader" />
     </div>
   {/if}
 </div>
@@ -18,7 +16,6 @@
 
   import ArticlePreview from 'components/article/preview.svelte';
   import Icon from 'components/icon.svelte';
-  import LoaderIcon from 'components/icons/loader.svelte';
 
   export let articles = [],
     requestConfig;

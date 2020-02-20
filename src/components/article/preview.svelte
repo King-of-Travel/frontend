@@ -17,9 +17,7 @@
       </div>
       <div class="right-block">
         <span class="likes" title="Article likes">
-          <Icon size="15">
-            <HeartIcon />
-          </Icon>
+          <Icon name="heart" size="15" />
           {article.likes || 0}
         </span>
       </div>
@@ -31,7 +29,6 @@
   import { articleCreatedAt } from 'date-formatting.js';
 
   import Icon from 'components/icon.svelte';
-  import HeartIcon from 'components/icons/heart.svelte';
 
   export let article, className;
   export { className as class };

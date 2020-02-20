@@ -5,9 +5,7 @@
   class:active="{likes.currentUserRating}"
   class="button"
 >
-  <Icon size="19">
-    <HeartIcon />
-  </Icon>
+  <Icon name="heart" size="19" />
   <span>{likes.count}</span>
 </button>
 
@@ -17,7 +15,6 @@
   import { request } from 'api.js';
 
   import Icon from 'components/icon.svelte';
-  import HeartIcon from 'components/icons/heart.svelte';
 
   let { likes, id: articleId } = getContext('article');
 

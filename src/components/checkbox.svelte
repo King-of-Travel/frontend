@@ -3,9 +3,7 @@
   <label for="{id}" tabindex="0" use:enter="{keystroke}">
     <i>
       {#if checked}
-        <Icon size="16">
-          <CheckIcon />
-        </Icon>
+        <Icon name="check" size="16" />
       {/if}
     </i>
     {label}
@@ -13,7 +11,6 @@
 </span>
 
 <script>
-  import CheckIcon from './icons/check.svelte';
   import Icon from './icon.svelte';
 
   export let checked, id, name, label;

@@ -58,9 +58,7 @@
       class="button button__open-settings"
       title="Article settings"
     >
-      <Icon size="17">
-        <SettingsIcon />
-      </Icon>
+      <Icon name="settings" size="17" />
     </button>
   </div>
 </form>
@@ -74,7 +72,6 @@
   import Select from 'components/text-field/select.svelte';
   import Countries from 'components/locales/countries/en.json';
   import Icon from 'components/icon.svelte';
-  import SettingsIcon from 'components/icons/settings.svelte';
   import Tags from './tags.svelte';
 
   export let defaultArticle = {};

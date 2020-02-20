@@ -9,9 +9,7 @@
   >
     <span>
       Menu
-      <Icon size="18">
-        <ChevronUp />
-      </Icon>
+      <Icon name="chevron-up" size="18" />
     </span>
   </button>
 {/if}
@@ -28,9 +26,7 @@
     <button aria-label="Close navigation">
       <span>
         Close
-        <Icon size="18">
-          <ChevronDown />
-        </Icon>
+        <Icon name="chevron-up" size="18" />
       </span>
     </button>
   </div>
@@ -44,8 +40,6 @@
 
   import CardMenu from 'components/card-menu.svelte';
   import Icon from 'components/icon.svelte';
-  import ChevronUp from 'components/icons/chevron-up.svelte';
-  import ChevronDown from 'components/icons/chevron-down.svelte';
   import Navigation from './mobile-navigation.svelte';
 
   let isOpenNavigation = false;

@@ -41,6 +41,10 @@
           />
         </TextField>
       </div>
+
+      <div class="form_group">
+        <Tags bind:tags="{article.tags}" />
+      </div>
     </div>
   {/if}
 
@@ -71,19 +75,23 @@
   import Countries from 'components/locales/countries/en.json';
   import Icon from 'components/icon.svelte';
   import SettingsIcon from 'components/icons/settings.svelte';
+  import Tags from './tags.svelte';
 
-  export let defaultArticle = {
+  export let defaultArticle = {};
+
+  let article = {
     title: '',
     body: [],
     countryCode: null,
-    city: null
+    city: null,
+    tags: [],
+    ...defaultArticle
   };
 
-  let article = defaultArticle,
-    isNewArticle = article.title ? false : true,
+  let isNewArticle = article.title ? false : true,
     defaultCountryCode =
-      defaultArticle.countryCode &&
-      Countries.find(country => country.value === defaultArticle.countryCode);
+      article.countryCode &&
+      Countries.find(country => country.value === article.countryCode);
 
   $: isFormValid = article.title.length >= 3;
 
@@ -92,12 +100,12 @@
   let isSettingsOpen = false;
 
   onMount(async () => {
-    let { createEditor } = await import('./_editor.js');
+    let { createEditor } = await import('./editor.js');
 
     editor = createEditor({
       holder: 'editorjs',
       config: {
-        data: { blocks: defaultArticle.body }
+        data: { blocks: article.body }
       }
     });
   });
@@ -129,14 +137,14 @@
 
   function focusEditorPressEnter(e) {
     if (e.keyCode === 13) {
-      editor.focus();
       e.preventDefault();
+      editor.focus();
     }
   }
 </script>
 
 <style>
-  @import './_editor.css';
+  @import './editor.css';
 
   .editor {
     position: relative;

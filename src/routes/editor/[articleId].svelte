@@ -23,7 +23,7 @@
 </script>
 
 <script>
-  import Form from './_form.svelte';
+  import Form from './_form/index.svelte';
 
   export let article;
 </script>

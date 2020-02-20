@@ -6,24 +6,25 @@
   <section>
     <article>
       <header>
-        <div class="left-block">
-          <div class="article-author">
-            <a
-              href="/users/{article.user.username}"
-              rel="prefetch"
-              title="Posted by"
-              class="link"
-            >
-              {isCurrentUserAuthor ? 'You' : article.user.username}
-            </a>
+        <div class="article-information">
+          <a
+            href="/users/{article.user.username}"
+            rel="prefetch"
+            title="Posted by"
+            class="link"
+          >
+            {isCurrentUserAuthor ? 'You' : article.user.username}
+          </a>
 
-            <span title="Publication date" class="created-date">
-              {@html articleCreatedAt(article.createdAt)}
-            </span>
-          </div>
+          <span
+            title="Publication date"
+            class="article-information__created-date"
+          >
+            {@html articleCreatedAt(article.createdAt)}
+          </span>
 
           {#if article.countryCode}
-            <div class="article-place">
+            <div class="article-information__place">
               <span class="country">
                 Country: {Countries.find(country => country.value === article.countryCode).label}
               </span>
@@ -35,7 +36,7 @@
           {/if}
         </div>
 
-        <div class="right-block">
+        <div class="article-management">
           {#if isCurrentUserAuthor}
             <a
               href="/editor/{article.id}"
@@ -56,11 +57,20 @@
     </article>
 
     <footer>
-      <div class="left-block">
+      <div class="article-meta">
         <Share />
+        {#if article.tags.length}
+          <div class="tag-list">
+            {#each article.tags as tag, i}
+              <a rel="prefetch" href="tag/{tag.value}" class="tag">
+                {tag.value}
+              </a>
+            {/each}
+          </div>
+        {/if}
       </div>
 
-      <div class="right-block">
+      <div class="article-likes">
         <Likes />
       </div>
     </footer>
@@ -119,34 +129,53 @@
     color: var(--base-gray);
   }
 
-  .article-author .created-date {
+  .article-information__created-date {
     margin-left: 5px;
     text-transform: lowercase;
   }
 
-  .article-place {
+  .article-information__place {
     margin-top: 5px;
   }
 
-  .right-block {
+  .article-management {
     text-align: end;
   }
 
-  .right-block .edit {
+  .article-management .button {
     padding: 5px 10px;
     border: var(--base-border-w) solid var(--base-border);
     background: transparent;
   }
 
-  .right-block .edit:focus,
-  .edit:hover {
+  .article-management .button:focus,
+  .article-management .button:hover {
     background-color: var(--base-hover);
     border-color: var(--base-hover);
   }
 
   footer {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr auto;
+    grid-gap: 15px;
+    align-items: center;
     margin-top: 15px;
+  }
+
+  .article-meta {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: start;
+    align-items: center;
+  }
+
+  .tag {
+    display: inline-block;
+    background-color: transparent;
+  }
+
+  .tag:focus,
+  .tag:hover {
+    background-color: var(--base-hover);
   }
 </style>

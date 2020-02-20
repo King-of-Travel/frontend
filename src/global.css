@@ -370,3 +370,26 @@ input:focus,
 input:hover {
   border-color: var(--base-light-accent);
 }
+
+/*  tag ------------------------------------ */
+.tag {
+  padding: 2px 5px;
+  font-size: var(--base-h5);
+  font-weight: 600;
+  background-color: var(--base-accent);
+  border-radius: var(--base-border-r);
+  color: var(--base-text);
+  cursor: pointer;
+}
+
+.tag::before {
+  content: '#';
+  margin-right: 2px;
+  font-size: var(--base-h6);
+  font-weight: 400;
+}
+
+a.tag:focus,
+a.tag:hover {
+  background-color: var(--base-hover);
+}

@@ -45,24 +45,18 @@
 
 <style>
   button {
+    --background: transparent;
+    --background-hover: var(--base-light-accent);
+    --background-hover-color-text: var(--base-text);
+    --background-disabled: transparent;
     display: inline-flex;
     align-items: center;
     padding: 10px;
-    background: transparent;
   }
 
   button.active {
-    color: #6c9007;
-  }
-
-  button:focus,
-  button:hover {
-    background: var(--base-light-accent);
-    color: var(--base-text);
-  }
-
-  button:disabled {
-    background: transparent;
+    --color-text: #6c9007;
+    --color-text-hover: var(--base-text);
   }
 
   span {

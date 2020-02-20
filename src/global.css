@@ -284,12 +284,17 @@ button,
 
 button:not([class]),
 .button {
+  --color-text: var(--base-text);
+  --color-text-hover: var(--color-text);
+  --background: var(--base-gradient);
+  --background-hover: var(--base-light-accent);
+  --background-disabled: var(--base-disabled);
   display: inline-block;
   padding: 10px 20px;
-  background: var(--base-gradient);
+  background: var(--background);
   border: none;
   border-radius: var(--base-border-r);
-  color: var(--base-text);
+  color: var(--color-text);
   font-weight: 700;
   text-decoration: none;
   cursor: pointer;
@@ -297,7 +302,8 @@ button:not([class]),
 
 button:not([class]):hover,
 .button:hover {
-  background: var(--base-light-accent);
+  background: var(--background-hover);
+  color: var(--color-text-hover);
 }
 
 button:not([class]):active,
@@ -308,8 +314,27 @@ button:not([class]):active,
 button:not([class]):disabled,
 .button:disabled,
 .button.disabled {
-  background: var(--base-disabled);
+  background: var(--background-disabled);
   cursor: not-allowed;
+}
+
+button.outlined,
+.button.outlined {
+  --background: transparent;
+  --background-hover: var(--base-hover);
+  border: var(--base-border-w) solid var(--base-border);
+}
+
+button.outlined:focus,
+button.outlined:hover,
+.button.outlined:focus,
+.button.outlined:hover {
+  border-color: var(--base-hover);
+}
+
+button.outlined:disabled,
+.button.outlined.disabled {
+  border-color: var(--background-disabled);
 }
 
 /*	form ----------------------------------- */
@@ -359,6 +384,7 @@ a.link:hover {
 
 /*  inputs --------------------------------- */
 input {
+  --border-color-hover: var(--base-light-accent);
   width: 100%;
   position: relative;
   padding: 5px 10px;
@@ -368,7 +394,7 @@ input {
 
 input:focus,
 input:hover {
-  border-color: var(--base-light-accent);
+  border-color: var(--border-color-hover);
 }
 
 /*  tag ------------------------------------ */

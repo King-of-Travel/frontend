@@ -41,7 +41,7 @@
             <a
               href="/editor/{article.id}"
               rel="prefetch"
-              class="button edit"
+              class="button outlined edit"
               title="Edit article"
             >
               Edit
@@ -144,14 +144,6 @@
 
   .article-management .button {
     padding: 5px 10px;
-    border: var(--base-border-w) solid var(--base-border);
-    background: transparent;
-  }
-
-  .article-management .button:focus,
-  .article-management .button:hover {
-    background-color: var(--base-hover);
-    border-color: var(--base-hover);
   }
 
   footer {

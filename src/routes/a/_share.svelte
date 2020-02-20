@@ -28,10 +28,10 @@
 
 <style>
   button {
+    --background: transparent;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: 10px;
-    background: transparent;
   }
 </style>

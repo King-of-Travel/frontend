@@ -4,7 +4,7 @@
       <a
         class:active="{tab === 'articles'}"
         tabindex="{tab === 'articles' ? -1 : 0}"
-        class="button"
+        class="button outlined"
         href="/"
       >
         Articles
@@ -42,18 +42,13 @@
     display: inline-block;
   }
 
-  a {
+  .button {
     margin-bottom: calc(var(--base-border-w) * -1);
-    background: none;
+    border: none;
     border-radius: 0;
   }
 
-  a:focus,
-  a:hover {
-    background-color: var(--base-hover);
-  }
-
-  a.active {
+  .button.active {
     pointer-events: none;
     border-bottom: var(--base-border-w) solid var(--base-accent);
   }

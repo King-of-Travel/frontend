@@ -19,7 +19,7 @@
 
     <div class="right-block">
       {#if isCurrentUserProfile}
-        <a href="/settings" rel="prefetch" class="button">Settings</a>
+        <a href="/settings" rel="prefetch" class="button outlined">Settings</a>
       {/if}
     </div>
   </header>
@@ -110,13 +110,5 @@
   .right-block .button {
     padding: 5px 10px;
     font-size: var(--base-h6);
-    border: var(--base-border-w) solid var(--base-border);
-    background: transparent;
-  }
-
-  .right-block .button:focus,
-  .button:hover {
-    background-color: var(--base-hover);
-    border-color: var(--base-hover);
   }
 </style>

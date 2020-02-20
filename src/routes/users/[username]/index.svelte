@@ -77,7 +77,7 @@
     display: grid;
     grid-template-rows: min-content min-content;
     grid-gap: 20px;
-    max-width: 700px;
+    max-width: 900px;
     width: 100%;
     margin: 0 auto;
   }

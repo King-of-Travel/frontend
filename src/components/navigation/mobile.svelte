@@ -97,6 +97,7 @@
     border-top: 1px solid var(--base-border);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    will-change: transform;
   }
 
   @media (--mobile) {

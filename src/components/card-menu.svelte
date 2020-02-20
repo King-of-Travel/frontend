@@ -1,7 +1,7 @@
 {#if isOpen}
   <div
     bind:this="{contentElement}"
-    transition:fly="{{ y: contentElement.offsetHeight, duration: 300 }}"
+    transition:fly="{{ y: contentElement.offsetHeight, duration: 200 }}"
     class="content"
   >
     <header on:click|stopPropagation="{closeCard}" class="{headerClass}">
@@ -12,7 +12,7 @@
 
   <div
     on:click="{closeCard}"
-    transition:fade="{{ duration: 100 }}"
+    transition:fade="{{ duration: 200 }}"
     class="background"
   ></div>
 {/if}

@@ -21,9 +21,9 @@
   import ArticleFilters from './article-filters.svelte';
 
   export let tab = 'articles',
-    filterCategory,
-    filterPeriodTop,
-    filterRatingNew;
+    filterCategory = 'top',
+    filterPeriodTop = 'day',
+    filterRatingNew = 0;
 </script>
 
 <style>

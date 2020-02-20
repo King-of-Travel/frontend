@@ -109,9 +109,7 @@
 </nav>
 
 <script>
-  export let filterCategory = 'top',
-    filterPeriodTop = 'day',
-    filterRatingNew = 0;
+  export let filterCategory, filterPeriodTop, filterRatingNew;
 </script>
 
 <style>

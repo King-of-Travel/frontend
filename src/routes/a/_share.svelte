@@ -1,5 +1,9 @@
 {#if show}
-  <button on:click="{share}" class="button share">
+  <button
+    on:click="{share}"
+    class="button share"
+    title="Share an article on social networks, managers, etc."
+  >
     <Icon name="share" size="18" />
   </button>
 {/if}

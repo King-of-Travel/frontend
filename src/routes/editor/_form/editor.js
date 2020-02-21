@@ -3,6 +3,7 @@ import header from '@editorjs/header';
 import table from '@editorjs/table';
 import marker from '@editorjs/marker';
 import list from '@editorjs/list';
+import images from '@editorjs/image';
 
 class customHeader extends header {
   get levels() {
@@ -26,6 +27,14 @@ function createEditor({ holder, config }) {
       marker: {
         class: marker,
         shortcut: 'CMD+SHIFT+M'
+      },
+      image: {
+        class: images,
+        config: {
+          endpoints: {
+            byFile: '/api/article/image'
+          }
+        }
       },
       table,
       list

@@ -1,5 +1,5 @@
 article h1 {
-  padding: 7.5px 0;
+  padding: 8px 0 15px;
 }
 
 article :global(.block:not(:last-child)) {
@@ -47,4 +47,24 @@ article :global(tr:last-child td) {
 
 article :global(tr td:last-child) {
   border-right: none;
+}
+
+article :global(img) {
+  border-radius: var(--base-border-r);
+}
+
+article :global(img.border) {
+  border: var(--base-border-w) solid var(--base-border);
+}
+
+article :global(img.stretched) {
+  width: 100%;
+}
+
+article :global(img.background) {
+  display: block;
+  max-width: 60%;
+  margin: 0 auto;
+  padding: 15px;
+  background: var(--base-light-accent);
 }

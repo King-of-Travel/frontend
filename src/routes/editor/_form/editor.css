@@ -3,8 +3,16 @@
   cursor: text;
 }
 
-.editor__container :global(.ce-block__content, .ce-toolbar__content) {
+.editor__container :global(.ce-block__content) {
   max-width: var(--editor-width);
+}
+
+.editor__container :global(.ce-toolbar__content) {
+  max-width: 100%;
+}
+
+.editor__container :global(.ce-settings) {
+  box-sizing: content-box;
 }
 
 .editor__container :global(.ce-block:not(:last-child)) {
@@ -27,4 +35,40 @@
 
 .editor__container :global(.tc-table__wrap) {
   border-radius: var(--base-border-r);
+}
+
+.editor__container :global(mark) {
+  padding: 0 3px;
+  background: var(--base-light-accent);
+}
+
+.editor__container
+  :global(.image-tool__image, .cdx-block.image-tool--withBorder
+    .image-tool__image-picture) {
+  border-radius: var(--base-border-r);
+}
+
+.editor__container :global(.image-tool--withBorder .image-tool__image) {
+  border: none;
+}
+
+.editor__container :global(.image-tool--withBorder .image-tool__image-picture) {
+  border: var(--base-border-w) solid var(--base-border);
+}
+
+.editor__container
+  :global(.cdx-block.image-tool--withBorder > .image-tool__image) {
+  border-radius: 0;
+}
+
+.editor__container :global(.image-tool--withBackground .image-tool__image) {
+  padding: 0;
+  background: none;
+}
+
+.editor__container
+  :global(.image-tool--withBackground .image-tool__image-picture) {
+  padding: 15px;
+  border-radius: var(--base-border-r);
+  background: var(--base-light-accent);
 }

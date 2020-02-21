@@ -14,7 +14,7 @@
   main {
     width: 100%;
     max-width: 900px;
-    --editor-padding: 15px 30px;
-    --editor-width: calc(100% - 30px * 2);
+    --editor-padding: 20px;
+    --editor-width: calc(100% - 20px * 2);
   }
 </style>

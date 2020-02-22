@@ -1,10 +1,10 @@
 <form on:submit|preventDefault="{handleSubmit}" class="form">
   <div class="form_group editor">
     <textarea
+      use:changeHeight
       on:keypress="{focusEditorPressEnter}"
       bind:value="{article.title}"
-      on:input="{changeHeaderHeight}"
-      placeholder="{isNewArticle ? 'My trip to Moscow' : defaultArticle.title}"
+      placeholder="My trip to Moscow"
       rows="1"
       minlength="3"
       maxlength="120"
@@ -107,9 +107,21 @@
     });
   });
 
-  function changeHeaderHeight(element) {
-    element.target.style.height = '5px';
-    element.target.style.height = element.target.scrollHeight + 'px';
+  function changeHeight(element) {
+    function change() {
+      element.style.height = 'auto';
+      element.style.height = element.scrollHeight + 'px';
+    }
+
+    change();
+
+    element.addEventListener('input', change);
+
+    return {
+      destroy() {
+        element.removeEventListener('input', change);
+      }
+    };
   }
 
   async function handleSubmit() {
@@ -157,6 +169,10 @@
     font-size: var(--base-h1);
     resize: none;
     overflow: hidden;
+  }
+
+  textarea::-webkit-input-placeholder {
+    line-height: normal;
   }
 
   .settings-block {

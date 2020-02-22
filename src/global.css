@@ -322,14 +322,16 @@ button.outlined,
 .button.outlined {
   --background: transparent;
   --background-hover: var(--base-hover);
-  border: var(--base-border-w) solid var(--base-border);
+  --border: var(--base-border-w) solid var(--base-border);
+  --border-color-hover: var(--base-hover);
+  border: var(--border);
 }
 
 button.outlined:focus,
 button.outlined:hover,
 .button.outlined:focus,
 .button.outlined:hover {
-  border-color: var(--base-hover);
+  border-color: var(--border-color-hover);
 }
 
 button.outlined:disabled,

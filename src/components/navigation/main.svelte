@@ -42,9 +42,9 @@
     display: inline-block;
   }
 
-  .button {
+  .button.outlined {
+    --border: none;
     margin-bottom: calc(var(--base-border-w) * -1);
-    border: none;
     border-radius: 0;
   }
 

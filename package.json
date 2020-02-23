@@ -84,7 +84,6 @@
     "svelte": "^3.18.2",
     "svelte-infinite-scroll": "^0.1.1",
     "svelte-preprocess": "^3.4.0",
-    "svelte-select": "^3.3.7",
-    "svelte-tabs": "^1.1.0"
+    "svelte-select": "^3.3.7"
   }
 }

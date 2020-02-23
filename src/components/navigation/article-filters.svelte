@@ -1,4 +1,4 @@
-<nav title="Article filters">
+<LayoutFilters title="Article filters">
   <ul>
     <li>
       <a
@@ -106,48 +106,10 @@
       </li>
     {/if}
   </ul>
-</nav>
+</LayoutFilters>
 
 <script>
+  import LayoutFilters from './layout-filters.svelte';
+
   export let filterCategory, filterPeriodTop, filterRatingNew;
 </script>
-
-<style>
-  nav {
-    margin-bottom: 15px;
-  }
-
-  ul {
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    overflow: hidden;
-    /* Indent between inline elements */
-    font-size: 0;
-    border: var(--base-border-w) solid var(--base-accent);
-    border-radius: var(--base-border-r);
-  }
-
-  ul:first-child {
-    margin-right: 20px;
-  }
-
-  li {
-    display: inline-block;
-  }
-
-  a {
-    display: block;
-    padding: 10px;
-    font-size: var(--base-h5);
-    font-weight: 600;
-    color: var(--base-text);
-  }
-
-  a.active {
-    pointer-events: none;
-    background-color: var(--base-accent);
-    cursor: default;
-  }
-</style>

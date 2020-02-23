@@ -8,7 +8,7 @@
   import { onMount } from 'svelte';
 
   import Desktop from './desktop.svelte';
-  import Mobile from 'components/navigation/mobile.svelte';
+  import Mobile from 'components/mobile-menu.svelte';
 
   let isDesktopVersion = true;
 

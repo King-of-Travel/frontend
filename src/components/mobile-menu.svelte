@@ -40,7 +40,7 @@
 
   import CardMenu from 'components/card-menu.svelte';
   import Icon from 'components/icon.svelte';
-  import Navigation from './mobile-navigation.svelte';
+  import Navigation from 'components/navigation/mobile-navigation.svelte';
 
   let isOpenNavigation = false;
 

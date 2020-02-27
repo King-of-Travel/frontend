@@ -421,3 +421,10 @@ a.tag:focus,
 a.tag:hover {
   background-color: var(--base-hover);
 }
+
+/*  hr ------------------------------------- */
+hr {
+  border: none;
+  height: 1px;
+  background: var(--base-border);
+}

@@ -68,6 +68,6 @@
       return;
     }
 
-    goto('/profile');
+    goto('/profile/trips');
   }
 </script>

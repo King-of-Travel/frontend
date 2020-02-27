@@ -46,19 +46,22 @@
 </script>
 
 <script>
-  import { articleCreatedAt } from 'date-formatting';
+  import { setContext } from 'svelte';
 
+  import { articleCreatedAt } from 'date-formatting';
   import { user } from './_stores.js';
 
   export let userData, isCurrentUserProfile;
 
   user.set(userData);
+
+  setContext('baseUserHref', `users/${$user.username}`);
 </script>
 
 <style>
   main {
     display: grid;
-    grid-template-rows: auto auto;
+    grid-template-rows: repeat(2, max-content);
     grid-gap: 20px;
     max-width: 900px;
     width: 100%;

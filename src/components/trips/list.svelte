@@ -1,7 +1,7 @@
 <svelte:options immutable="{true}" />
 
 <div bind:this="{containerElement}" class="container" role="feed">
-  {#each trips as trip, i}
+  {#each trips as trip (trip.id)}
     <slot {trip} />
   {/each}
 

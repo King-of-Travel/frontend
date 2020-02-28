@@ -24,6 +24,7 @@
   import loader from 'components/icons/loader.svelte';
   import share from 'components/icons/share.svelte';
   import x from 'components/icons/x.svelte';
+  import trash from 'components/icons/trash.svelte';
 
   export let name = '',
     size = 24,
@@ -38,6 +39,7 @@
     check,
     loader,
     share,
-    x
+    x,
+    trash
   };
 </script>

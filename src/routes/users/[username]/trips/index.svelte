@@ -2,15 +2,7 @@
   <title>Profile: {$user.username} / Future trips</title>
 </svelte:head>
 
-<MainNavigation tab="trips" />
-<TripFilters time="future" />
-<TripList
-  bind:trips
-  requestConfig="{{ path: 'user/trips', query: `username=${$user.username}&time=future` }}"
-  let:trip
->
-  <TripItem {trip} />
-</TripList>
+<MainContent time="future" />
 
 <script context="module">
   export async function preload(page) {
@@ -20,20 +12,20 @@
       `/api/user/trips?username=${username}&time=future&limit=10`
     );
 
-    let trips = await getTrips.json();
+    let defaultTrips = await getTrips.json();
 
     return {
-      trips
+      defaultTrips
     };
   }
 </script>
 
 <script>
-  import MainNavigation from '../_navigation.svelte';
-  import TripFilters from './_filters.svelte';
-  import TripList from 'components/trips/list.svelte';
-  import TripItem from 'components/trips/item.svelte';
+  import MainContent from './_main-content.svelte';
   import { user } from '../_stores.js';
+  import { trips } from './_stores.js';
 
-  export let trips;
+  export let defaultTrips;
+
+  trips.set(defaultTrips);
 </script>

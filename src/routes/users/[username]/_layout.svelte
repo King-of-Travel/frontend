@@ -56,6 +56,7 @@
   user.set(userData);
 
   setContext('baseUserHref', `users/${$user.username}`);
+  setContext('isCurrentUserProfile', isCurrentUserProfile);
 </script>
 
 <style>

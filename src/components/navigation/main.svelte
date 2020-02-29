@@ -1,15 +1,8 @@
-<MainLayout>
-  <li>
-    <a
-      class:active="{tab === 'articles'}"
-      tabindex="{tab === 'articles' ? -1 : 0}"
-      class="button outlined"
-      href="/"
-    >
-      Articles
-    </a>
-  </li>
-</MainLayout>
+<nav>
+  <Tabs>
+    <TabItem isActive="{tab === 'articles'}" href="/">Articles</TabItem>
+  </Tabs>
+</nav>
 
 {#if tab === 'articles'}
   <ArticleFilters {filterCategory} {filterPeriodTop} {filterRatingNew} />
@@ -17,7 +10,8 @@
 
 <script>
   import ArticleFilters from './article-filters.svelte';
-  import MainLayout from './main-layout.svelte';
+  import Tabs from 'components/tabs/index.svelte';
+  import TabItem from 'components/tabs/item-link.svelte';
 
   export let tab = 'articles',
     filterCategory = 'top',

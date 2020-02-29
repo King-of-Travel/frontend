@@ -1,30 +1,19 @@
-<LayoutNavigation class="layout-navigation__container">
-  <li>
-    <a
-      class:active="{tab === 'articles'}"
-      tabindex="{tab === 'articles' ? -1 : 0}"
-      class="button outlined"
-      href="{baseUserHref}"
-    >
+<nav>
+  <Tabs class="layout-navigation__container">
+    <TabItem isActive="{tab === 'articles'}" href="{baseUserHref}">
       Articles
-    </a>
-  </li>
-  <li>
-    <a
-      class:active="{tab === 'trips'}"
-      tabindex="{tab === 'trips' ? -1 : 0}"
-      class="button outlined"
-      href="{baseUserHref}/trips"
-    >
+    </TabItem>
+    <TabItem isActive="{tab === 'trips'}" href="{baseUserHref}/trips">
       Trips
-    </a>
-  </li>
-</LayoutNavigation>
+    </TabItem>
+  </Tabs>
+</nav>
 
 <script>
   import { getContext } from 'svelte';
 
-  import LayoutNavigation from 'components/navigation/main-layout.svelte';
+  import Tabs from 'components/tabs/index.svelte';
+  import TabItem from 'components/tabs/item-link.svelte';
 
   export let tab = 'articles';
 

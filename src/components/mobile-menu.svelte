@@ -17,7 +17,6 @@
 <CardMenu bind:isOpen="{isOpenNavigation}" on:close="{openingOrClosingCard}">
   <div slot="header" class="header">
     <img
-      slot="header"
       src="images/logo-64.png"
       alt="King of Travel Logotype"
       height="32"

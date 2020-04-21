@@ -63,7 +63,7 @@
   main {
     display: grid;
     grid-template-rows: repeat(2, max-content);
-    grid-gap: 20px;
+    gap: 20px;
     max-width: 900px;
     width: 100%;
     margin: 0 auto;
@@ -72,7 +72,7 @@
   header {
     display: grid;
     grid-template-columns: repeat(2, auto);
-    grid-gap: 15px;
+    gap: 15px;
   }
 
   .left-block > h1 {

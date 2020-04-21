@@ -55,7 +55,7 @@
   .meta {
     display: grid;
     grid-template-columns: repeat(2, auto);
-    grid-gap: 15px;
+    gap: 15px;
     align-items: center;
     margin-top: 10px;
     font-size: var(--base-h6);

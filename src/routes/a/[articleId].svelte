@@ -124,7 +124,7 @@
   header {
     display: grid;
     grid-template-columns: repeat(2, auto);
-    grid-gap: 15px;
+    gap: 15px;
     font-size: var(--base-h6);
     color: var(--base-gray);
   }
@@ -149,7 +149,7 @@
   footer {
     display: grid;
     grid-template-columns: 1fr auto;
-    grid-gap: 15px;
+    gap: 15px;
     align-items: center;
     margin-top: 15px;
   }

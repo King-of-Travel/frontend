@@ -72,7 +72,7 @@
 <style>
   .container {
     display: grid;
-    grid-gap: 15px;
+    gap: 15px;
   }
 
   .loader {

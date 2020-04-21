@@ -68,7 +68,7 @@
   article {
     display: grid;
     grid-template-rows: repeat(2, auto);
-    grid-gap: 6px;
+    gap: 6px;
     position: relative;
     padding: 15px;
     font-size: var(--base-h5);

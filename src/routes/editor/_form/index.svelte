@@ -187,7 +187,7 @@
   .form_buttons {
     display: grid;
     grid-template-columns: repeat(2, min-content);
-    grid-gap: 10px;
+    gap: 10px;
     justify-content: center;
     margin-top: 20px;
   }

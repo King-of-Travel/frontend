@@ -66,20 +66,20 @@
 
 <style>
   article {
+    position: relative;
     display: grid;
     grid-template-rows: repeat(2, auto);
     gap: 6px;
-    position: relative;
     padding: 15px;
+    overflow: hidden;
     font-size: var(--base-h5);
     border: var(--base-border-w) solid var(--base-border);
     border-radius: var(--base-border-r);
-    overflow: hidden;
   }
 
   hr {
-    max-width: 200px;
     width: 100%;
+    max-width: 200px;
   }
 
   .meta .created {

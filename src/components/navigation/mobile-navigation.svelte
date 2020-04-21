@@ -65,7 +65,7 @@
   }
 
   button {
-    border: none;
     text-align: left;
+    border: none;
   }
 </style>

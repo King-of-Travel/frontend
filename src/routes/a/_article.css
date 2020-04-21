@@ -2,35 +2,47 @@ article h1 {
   padding: 8px 0 15px;
 }
 
-article :global(.block:not(:last-child)) {
-  padding-bottom: 15px;
-}
-
-article :global(.table-wrap) {
-  border-radius: var(--base-border-r);
-  border: 1px solid var(--base-border);
-}
-
 article :global(h2, h3, h4, h5, h6) {
   margin: 10px 0 0;
-}
-
-article :global(.block:nth-child(2) h2, h3, h4, h5, h6) {
-  margin-top: 0;
 }
 
 article :global(table) {
   width: 100%;
   height: 100%;
-  border-collapse: collapse;
   table-layout: fixed;
+  border-collapse: collapse;
 }
 
 article :global(td) {
   padding: 10px;
-  vertical-align: top;
   word-break: break-all;
+  vertical-align: top;
   border: 1px solid var(--base-border);
+}
+
+article :global(img) {
+  border-radius: var(--base-border-r);
+}
+
+article :global(.table-wrap) {
+  border: 1px solid var(--base-border);
+  border-radius: var(--base-border-r);
+}
+
+article :global(img.border) {
+  border: var(--base-border-w) solid var(--base-border);
+}
+
+article :global(img.stretched) {
+  width: 100%;
+}
+
+article :global(img.background) {
+  display: block;
+  max-width: 60%;
+  padding: 15px;
+  margin: 0 auto;
+  background: var(--base-light-accent);
 }
 
 article :global(tr td:first-child) {
@@ -49,22 +61,10 @@ article :global(tr td:last-child) {
   border-right: none;
 }
 
-article :global(img) {
-  border-radius: var(--base-border-r);
+article :global(.block:not(:last-child)) {
+  padding-bottom: 15px;
 }
 
-article :global(img.border) {
-  border: var(--base-border-w) solid var(--base-border);
-}
-
-article :global(img.stretched) {
-  width: 100%;
-}
-
-article :global(img.background) {
-  display: block;
-  max-width: 60%;
-  margin: 0 auto;
-  padding: 15px;
-  background: var(--base-light-accent);
+article :global(.block:nth-child(2) h2, h3, h4, h5, h6) {
+  margin-top: 0;
 }

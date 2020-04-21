@@ -164,11 +164,10 @@
   textarea {
     width: 100%;
     padding: var(--editor-padding);
-    font-weight: 700;
-    border: none;
-    font-size: var(--base-h1);
-    resize: none;
     overflow: hidden;
+    font-weight: 700;
+    resize: none;
+    border: none;
   }
 
   textarea::-webkit-input-placeholder {
@@ -176,12 +175,12 @@
   }
 
   .settings-block {
-    max-width: 400px;
     width: 100%;
-    margin: 30px auto;
+    max-width: 400px;
     padding: 20px;
-    box-shadow: var(--base-box-shadow);
+    margin: 30px auto;
     border-radius: var(--base-border-r);
+    box-shadow: var(--base-box-shadow);
   }
 
   .form_buttons {

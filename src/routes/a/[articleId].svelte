@@ -116,8 +116,8 @@
   @import './_article.css';
 
   main {
-    max-width: 900px;
     width: 100%;
+    max-width: 900px;
     margin: 0 auto;
   }
 
@@ -157,8 +157,8 @@
   .article-meta {
     display: grid;
     grid-template-columns: repeat(2, auto);
-    justify-content: start;
     align-items: center;
+    justify-content: start;
   }
 
   .tag {

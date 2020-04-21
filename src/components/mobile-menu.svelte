@@ -62,16 +62,16 @@
 
 <style>
   button {
+    z-index: 100;
     padding: 0;
     background-color: var(--base-background);
     border: none;
-    z-index: 100;
   }
 
   button > span {
     display: flex;
-    justify-content: flex-end;
     align-items: center;
+    justify-content: flex-end;
   }
 
   button > span :global(svg) {
@@ -79,12 +79,12 @@
   }
 
   button.open-navigation {
-    display: none;
     position: fixed;
     bottom: 0;
     left: 0;
-    height: 50px;
+    display: none;
     width: 100%;
+    height: 50px;
     padding: 0 20px;
     text-align: end;
     border-top: 1px solid var(--base-border);
@@ -102,7 +102,7 @@
   .header {
     display: grid;
     grid-template-columns: 32px auto;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
   }
 </style>

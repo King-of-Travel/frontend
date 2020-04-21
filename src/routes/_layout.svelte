@@ -14,12 +14,12 @@
 
   .layout-container {
     display: grid;
-    grid-template-rows: auto 1fr auto;
-    grid-template-columns: auto;
     grid-template-areas:
       'header'
       'main'
       'footer';
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: auto;
     height: 100%;
   }
 

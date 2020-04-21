@@ -39,10 +39,10 @@
     display: block;
     width: 100%;
     padding: 15px;
-    border: var(--base-border-w) solid var(--base-border);
-    border-radius: var(--base-border-r);
     color: var(--base-title);
     text-decoration: none;
+    border: var(--base-border-w) solid var(--base-border);
+    border-radius: var(--base-border-r);
     transition: all 0.2s;
   }
 

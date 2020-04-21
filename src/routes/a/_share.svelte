@@ -33,6 +33,7 @@
 <style>
   button {
     --background: transparent;
+
     display: inline-flex;
     align-items: center;
     justify-content: center;

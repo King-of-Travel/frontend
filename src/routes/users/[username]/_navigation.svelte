@@ -21,7 +21,7 @@
 </script>
 
 <style>
-  :global(.layout-navigation__container) {
+  :global(.ayout-navigation__container) {
     font-size: var(--base-h5);
   }
 </style>

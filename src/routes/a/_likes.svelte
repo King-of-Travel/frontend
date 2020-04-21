@@ -49,6 +49,7 @@
     --background-hover: var(--base-light-accent);
     --background-hover-color-text: var(--base-text);
     --background-disabled: transparent;
+
     display: inline-flex;
     align-items: center;
     padding: 10px;

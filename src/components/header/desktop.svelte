@@ -59,18 +59,18 @@
   header {
     z-index: 100;
     background-color: var(--base-accent);
-    box-shadow: 0 0 20px 0px var(--base-accent);
+    box-shadow: 0 0 20px 0 var(--base-accent);
   }
 
   header > div {
     display: grid;
     grid-template-columns: 50px 1fr;
-    justify-content: center;
     align-items: center;
-    height: 65px;
+    justify-content: center;
     max-width: 900px;
-    margin: 0 auto;
+    height: 65px;
     padding: 0 15px;
+    margin: 0 auto;
   }
 
   @media (--mobile) {
@@ -81,8 +81,8 @@
 
   .logo {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     height: 100%;
   }
 
@@ -93,15 +93,16 @@
 
   nav {
     display: flex;
-    justify-content: flex-end;
     align-items: center;
+    justify-content: flex-end;
   }
 
   .profile {
     --triangle-opacity: 1;
+
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     height: 30px;
   }
 
@@ -113,14 +114,14 @@
   .profile__triangle {
     display: inline-block;
     margin: 5px 0 0 3px;
-    opacity: var(--triangle-opacity);
     border: 5px solid transparent;
     border-top: 5px solid var(--base-gray);
+    opacity: var(--triangle-opacity);
   }
 
   .button {
-    margin-left: 10px;
     padding: 5px 10px;
+    margin-left: 10px;
     font-weight: 400;
     background: transparent;
   }

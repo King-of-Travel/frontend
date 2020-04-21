@@ -21,7 +21,7 @@
 
 <style>
   main {
-    max-width: 450px;
     width: 100%;
+    max-width: 450px;
   }
 </style>

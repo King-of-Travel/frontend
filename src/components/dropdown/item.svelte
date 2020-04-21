@@ -22,8 +22,8 @@
   a,
   button {
     padding: 10px;
-    color: var(--base-text);
     font-size: var(--base-h5);
+    color: var(--base-text);
   }
 
   a {
@@ -33,9 +33,9 @@
 
   button {
     width: 100%;
+    text-align: left;
     background: transparent;
     border: none;
-    text-align: left;
   }
 
   a:focus,

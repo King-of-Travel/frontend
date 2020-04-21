@@ -40,17 +40,17 @@
 
 <style>
   .container-button {
+    padding: 0;
+    text-align: initial;
     background: transparent;
     border: none;
-    text-align: initial;
-    padding: 0;
   }
 
   .control-menu {
-    display: grid;
     position: absolute;
     top: 0;
     right: 0;
+    display: grid;
     height: 100%;
     box-shadow: var(--base-box-shadow);
   }

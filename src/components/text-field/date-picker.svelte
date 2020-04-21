@@ -17,8 +17,8 @@
   @import './date-picker.css';
 
   input {
-    width: 100%;
     position: relative;
+    width: 100%;
     padding: 5px 10px;
     border: var(--base-border-w) solid var(--base-accent);
     border-radius: var(--base-border-r);

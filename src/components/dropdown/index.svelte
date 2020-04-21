@@ -41,8 +41,8 @@
   }
 
   summary {
-    cursor: pointer;
     list-style: none;
+    cursor: pointer;
   }
 
   summary::-webkit-details-marker {
@@ -52,14 +52,14 @@
   .dropdown {
     position: absolute;
     top: 100%;
-    left: auto;
     right: 0;
-    width: var(--width);
+    left: auto;
     z-index: 100;
-    margin-top: 5px;
+    width: var(--width);
     padding: 10px 0;
+    margin-top: 5px;
     background-color: var(--base-background);
-    box-shadow: var(--base-box-shadow);
     border-radius: var(--base-border-r);
+    box-shadow: var(--base-box-shadow);
   }
 </style>

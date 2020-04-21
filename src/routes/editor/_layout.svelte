@@ -12,9 +12,10 @@
 
 <style>
   main {
-    width: 100%;
-    max-width: 900px;
     --editor-padding: 20px;
     --editor-width: calc(100% - 20px * 2);
+
+    width: 100%;
+    max-width: 900px;
   }
 </style>

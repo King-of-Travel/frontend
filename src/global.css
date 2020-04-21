@@ -1,6 +1,4 @@
-/* 
-* vars
-*/
+/* Vars */
 :root {
   --base-black: #1f1f1f;
   --base-gray: #737373;
@@ -14,12 +12,13 @@
   --base-hover: #e8e1f1;
   --base-focus: 0 0 0 3px var(--base-accent);
   --base-disabled: rgba(150, 133, 173, 0.8);
-  --base-box-shadow: 0 0px 10px 0 rgba(31, 31, 31, 0.15);
-  --base-gradient: linear-gradient(
-    90deg,
-    var(--base-light-accent),
-    var(--base-accent)
-  );
+  --base-box-shadow: 0 0 10px 0 rgba(31, 31, 31, 0.15);
+  --base-gradient:
+    linear-gradient(
+      90deg,
+      var(--base-light-accent),
+      var(--base-accent)
+    );
 
   /* typography */
   --base-unit: 0.8rem;
@@ -46,114 +45,140 @@
 @custom-media --no-mobile (min-width: 941px);
 
 body {
-  --font: 'Open Sans', sans-serif;
-  --font-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  min-height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+  font-size: var(--base-h4);
+  line-height: 1.7;
+  color: var(--base-text);
+  background-color: var(--base-background);
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
 }
 
 /*  fonts ----------------------------- */
 @font-face {
   font-family: 'Open Sans';
-  font-weight: 300;
   font-style: normal;
+  font-weight: 300;
   font-display: swap;
-  src: local('Open Sans Light'), local('OpenSans-Light'),
+  src:
+    local('Open Sans Light'),
+    local('OpenSans-Light'),
     url('/fonts/open-sans-300.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Open Sans';
-  font-weight: 300;
   font-style: italic;
+  font-weight: 300;
   font-display: swap;
-  src: local('Open Sans Light Italic'), local('OpenSans-LightItalic'),
+  src:
+    local('Open Sans Light Italic'),
+    local('OpenSans-LightItalic'),
     url('/fonts/open-sans-300italic.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Open Sans';
-  font-weight: 400;
   font-style: normal;
+  font-weight: 400;
+  line-height: var(--lh);
   font-display: swap;
-  src: local('Open Sans Regular'), local('OpenSans-Regular'),
+  src:
+    local('Open Sans Regular'),
+    local('OpenSans-Regular'),
     url('/fonts/open-sans-400.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Open Sans';
-  font-weight: 400;
   font-style: italic;
+  font-weight: 400;
   font-display: swap;
-  src: local('Open Sans Italic'), local('OpenSans-Italic'),
+  src:
+    local('Open Sans Italic'),
+    local('OpenSans-Italic'),
     url('/fonts/open-sans-400italic.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Open Sans';
-  font-weight: 600;
   font-style: normal;
+  font-weight: 600;
   font-display: swap;
-  src: local('Open Sans SemiBold'), local('OpenSans-SemiBold'),
+  src:
+    local('Open Sans SemiBold'),
+    local('OpenSans-SemiBold'),
     url('/fonts/open-sans-600.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Open Sans';
-  font-weight: 600;
   font-style: italic;
+  font-weight: 600;
   font-display: swap;
-  src: local('Open Sans SemiBold Italic'), local('OpenSans-SemiBoldItalic'),
+  src:
+    local('Open Sans SemiBold Italic'),
+    local('OpenSans-SemiBoldItalic'),
     url('/fonts/open-sans-600italic.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Open Sans';
-  font-weight: 700;
   font-style: normal;
+  font-weight: 700;
   font-display: swap;
-  src: local('Open Sans Bold'), local('OpenSans-Bold'),
+  src:
+    local('Open Sans Bold'),
+    local('OpenSans-Bold'),
     url('/fonts/open-sans-700.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Open Sans';
-  font-weight: 700;
   font-style: italic;
+  font-weight: 700;
   font-display: swap;
-  src: local('Open Sans Bold Italic'), local('OpenSans-BoldItalic'),
+  src:
+    local('Open Sans Bold Italic'),
+    local('OpenSans-BoldItalic'),
     url('/fonts/open-sans-700italic.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Open Sans';
-  font-weight: 800;
   font-style: normal;
+  font-weight: 800;
   font-display: swap;
-  src: local('Open Sans ExtraBold'), local('OpenSans-ExtraBold'),
+  src:
+    local('Open Sans ExtraBold'),
+    local('OpenSans-ExtraBold'),
     url('/fonts/open-sans-800.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Open Sans';
-  font-weight: 800;
   font-style: italic;
+  font-weight: 800;
   font-display: swap;
-  src: local('Open Sans ExtraBold Italic'), local('OpenSans-ExtraBoldItalic'),
+  src:
+    local('Open Sans ExtraBold Italic'),
+    local('OpenSans-ExtraBoldItalic'),
     url('/fonts/open-sans-800italic.woff2') format('woff2');
 }
 
 /*  base reset ------------------------ */
 
 html {
-  font-size: 62.5%;
   box-sizing: border-box;
+  font-size: 62.5%;
 }
 
 html,
 body,
 #sapper {
-  height: 100%;
   width: 100%;
+  height: 100%;
 }
 
 *,
@@ -180,41 +205,9 @@ dd {
   margin: 0;
 }
 
-/* Set core body defaults */
-body {
-  min-height: 100vh;
-  scroll-behavior: smooth;
-  text-rendering: optimizeSpeed;
-}
-
-/* A elements that don't have a class get default styles */
-a:not([class]) {
-  text-decoration-skip-ink: auto;
-}
-
-a {
-  text-decoration: none;
-}
-
-/* Make images easier to work with */
 img {
-  max-width: 100%;
   display: block;
-}
-
-mark {
-  padding: 0 3px;
-  background: var(--base-light-accent);
-}
-
-/* Remove all animations and transitions for people that prefer not to see them */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+  max-width: 100%;
 }
 
 input,
@@ -226,18 +219,30 @@ a {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-/*
------------------------------------------------
-	global styles
------------------------------------------------
-*/
-
-/*	typography ----------------------------- */
-body {
-  font: 400 var(--base-h4) / var(--base-lh) var(--font);
-  background-color: var(--base-background);
-  color: var(--base-text);
+a {
+  text-decoration: none;
 }
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+mark {
+  padding: 0 3px;
+  background: var(--base-light-accent);
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Typography */
 
 h6 {
   font-size: var(--base-h6);
@@ -265,8 +270,8 @@ h1 {
 
 ::selection {
   color: var(--base-text);
-  background-color: var(--base-light-accent);
   text-shadow: none;
+  background-color: var(--base-light-accent);
 }
 
 /*	headers ------------------------------- */
@@ -289,33 +294,34 @@ button:not([class]),
   --background: var(--base-gradient);
   --background-hover: var(--base-light-accent);
   --background-disabled: var(--base-disabled);
+
   display: inline-block;
   padding: 10px 20px;
+  font-weight: 700;
+  color: var(--color-text);
+  text-decoration: none;
+  cursor: pointer;
   background: var(--background);
   border: none;
   border-radius: var(--base-border-r);
-  color: var(--color-text);
-  font-weight: 700;
-  text-decoration: none;
-  cursor: pointer;
 }
 
 button:not([class]):hover,
 .button:hover {
-  background: var(--background-hover);
   color: var(--color-text-hover);
-}
-
-button:not([class]):active,
-.button:not(:disabled):not(.disabled):active {
-  transform: translateY(1px);
+  background: var(--background-hover);
 }
 
 button:not([class]):disabled,
 .button:disabled,
 .button.disabled {
-  background: var(--background-disabled);
   cursor: not-allowed;
+  background: var(--background-disabled);
+}
+
+button:not([class]):active,
+.button:not(:disabled):not(.disabled):active {
+  transform: translateY(1px);
 }
 
 button.outlined,
@@ -324,6 +330,7 @@ button.outlined,
   --background-hover: var(--base-hover);
   --border: var(--base-border-w) solid var(--base-border);
   --border-color-hover: var(--base-hover);
+
   border: var(--border);
 }
 
@@ -354,8 +361,8 @@ button.outlined:disabled,
 
 /*  positioning ---------------------------- */
 .center-content {
-  margin: auto;
   padding: 15px;
+  margin: auto;
 }
 
 /*  links ---------------------------------- */
@@ -363,16 +370,21 @@ a:not([class]),
 a.link {
   /* Thanks to Andrey Sitnik */
   --background: var(--base-background);
+
+  color: var(--base-text);
+  text-shadow:
+    3px 0 var(--background),
+    2px 0 var(--background),
+    1px 0 var(--background),
+    -1px 0 var(--background),
+    -2px 0 var(--background),
+    -3px 0 var(--background);
   background-image: linear-gradient(currentColor, currentColor);
   background-repeat: no-repeat;
   background-position: center bottom 5%;
-  background-size: 100% 0.5px;
   background-origin: initial;
+  background-size: 100% 0.5px;
   border-radius: 0.5px;
-  text-shadow: 3px 0 var(--background), 2px 0 var(--background),
-    1px 0 var(--background), -1px 0 var(--background), -2px 0 var(--background),
-    -3px 0 var(--background);
-  color: var(--base-text);
 }
 
 a:not([class]):focus,
@@ -380,15 +392,17 @@ a:not([class]):hover,
 a.link:focus,
 a.link:hover {
   --background: var(--base-hover);
+
   background-color: var(--background);
-  box-shadow: 0px 0px 0px 3px var(--background);
+  box-shadow: 0 0 0 3px var(--background);
 }
 
 /*  inputs --------------------------------- */
 input {
   --border-color-hover: var(--base-light-accent);
-  width: 100%;
+
   position: relative;
+  width: 100%;
   padding: 5px 10px;
   border: var(--base-border-w) solid var(--accent);
   border-radius: var(--base-border-r);
@@ -404,17 +418,17 @@ input:hover {
   padding: 2px 5px;
   font-size: var(--base-h5);
   font-weight: 600;
-  background-color: var(--base-accent);
-  border-radius: var(--base-border-r);
   color: var(--base-text);
   cursor: pointer;
+  background-color: var(--base-accent);
+  border-radius: var(--base-border-r);
 }
 
 .tag::before {
-  content: '#';
   margin-right: 2px;
   font-size: var(--base-h6);
   font-weight: 400;
+  content: '#';
 }
 
 a.tag:focus,
@@ -422,9 +436,8 @@ a.tag:hover {
   background-color: var(--base-hover);
 }
 
-/*  hr ------------------------------------- */
 hr {
-  border: none;
   height: 1px;
   background: var(--base-border);
+  border: none;
 }

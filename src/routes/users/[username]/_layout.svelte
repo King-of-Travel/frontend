@@ -64,8 +64,8 @@
     display: grid;
     grid-template-rows: repeat(2, max-content);
     gap: 20px;
-    max-width: 900px;
     width: 100%;
+    max-width: 900px;
     margin: 0 auto;
   }
 
@@ -80,8 +80,8 @@
   }
 
   .left-block .nickname::before {
-    content: '@';
     margin-right: 2px;
+    content: '@';
   }
 
   .left-block .meta {

@@ -52,12 +52,12 @@
   }
 
   .background {
+    z-index: 100;
     width: 100%;
     height: 100%;
+    overflow: hidden;
     background-color: rgba(0, 0, 0, 0.05);
     backdrop-filter: blur(2.5px);
-    z-index: 100;
-    overflow: hidden;
   }
 
   .background::after {
@@ -65,12 +65,12 @@
   }
 
   .content {
+    z-index: 101;
     padding: 10px 20px;
     background-color: var(--base-background);
     border-top: 1px solid var(--base-border);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    z-index: 101;
   }
 
   header {

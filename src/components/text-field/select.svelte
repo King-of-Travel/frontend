@@ -30,27 +30,24 @@
     --padding: 0 10px;
     --virtualListHeight: 300px;
     --inputFontSize: var(--base-h4);
-
     --clearSelectTop: 0;
     --clearSelectBottom: 0;
-
     --itemHoverBG: var(--base-hover);
     --listShadow: var(--base-box-shadow);
     --itemIsActiveBG: var(--base-accent);
-
     --border: var(--base-border-w) solid var(--base-accent);
     --borderRadius: var(--base-border-r);
     --borderHoverColor: var(--base-light-accent);
     --borderFocusColor: var(--base-focus);
   }
 
+  div :global(input) {
+    cursor: text !important;
+  }
+
   div :global(.selectContainer > *) {
     height: 100% !important;
     line-height: normal !important;
-  }
-
-  div :global(input) {
-    cursor: text !important;
   }
 
   div :global(.selectedItem) {

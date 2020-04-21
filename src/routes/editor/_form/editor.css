@@ -1,3 +1,4 @@
+/* stylelint-disable */
 .editor__container {
   min-height: 350px;
   cursor: text;
@@ -20,13 +21,14 @@
 }
 
 .editor__container :global(.ce-header) {
-  margin: 10px 0 0;
   padding: 0;
+  margin: 10px 0 0;
   line-height: normal;
 }
 
 .editor__container :global(.ce-block:first-child .ce-header) {
   margin-top: 0;
+  display: flex;
 }
 
 .editor__container :global(.tc-table__wrap, .tc-table__cell) {

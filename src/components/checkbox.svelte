@@ -37,31 +37,19 @@
 <style>
   span {
     position: relative;
-    vertical-align: baseline;
+
     /* height icon + border */
     height: 40px;
     line-height: 40px;
+    vertical-align: baseline;
   }
 
   input {
     position: absolute;
     top: 0;
     left: 0;
-    opacity: 0;
     z-index: 1;
-  }
-
-  label {
-    position: relative;
-    display: block;
-    padding-left: calc(20px + 5px);
-    cursor: pointer;
-    user-select: none;
-  }
-
-  label:active > i {
-    transform: scale(0.9);
-    transition: transform 0.1s;
+    opacity: 0;
   }
 
   i {
@@ -73,8 +61,21 @@
     justify-content: center;
     width: 20px;
     height: 20px;
+    color: var(--base-accent);
     border: var(--base-border-w) solid var(--base-accent);
     border-radius: var(--base-border-r);
-    color: var(--base-accent);
+  }
+
+  label {
+    position: relative;
+    display: block;
+    padding-left: calc(20px + 5px);
+    cursor: pointer;
+    user-select: none;
+  }
+
+  label:active > i {
+    transition: transform 0.1s;
+    transform: scale(0.9);
   }
 </style>

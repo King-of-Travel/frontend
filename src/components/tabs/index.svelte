@@ -9,10 +9,10 @@
 
 <style>
   ul {
-    margin: 0 0 15px;
     padding: 0;
-    border-bottom: var(--base-border-w) solid var(--base-border);
+    margin: 0 0 15px;
     list-style: none;
+    border-bottom: var(--base-border-w) solid var(--base-border);
   }
 
   ul :global(li) {

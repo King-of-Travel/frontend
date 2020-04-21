@@ -13,8 +13,8 @@
     display: inline-block;
     padding: 10px 15px;
     margin-bottom: calc(var(--base-border-w) * -1);
-    color: var(--base-text);
     font-weight: 700;
+    color: var(--base-text);
   }
 
   a[href]:hover,

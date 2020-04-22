@@ -1,4 +1,9 @@
-<div class="layout-container">
+<div
+  class="{`
+    layout
+    ${segment === 'a' ? '' : 'layout_is-header-fixed'} 
+  `}"
+>
   <Header />
   <slot />
   <Footer />
@@ -7,12 +12,14 @@
 <script>
   import Header from 'components/header/index.svelte';
   import Footer from 'components/footer.svelte';
+
+  export let segment;
 </script>
 
 <style global>
   @import '../global.css';
 
-  .layout-container {
+  .layout {
     display: grid;
     grid-template-areas:
       'header'
@@ -23,15 +30,27 @@
     height: 100%;
   }
 
-  .layout-container > header {
+  .layout > header {
     grid-area: header;
+    width: 100%;
   }
 
-  .layout-container > main {
+  .layout > main {
     grid-area: main;
   }
 
-  .layout-container > footer {
+  .layout > footer {
     grid-area: footer;
+  }
+
+  .layout_is-header-fixed {
+    padding-top: 65px;
+  }
+
+  .layout_is-header-fixed > header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
   }
 </style>

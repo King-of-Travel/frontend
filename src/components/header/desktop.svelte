@@ -58,7 +58,8 @@
 <style type="postcss">
   header {
     z-index: 100;
-    background-color: var(--base-accent);
+    background-color: rgba(var(--base-panel), 0.95);
+    backdrop-filter: saturate(100%) blur(3px);
     box-shadow: 0 0 20px 0 var(--base-accent);
   }
 

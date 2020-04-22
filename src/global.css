@@ -19,6 +19,7 @@
       var(--base-light-accent),
       var(--base-accent)
     );
+  --base-panel: 179, 156, 208;
 
   /* typography */
   --base-unit: 0.8rem;

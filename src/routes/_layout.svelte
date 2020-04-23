@@ -17,7 +17,7 @@
 </script>
 
 <style global>
-  @import '../global.css';
+  @import '../styles/common.css';
 
   .layout {
     display: grid;
@@ -43,14 +43,16 @@
     grid-area: footer;
   }
 
-  .layout_is-header-fixed {
-    padding-top: 65px;
-  }
+  @media (--no-mobile) {
+    .layout_is-header-fixed {
+      padding-top: 65px;
+    }
 
-  .layout_is-header-fixed > header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+    .layout_is-header-fixed > header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
   }
 </style>

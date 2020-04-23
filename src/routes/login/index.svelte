@@ -3,7 +3,7 @@
 </svelte:head>
 
 <main class="center-content">
-  <h1 class="title">login</h1>
+  <h1 class="title">Login</h1>
   <Form />
 </main>
 

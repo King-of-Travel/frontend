@@ -15,8 +15,8 @@
   {#if isSettingsOpen}
     <div class="form_group settings-block">
       <div class="form_group">
-        <TextField id="country" label="The country you are writing about">
-          <Select
+        <FieldWithLabel id="country" label="The country you are writing about">
+          <FieldSelect
             bind:value="{article.countryCode}"
             defaultSelected="{defaultCountryCode}"
             items="{Countries}"
@@ -25,12 +25,12 @@
             inputAttributes="{{ id: 'country', name: 'country' }}"
             placeholder="Russian Federation"
           />
-        </TextField>
+        </FieldWithLabel>
 
       </div>
 
       <div class="form_group">
-        <TextField label="The city you are writing about" id="city">
+        <FieldWithLabel label="The city you are writing about" id="city">
           <input
             bind:value="{article.city}"
             id="city"
@@ -39,7 +39,7 @@
             autocomplete="off"
             maxlength="300"
           />
-        </TextField>
+        </FieldWithLabel>
       </div>
 
       <div class="form_group">
@@ -68,8 +68,8 @@
   import { goto } from '@sapper/app';
   import { request } from 'api.js';
 
-  import TextField from 'components/text-field/index.svelte';
-  import Select from 'components/text-field/select.svelte';
+  import FieldWithLabel from 'components/form/field/label.svelte';
+  import FieldSelect from 'components/form/field/select.svelte';
   import Countries from 'components/locales/countries/en.json';
   import Icon from 'components/icon.svelte';
   import Tags from './tags.svelte';

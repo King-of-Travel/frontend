@@ -1,7 +1,7 @@
 <ListErrors {errors} />
 <form on:submit|preventDefault="{handleSubmit}" class="form">
   <div class="form_group">
-    <TextField id="username" label="Username or email">
+    <FieldWithLabel id="username" label="Username or email">
       <input
         bind:value="{data.username}"
         id="username"
@@ -15,10 +15,10 @@
         maxlength="255"
         required
       />
-    </TextField>
+    </FieldWithLabel>
   </div>
   <div class="form_group">
-    <TextField id="password" label="Password">
+    <FieldWithLabel id="password" label="Password">
       <input
         bind:value="{data.password}"
         id="password"
@@ -30,7 +30,7 @@
         maxlength="64"
         required
       />
-    </TextField>
+    </FieldWithLabel>
   </div>
   <div class="form_group form_buttons">
     <button class="button">Log in</button>
@@ -41,7 +41,7 @@
   import { goto, stores } from '@sapper/app';
   import { request } from 'api.js';
 
-  import TextField from 'components/text-field/index.svelte';
+  import FieldWithLabel from 'components/form/field/label.svelte';
   import ListErrors from 'components/list-errors.svelte';
 
   const { session } = stores();

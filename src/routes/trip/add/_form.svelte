@@ -1,8 +1,8 @@
 <ListErrors {errors} />
 <form on:submit|preventDefault="{handleSubmit}" class="form" novalidate>
   <div class="form_group">
-    <TextField label="Country" id="country">
-      <Select
+    <FieldWithLabel label="Country" id="country">
+      <FieldSelect
         bind:value="{$dataForm.countryCode}"
         items="{Countries}"
         isVirtualList="{true}"
@@ -10,10 +10,10 @@
         inputAttributes="{{ id: 'country', name: 'country' }}"
         placeholder="Country trip"
       />
-    </TextField>
+    </FieldWithLabel>
   </div>
   <div class="form_group">
-    <TextField label="City" id="city">
+    <FieldWithLabel label="City" id="city">
       <input
         bind:value="{$dataForm.city}"
         id="city"
@@ -23,10 +23,10 @@
         autocomplete="off"
         maxlength="300"
       />
-    </TextField>
+    </FieldWithLabel>
   </div>
   <div class="form_group">
-    <TextField label="Date(optional)" id="date">
+    <FieldWithLabel label="Date(optional)" id="date">
       <DatePicker
         pickerOptions="{{ mode: 'range', onChange: changeDate }}"
         label="Date(optional)"
@@ -34,7 +34,7 @@
         name="date-range"
         placeholder="Choose a start and end date for your trip"
       />
-    </TextField>
+    </FieldWithLabel>
   </div>
 
   <div class="form_group form_buttons">
@@ -47,9 +47,9 @@
   import { dataForm, isFormValid } from './_stores.js';
   import { request } from 'api.js';
 
-  import TextField from 'components/text-field/index.svelte';
-  import Select from 'components/text-field/select.svelte';
-  import DatePicker from 'components/text-field/date-picker.svelte';
+  import FieldWithLabel from 'components/form/field/label.svelte';
+  import FieldSelect from 'components/form/field/select.svelte';
+  import DatePicker from 'components/form/field/date-picker/index.svelte';
   import ListErrors from 'components/list-errors.svelte';
   import Countries from 'components/locales/countries/en.json';
 

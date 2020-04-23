@@ -1,6 +1,6 @@
 <svelte:options immutable="{true}" />
 
-<TextField label="Tags" id="tags">
+<FieldWithLabel label="Tags" id="tags">
   <input
     bind:this="{inputElement}"
     on:keypress="{add}"
@@ -15,7 +15,7 @@
     minlength="2"
     maxlength="15"
   />
-</TextField>
+</FieldWithLabel>
 
 {#if tags.length}
   <div class="tag-list">
@@ -36,7 +36,7 @@
 <script>
   import { fade } from 'svelte/transition';
 
-  import TextField from 'components/text-field/index.svelte';
+  import FieldWithLabel from 'components/form/field/label.svelte';
 
   export let tags;
 

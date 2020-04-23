@@ -14,7 +14,7 @@
 </script>
 
 <style global>
-  @import './date-picker.css';
+  @import './index.css';
 
   input {
     position: relative;

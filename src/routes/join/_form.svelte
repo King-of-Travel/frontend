@@ -1,4 +1,4 @@
-<form on:submit|preventDefault="{handleSubmit}" class="form" autocomplete="off">
+<form on:submit|preventDefault="{handleSubmit}" class="form">
   <div class="form_group">
     <AutoCheckField
       src="api/check/signup/username"
@@ -10,12 +10,11 @@
       <input
         bind:value="{$dataForm.username}"
         id="username"
-        name="username"
         type="text"
-        placeholder="Your username"
         autocomplete="off"
         autocapitalize="off"
         spellcheck="false"
+        placeholder="Username"
       />
     </AutoCheckField>
   </div>
@@ -26,14 +25,14 @@
       label="Email"
       id="email"
       name="email"
+      autocomplete="new-password"
       required
     >
       <input
         bind:value="{$dataForm.email}"
         id="email"
-        name="email"
         type="email"
-        placeholder="Your email"
+        placeholder="Email"
         autocomplete="off"
         spellcheck="false"
       />
@@ -41,25 +40,19 @@
   </div>
 
   <div class="form_group">
-    <AutoCheckField
-      src="api/check/signup/password"
-      label="Password"
-      id="password"
-      name="password"
-      required
-    >
+    <FieldWithLabel label="Password" id="password">
       <input
         bind:value="{$dataForm.password}"
-        label="Password"
         id="password"
-        name="password"
         type="password"
-        placeholder="Your password"
+        minlength="6"
+        maxlength="64"
         autocomplete="new-password"
+        placeholder="Password"
       />
-    </AutoCheckField>
-
+    </FieldWithLabel>
   </div>
+
   <div class="form_group form_buttons">
     <button disabled="{!$isFormValid}">Sign up</button>
   </div>
@@ -67,9 +60,11 @@
 
 <script>
   import { goto, stores } from '@sapper/app';
+
   import { request } from 'api.js';
   import { dataForm, isFormValid } from './_stores';
   import AutoCheckField from './_auto-check.svelte';
+  import FieldWithLabel from 'components/form/field/label.svelte';
 
   const { session } = stores();
 

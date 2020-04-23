@@ -1,14 +1,14 @@
 <auto-check {src} {required} csrf="none" bind:this="{element}">
-  <TextField {label} {id} bind:error="{$dataErrors[name]}">
+  <FieldWithLabel {label} {id} bind:error="{$dataErrors[name]}">
     <slot />
-  </TextField>
+  </FieldWithLabel>
 </auto-check>
 
 <script>
   import { onMount } from 'svelte';
 
   import { dataForm, dataErrors } from './_stores';
-  import TextField from 'components/text-field/index.svelte';
+  import FieldWithLabel from 'components/form/field/label.svelte';
 
   export let src,
     required = false,

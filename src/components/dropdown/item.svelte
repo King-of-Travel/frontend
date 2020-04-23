@@ -22,7 +22,7 @@
   a,
   button {
     padding: 10px;
-    font-size: var(--base-h5);
+    font-size: 0.9rem;
     color: var(--base-text);
   }
 

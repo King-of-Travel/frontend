@@ -62,7 +62,6 @@
 
   span {
     margin-left: 4px;
-    font-size: var(--base-h5);
     font-weight: 600;
   }
 </style>

@@ -15,7 +15,9 @@
 
     <div class="right-block">
       {#if isCurrentUserProfile}
-        <a href="/settings" rel="prefetch" class="button outlined">Settings</a>
+        <a href="/settings" rel="prefetch" class="button button--outlined">
+          Settings
+        </a>
       {/if}
     </div>
   </header>
@@ -76,7 +78,7 @@
   }
 
   .left-block > h1 {
-    font-size: var(--base-h5);
+    font-size: 1rem;
   }
 
   .left-block .nickname::before {
@@ -86,7 +88,7 @@
 
   .left-block .meta {
     margin-top: 5px;
-    font-size: var(--base-h6);
+    font-size: 0.8rem;
   }
 
   .right-block {
@@ -95,6 +97,6 @@
 
   .right-block .button {
     padding: 5px 10px;
-    font-size: var(--base-h6);
+    font-size: 0.8rem;
   }
 </style>

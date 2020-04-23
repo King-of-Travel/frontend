@@ -17,7 +17,7 @@
 
   li {
     margin-bottom: 10px;
-    font-size: var(--base-h6);
+    font-size: 0.9rem;
     font-weight: 700;
     color: var(--base-red);
   }

@@ -29,7 +29,7 @@
     --height: 41px;
     --padding: 0 10px;
     --virtualListHeight: 300px;
-    --inputFontSize: var(--base-h4);
+    --inputFontSize: 18px;
     --clearSelectTop: 0;
     --clearSelectBottom: 0;
     --itemHoverBG: var(--base-hover);

@@ -41,7 +41,7 @@
             <a
               href="/editor/{article.id}"
               rel="prefetch"
-              class="button outlined edit"
+              class="button button--outlined"
               title="Edit article"
             >
               Edit
@@ -125,7 +125,7 @@
     display: grid;
     grid-template-columns: repeat(2, auto);
     gap: 15px;
-    font-size: var(--base-h6);
+    font-size: 0.8rem;
     color: var(--base-gray);
   }
 

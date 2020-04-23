@@ -64,6 +64,7 @@
 
 <style>
   .tag {
+    padding: 5px 10px;
     margin: 10px 5px 0 0;
   }
 </style>

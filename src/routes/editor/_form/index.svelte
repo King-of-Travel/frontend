@@ -163,15 +163,16 @@
 
   textarea {
     width: 100%;
-    padding: var(--editor-padding);
+    padding: 15px var(--editor-padding);
     overflow: hidden;
+    font-size: var(--base-h1);
     font-weight: 700;
     resize: none;
     border: none;
   }
 
   textarea::-webkit-input-placeholder {
-    line-height: normal;
+    line-height: 1.2;
   }
 
   .settings-block {

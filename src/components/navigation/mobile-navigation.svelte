@@ -49,7 +49,7 @@
 
 <style>
   h4 {
-    font-size: calc(var(--base-h4) * 1.3);
+    font-size: var(--base-h2);
   }
 
   ol {

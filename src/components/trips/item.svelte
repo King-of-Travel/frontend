@@ -1,12 +1,12 @@
 <svelte:options immutable="{true}" />
 
 <article {...exclude($$props, ['trip'])}>
-  <h4>
+  <h3>
     <span title="Country">
       {Countries.find(country => country.value === trip.countryCode).label},
     </span>
     <span title="City">{trip.city}</span>
-  </h4>
+  </h3>
 
   <div class="trip-text-state">
     {#if endDate < currentDate}
@@ -72,7 +72,7 @@
     gap: 6px;
     padding: 15px;
     overflow: hidden;
-    font-size: var(--base-h5);
+    font-size: 0.9rem;
     border: var(--base-border-w) solid var(--base-border);
     border-radius: var(--base-border-r);
   }
@@ -84,7 +84,7 @@
 
   .meta .created {
     margin-top: 5px;
-    font-size: var(--base-h6);
+    font-size: 0.8rem;
     color: var(--base-gray);
   }
 </style>

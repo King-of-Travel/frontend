@@ -1,0 +1,41 @@
+button,
+.button {
+  cursor: pointer;
+}
+
+button:not([class]),
+.button {
+  --color-text: var(--base-text);
+  --color-text-hover: var(--color-text);
+  --background: var(--base-gradient);
+  --background-hover: var(--base-light-accent);
+  --background-disabled: var(--base-disabled);
+
+  display: inline-block;
+  padding: 10px 20px;
+  font-weight: 700;
+  color: var(--color-text);
+  text-decoration: none;
+  cursor: pointer;
+  background: var(--background);
+  border: none;
+  border-radius: var(--base-border-r);
+}
+
+button:not([class]):hover,
+.button:hover {
+  color: var(--color-text-hover);
+  background: var(--background-hover);
+}
+
+button:not([class]):disabled,
+.button:disabled,
+.button.disabled {
+  cursor: not-allowed;
+  background: var(--background-disabled);
+}
+
+button:not([class]):active,
+.button:not(:disabled):not(.disabled):active {
+  transform: translateY(1px);
+}

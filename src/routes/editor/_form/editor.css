@@ -4,6 +4,10 @@
   cursor: text;
 }
 
+.editor__container :global(.ce-paragraph) {
+  line-height: inherit;
+}
+
 .editor__container :global(.ce-block__content) {
   max-width: var(--editor-width);
 }

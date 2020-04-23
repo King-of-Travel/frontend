@@ -58,7 +58,7 @@
     gap: 15px;
     align-items: center;
     margin-top: 10px;
-    font-size: var(--base-h6);
+    font-size: 0.9rem;
     color: var(--base-gray);
   }
 

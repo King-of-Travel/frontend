@@ -25,11 +25,9 @@
   }
 
   nav :global(a) {
-    --background: transparent;
-
     display: block;
     padding: 9px;
-    font-size: var(--base-h6);
+    font-size: 0.8rem;
     font-weight: 600;
     color: var(--base-text);
     text-shadow: none;

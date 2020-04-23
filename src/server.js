@@ -2,28 +2,22 @@ import sirv from 'sirv';
 import polka from 'polka';
 import compression from 'compression';
 import * as sapper from '@sapper/server';
-import proxy from 'http-proxy-middleware';
-import { session } from 'session';
+
+import { createSessionConnection } from 'server/session';
+import { createApiProxy } from 'server/api-proxy';
 
 const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === 'development';
 
 const app = polka();
 
+createApiProxy(app);
+
 app.use(compression({ threshold: 0 }), sirv('static', { dev }));
 
-app.use(
-  '/api',
-  proxy({
-    target: 'process.env.URL_API',
-    pathRewrite: {
-      '^/api/': ''
-    },
-    changeOrigin: true
-  })
-);
+/* Session */
 
-app.use(session());
+createSessionConnection(app);
 
 app.use(
   sapper.middleware({

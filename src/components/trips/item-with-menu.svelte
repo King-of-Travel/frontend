@@ -2,7 +2,7 @@
   on:click="{() => (isShowMenu = !isShowMenu)}"
   title="Click to open the trip management menu."
   type="button"
-  class="container-button"
+  class="button button_outlined"
 >
   <Item {...exclude($$props, ['deleteTrip'])} class="trips-item__container">
     {#if isShowMenu}
@@ -39,11 +39,8 @@
 </script>
 
 <style>
-  .container-button {
+  .button_outlined {
     padding: 0;
-    text-align: initial;
-    background: transparent;
-    border: none;
   }
 
   .control-menu {

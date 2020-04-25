@@ -1,17 +1,15 @@
-.button--outlined {
+.button_outlined {
   --background: transparent;
-  --background-hover: var(--base-hover);
-  --border: var(--base-border-w) solid var(--base-border);
-  --border-color-hover: var(--base-hover);
 
-  border: var(--border);
+  border: var(--base-border-w) solid var(--border-color, var(--base-border));
 }
 
-.button--outlined:focus,
-.button--outlined:hover {
-  border-color: var(--border-color-hover);
+.button_outlined:disabled,
+.button_outlined.button_disabled {
+  --border-color: transparent;
 }
 
-.button--outlined.disabled {
-  border-color: var(--background-disabled);
+.button_outlined:not(:disabled):not(.button_disabled):hover{
+  --background: var(--base-hover);
+  --border-color: transparent;
 }

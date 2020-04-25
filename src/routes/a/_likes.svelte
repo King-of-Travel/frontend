@@ -3,6 +3,7 @@
   on:click="{changeRating}"
   disabled="{!user}"
   class:active="{likes.currentUserRating}"
+  type="button"
   class="button"
 >
   <Icon name="heart" size="19" />
@@ -45,19 +46,18 @@
 
 <style>
   button {
-    --background: transparent;
-    --background-hover: var(--base-light-accent);
-    --background-hover-color-text: var(--base-text);
-    --background-disabled: transparent;
-
     display: inline-flex;
     align-items: center;
     padding: 10px;
   }
 
-  button.active {
+  button,
+  button:disabled {
+    --background: transparent;
+  }
+
+  button:not(:hover).active {
     --color-text: #6c9007;
-    --color-text-hover: var(--base-text);
   }
 
   span {

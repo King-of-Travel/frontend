@@ -121,14 +121,10 @@
   }
 
   .button {
+    --background: transparent;
+
     padding: 5px 10px;
     margin-left: 10px;
     font-weight: 400;
-    background: transparent;
-  }
-
-  .button:focus,
-  .button:hover {
-    background-color: var(--base-light-accent);
   }
 </style>

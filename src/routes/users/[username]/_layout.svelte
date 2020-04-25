@@ -15,7 +15,7 @@
 
     <div class="right-block">
       {#if isCurrentUserProfile}
-        <a href="/settings" rel="prefetch" class="button button--outlined">
+        <a href="/settings" rel="prefetch" class="button button_outlined">
           Settings
         </a>
       {/if}

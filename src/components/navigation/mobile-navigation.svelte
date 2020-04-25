@@ -19,7 +19,9 @@
       </li>
       <li>
         <a href="/settings" rel="prefetch" class="button">Settings</a>
-        <button on:click="{signout}" class="button">Sign out</button>
+        <button on:click="{signout}" type="button" class="button">
+          Sign out
+        </button>
       </li>
     {:else}
       <li>
@@ -59,12 +61,14 @@
 
   a,
   button {
-    width: 100%;
+    --background: transparent;
+
+    display: block;
     font-weight: 500;
-    background: transparent;
   }
 
   button {
+    width: 100%;
     text-align: left;
     border: none;
   }

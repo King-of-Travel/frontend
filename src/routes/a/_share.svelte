@@ -2,6 +2,7 @@
   <button
     on:click="{share}"
     class="button share"
+    type="button"
     title="Share an article on social networks, managers, etc."
   >
     <Icon name="share" size="18" />
@@ -34,7 +35,7 @@
   button {
     --background: transparent;
 
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     padding: 10px;

@@ -41,7 +41,7 @@
             <a
               href="/editor/{article.id}"
               rel="prefetch"
-              class="button button--outlined"
+              class="button button_outlined"
               title="Edit article"
             >
               Edit

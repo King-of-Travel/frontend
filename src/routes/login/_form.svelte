@@ -33,7 +33,7 @@
     </FieldWithLabel>
   </div>
   <div class="form_group form_buttons">
-    <button class="button">Log in</button>
+    <button>Log in</button>
   </div>
 </form>
 

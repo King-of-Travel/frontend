@@ -4,8 +4,8 @@
   <input
     bind:this="{inputElement}"
     on:keypress="{add}"
-    disabled="{tags.length > 5}"
     id="tags"
+    disabled="{tags.length > 5}"
     type="text"
     placeholder="food, finance"
     autocomplete="off"

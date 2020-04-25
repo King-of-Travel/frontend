@@ -73,8 +73,7 @@
     padding: 15px;
     overflow: hidden;
     font-size: 0.9rem;
-    border: var(--base-border-w) solid var(--base-border);
-    border-radius: var(--base-border-r);
+    text-align: left;
   }
 
   hr {

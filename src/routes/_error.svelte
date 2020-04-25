@@ -1,11 +1,15 @@
 <svelte:head>
-  <title>{status}</title>
+  <title>{status === 500 ? 500 : error.message}</title>
 </svelte:head>
 
-<main>
-  <h1>{status}</h1>
+<main class="center-content">
+  <h1>
+    <mark>{status}</mark>
+  </h1>
 
-  <p>{error.message}</p>
+  <p>
+    <mark>{error.message}</mark>
+  </p>
 
   {#if dev && error.stack}
     <pre>{error.stack}</pre>
@@ -13,24 +17,19 @@
 </main>
 
 <script>
-  export let status;
-  export let error;
+  export let status, error;
 
   const dev = 'process.env.NODE_ENV' === 'development';
 </script>
 
 <style>
-  h1,
-  p {
-    margin: 0 auto;
-  }
-
   h1 {
-    margin: 0 0 0.5em 0;
-    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
   }
 
-  p {
-    margin: 1em auto;
+  p > mark {
+    padding: 5px;
+    background: var(--base-light-accent);
   }
 </style>

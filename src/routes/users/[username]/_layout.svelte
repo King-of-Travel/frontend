@@ -1,12 +1,7 @@
 <main class="center-content">
   <header>
     <div class="left-block">
-      <h1>
-        {#if $user.actualName}
-          <span>{user.actualName}</span>
-        {/if}
-        <span class="nickname" title="Nickname">{$user.username}</span>
-      </h1>
+      <h1 title="Nickname">{$user.username}</h1>
       <div class="meta">
         Registered:
         {@html articleCreatedAt($user.createdAt)}
@@ -81,7 +76,7 @@
     font-size: 1rem;
   }
 
-  .left-block .nickname::before {
+  .left-block > h1::before {
     margin-right: 2px;
     content: '@';
   }

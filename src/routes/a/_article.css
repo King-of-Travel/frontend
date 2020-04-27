@@ -24,6 +24,10 @@ article :global(img) {
   border-radius: var(--base-border-r);
 }
 
+article :global(ul, ol) {
+  padding: 0 20px;
+}
+
 article :global(.table-wrap) {
   border: 1px solid var(--base-border);
   border-radius: var(--base-border-r);

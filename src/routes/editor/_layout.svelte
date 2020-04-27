@@ -10,6 +10,16 @@
   }
 </script>
 
+<script>
+  import { onMount } from 'svelte';
+
+  import { article } from './_stores.js';
+
+  onMount(() => {
+    return () => article.reset();
+  });
+</script>
+
 <style>
   main {
     --editor-padding: 20px;

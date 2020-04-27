@@ -2,7 +2,7 @@
   <title>Change article: {article.title}</title>
 </svelte:head>
 
-<Form defaultArticle="{article}" />
+<Form />
 
 <script context="module">
   export async function preload(page) {
@@ -13,9 +13,9 @@
     });
 
     if (getArticle.status === 200) {
-      let article = await getArticle.json();
+      let articleData = await getArticle.json();
 
-      return { article };
+      return { articleData };
     }
 
     this.error(404, 'Article not found or you are not its author');
@@ -24,6 +24,9 @@
 
 <script>
   import Form from './_form/index.svelte';
+  import { article } from './_stores.js';
 
-  export let article;
+  export let articleData;
+
+  article.addArticleToEdit(articleData);
 </script>

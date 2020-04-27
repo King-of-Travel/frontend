@@ -1,5 +1,3 @@
-<svelte:options immutable="{true}" />
-
 <FieldWithLabel label="Tags" id="tags">
   <input
     bind:this="{inputElement}"
@@ -19,15 +17,15 @@
 
 {#if tags.length}
   <div class="tag-list">
-    {#each tags as tag, i}
+    {#each tags as tagName (tagName)}
       <button
         in:fade="{{ duration: 200 }}"
-        on:click="{() => remove(i)}"
+        on:click="{() => article.deleteTag(tagName)}"
         class="tag button"
         type="button"
         title="Click to remove tag"
       >
-        {tag.value}
+        {tagName}
       </button>
     {/each}
   </div>
@@ -36,29 +34,22 @@
 <script>
   import { fade } from 'svelte/transition';
 
+  import { article } from '../_stores.js';
   import FieldWithLabel from 'components/form/field/label.svelte';
 
-  export let tags;
+  $: tags = [...$article.tags];
 
   let inputElement;
 
-  function add(element) {
-    if (element.keyCode !== 13) return;
-    element.preventDefault();
+  function add(event) {
+    if (event.keyCode !== 13) return;
+    event.preventDefault();
 
-    let value = element.target.value;
+    let value = event.target.value;
 
-    if (value.length < 2) return;
-    if (tags.find(tag => tag === value)) return;
+    event.target.value = '';
 
-    tags = [...tags, { value }];
-
-    element.target.value = '';
-  }
-
-  function remove(index) {
-    tags = [...tags.slice(0, index), ...tags.slice(index + 1)];
-    inputElement.focus();
+    article.addTag(value);
   }
 </script>
 

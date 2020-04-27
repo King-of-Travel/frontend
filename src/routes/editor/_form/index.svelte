@@ -1,9 +1,9 @@
 <form on:submit|preventDefault="{handleSubmit}" class="form">
   <div class="form_group editor">
     <textarea
-      use:changeHeight
+      use:changeHeightTextArea
       on:keypress="{focusEditorPressEnter}"
-      bind:value="{article.title}"
+      bind:value="{$article.title}"
       placeholder="My trip to Moscow"
       rows="1"
       minlength="3"
@@ -17,7 +17,7 @@
       <div class="form_group">
         <FieldWithLabel id="country" label="The country you are writing about">
           <FieldSelect
-            bind:value="{article.countryCode}"
+            bind:value="{$article.countryCode}"
             defaultSelected="{defaultCountryCode}"
             items="{Countries}"
             isVirtualList="{true}"
@@ -32,7 +32,7 @@
       <div class="form_group">
         <FieldWithLabel label="The city you are writing about" id="city">
           <input
-            bind:value="{article.city}"
+            bind:value="{$article.city}"
             id="city"
             type="text"
             placeholder="Moscow"
@@ -43,7 +43,7 @@
       </div>
 
       <div class="form_group">
-        <Tags bind:tags="{article.tags}" />
+        <Tags />
       </div>
     </div>
   {/if}
@@ -65,32 +65,21 @@
 
 <script>
   import { onMount } from 'svelte';
-  import { goto } from '@sapper/app';
-  import { request } from 'api.js';
 
+  import { article } from '../_stores.js';
   import FieldWithLabel from 'components/form/field/label.svelte';
   import FieldSelect from 'components/form/field/select.svelte';
   import Countries from 'components/locales/countries/en.json';
   import Icon from 'components/icon.svelte';
   import Tags from './tags.svelte';
 
-  export let defaultArticle = {};
+  let isNewArticle = $article.id ? false : true;
 
-  let article = {
-    title: '',
-    body: [],
-    countryCode: null,
-    city: null,
-    tags: [],
-    ...defaultArticle
-  };
+  let defaultCountryCode =
+    $article.countryCode &&
+    Countries.find(country => country.value === $article.countryCode);
 
-  let isNewArticle = article.title ? false : true,
-    defaultCountryCode =
-      article.countryCode &&
-      Countries.find(country => country.value === article.countryCode);
-
-  $: isFormValid = article.title.length >= 3;
+  $: isFormValid = $article.title.length >= 3;
 
   let editor;
 
@@ -102,12 +91,12 @@
     editor = createEditor({
       holder: 'editorjs',
       config: {
-        data: { blocks: article.body }
+        data: { blocks: $article.body }
       }
     });
   });
 
-  function changeHeight(element) {
+  function changeHeightTextArea(element) {
     function change() {
       element.style.height = 'auto';
       element.style.height = element.scrollHeight + 'px';
@@ -125,23 +114,9 @@
   }
 
   async function handleSubmit() {
-    let dataEditor = await editor.save();
+    let editorData = await editor.save();
 
-    if (isNewArticle) {
-      let addArticle = await request('POST', 'article', {
-        ...article,
-        body: dataEditor.blocks
-      });
-
-      return goto(`/a/${addArticle.data}`);
-    }
-
-    await request('POST', `article/edit?id=${article.id}`, {
-      ...article,
-      body: dataEditor.blocks
-    });
-
-    goto(`/a/${article.id}`);
+    article.saveArticle(editorData.blocks);
   }
 
   function focusEditorPressEnter(e) {

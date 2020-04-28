@@ -1,5 +1,5 @@
 <ul title="Errors list">
-  {#each Object.keys(errors) as key}
+  {#each Object.keys(errors) as key (errors[key])}
     <li>{errors[key]}</li>
   {/each}
 </ul>

@@ -61,10 +61,8 @@
         <Share />
         {#if article.tags.length}
           <div class="tag-list">
-            {#each article.tags as tag, i}
-              <a rel="prefetch" href="tag/{tag.value}" class="tag">
-                {tag.value}
-              </a>
+            {#each article.tags as { value } (value)}
+              <a rel="prefetch" href="tag/{value}" class="tag">{value}</a>
             {/each}
           </div>
         {/if}

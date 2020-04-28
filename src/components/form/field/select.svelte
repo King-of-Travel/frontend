@@ -9,7 +9,8 @@
   import Select from 'svelte-select';
   import { exclude } from 'common/exclude';
 
-  export let value, defaultSelected;
+  export let value,
+    defaultSelected = null;
 
   let selectedValue = null;
 

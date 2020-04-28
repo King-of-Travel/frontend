@@ -18,7 +18,7 @@
         <FieldWithLabel id="country" label="The country you are writing about">
           <FieldSelect
             bind:value="{$article.countryCode}"
-            defaultSelected="{defaultCountryCode}"
+            defaultSelected="{selectedCountry}"
             items="{Countries}"
             isVirtualList="{true}"
             listAutoWidth="{false}"
@@ -75,7 +75,7 @@
 
   let isNewArticle = $article.id ? false : true;
 
-  let defaultCountryCode =
+  let selectedCountry =
     $article.countryCode &&
     Countries.find(country => country.value === $article.countryCode);
 

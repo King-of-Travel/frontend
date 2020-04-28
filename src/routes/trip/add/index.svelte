@@ -12,8 +12,6 @@
     let { user } = session;
 
     !user && this.redirect(302, '/login');
-
-    return { username: user.username };
   }
 </script>
 

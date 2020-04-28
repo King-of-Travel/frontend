@@ -22,7 +22,7 @@
       height="32"
       width="32"
     />
-    <button aria-label="Close navigation">
+    <button>
       <span>
         Close
         <Icon name="chevron-up" size="18" />
@@ -36,15 +36,16 @@
 
 <script>
   import { fly } from 'svelte/transition';
+  import { fragment } from 'path-finder';
 
   import CardMenu from 'components/card-menu.svelte';
   import Icon from 'components/icon.svelte';
   import Navigation from 'components/navigation/mobile-navigation.svelte';
 
-  let isOpenNavigation = false;
+  $: isOpenNavigation = $fragment === '#mobile-navigation';
 
   function openingOrClosingCard() {
-    isOpenNavigation = isOpenNavigation ? false : true;
+    $fragment = isOpenNavigation ? '' : '#mobile-navigation';
   }
 
   let isButtonShown = true;

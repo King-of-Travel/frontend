@@ -8,7 +8,7 @@
       <header>
         <div class="article-information">
           <a
-            href="/users/{article.user.username}"
+            href="/user/{article.user.username}"
             rel="prefetch"
             title="Posted by"
             class="link"

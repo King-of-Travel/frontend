@@ -4,6 +4,6 @@
 
     if (!user) this.redirect(302, '/login');
 
-    this.redirect(301, `/users/${user.username}/${page.params.path}`);
+    this.redirect(301, `/user/${user.username}/${page.params.path}`);
   }
 </script>

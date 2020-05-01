@@ -29,12 +29,16 @@
   let contentElement;
 
   $: {
-    if (typeof window !== 'undefined') {
-      if (isOpen) {
-        document.body.style.overflow = 'hidden';
-      } else {
-        document.body.style.overflow = null;
-      }
+    let prevScroll = 0;
+
+    if (isOpen) {
+      prevScroll = window.scrollY;
+
+      document.body.style.top = `-${prevScroll}px`;
+      document.body.classList.add('is-locked');
+    } else {
+      document.body.style.top = '';
+      document.body.classList.remove('is-locked');
     }
   }
 

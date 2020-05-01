@@ -25,7 +25,7 @@
             Your profile
           </DropdownItem>
           <DropdownItem href="/editor" rel="prefetch">Create post</DropdownItem>
-          <DropdownItem href="/trip/add" rel="prefetch">Add trip</DropdownItem>
+          <DropdownItem href="/trip" rel="prefetch">Add trip</DropdownItem>
           <DropdownItem href="/settings" rel="prefetch">Settings</DropdownItem>
           <DropdownItem on:click="{signout}">Sign out</DropdownItem>
         </Dropdown>

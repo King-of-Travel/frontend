@@ -15,7 +15,7 @@
         <a href="/editor" rel="prefetch" class="button">Create post</a>
       </li>
       <li>
-        <a href="/trip/add" rel="prefetch" class="button">Add trip</a>
+        <a href="/trip" rel="prefetch" class="button">Add trip</a>
       </li>
       <li>
         <a href="/settings" rel="prefetch" class="button">Settings</a>

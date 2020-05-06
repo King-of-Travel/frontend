@@ -31,7 +31,16 @@
     font-weight: 600;
     color: var(--base-text);
     text-shadow: none;
-    background-image: none;
+    background: none;
+  }
+
+  nav :global(button) {
+    --background: none;
+
+    padding: 9px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 0;
   }
 
   nav :global(a.active) {
@@ -44,7 +53,11 @@
     margin-right: 20px;
   }
 
-  nav :global(li a:focus, li a:hover) {
-    box-shadow: none !important;
+  nav :global(button:disabled) {
+    --background: var(--base-accent);
+  }
+
+  nav :global(button:not(:disabled):hover, button:not(:disabled):focus) {
+    --background: var(--base-hover) !important;
   }
 </style>

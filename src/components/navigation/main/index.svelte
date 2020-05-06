@@ -9,7 +9,7 @@
 {/if}
 
 <script>
-  import ArticleFilters from './article-filters.svelte';
+  import ArticleFilters from './filters.svelte';
   import Tabs from 'components/tabs/index.svelte';
   import TabItem from 'components/tabs/item-link.svelte';
 

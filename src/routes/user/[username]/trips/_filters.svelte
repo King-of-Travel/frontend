@@ -33,7 +33,7 @@
 <script>
   import { getContext } from 'svelte';
 
-  import LayoutFilters from 'components/navigation/layout-filters.svelte';
+  import LayoutFilters from 'components/filter/main-layout.svelte';
 
   export let time = 'future';
 

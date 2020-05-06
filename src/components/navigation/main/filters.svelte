@@ -109,7 +109,7 @@
 </LayoutFilters>
 
 <script>
-  import LayoutFilters from './layout-filters.svelte';
+  import LayoutFilters from 'components/filter/main-layout.svelte';
 
   export let filterCategory, filterPeriodTop, filterRatingNew;
 </script>

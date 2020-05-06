@@ -21,7 +21,7 @@
 </script>
 
 <script>
-  import MainNavigation from 'components/navigation/main.svelte';
+  import MainNavigation from 'components/navigation/main/index.svelte';
   import ArticlesList from 'components/article/list.svelte';
 
   export let articles;

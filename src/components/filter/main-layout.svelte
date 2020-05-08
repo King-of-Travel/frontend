@@ -43,6 +43,10 @@
     border-radius: 0;
   }
 
+  nav :global(a:hover, a:focus) {
+    box-shadow: none;
+  }
+
   nav :global(a.active) {
     pointer-events: none;
     cursor: default;

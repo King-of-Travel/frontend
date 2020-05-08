@@ -52,6 +52,14 @@
     opacity: 0;
   }
 
+  label {
+    position: relative;
+    display: block;
+    padding-left: calc(20px + 5px);
+    cursor: pointer;
+    user-select: none;
+  }
+
   i {
     position: absolute;
     top: 10px;
@@ -64,18 +72,10 @@
     color: var(--base-accent);
     border: var(--base-border-w) solid var(--base-accent);
     border-radius: var(--base-border-r);
-  }
-
-  label {
-    position: relative;
-    display: block;
-    padding-left: calc(20px + 5px);
-    cursor: pointer;
-    user-select: none;
+    transition: transform 0.1s;
   }
 
   label:active > i {
-    transition: transform 0.1s;
     transform: scale(0.9);
   }
 </style>

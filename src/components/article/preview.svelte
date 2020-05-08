@@ -43,7 +43,7 @@
     text-decoration: none;
     border: var(--base-border-w) solid var(--base-border);
     border-radius: var(--base-border-r);
-    transition: all 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s;
   }
 
   a:focus,

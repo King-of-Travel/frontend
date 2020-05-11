@@ -5,22 +5,24 @@
 <MainNavigation tab="articles" />
 
 <ArticlesList
-  {articles}
-  requestConfig="{{ path: 'user/articles', query: `username=${$user.username}` }}"
+  {articlesStore}
+  articleDownloadOptions="{{ username: $user.username }}"
 />
 
 <script context="module">
+  import { queryToGetNewArticle, articlesStore, user } from './_stores.js';
+
   export async function preload(page) {
     let { username } = page.params;
 
     let getArticles = await this.fetch(
-      `/api/user/articles?username=${username}&limit=10`
+      `/api/${queryToGetNewArticle({ username })}`
     );
 
-    let articles = await getArticles.json();
+    let defaultArticles = await getArticles.json();
 
     return {
-      articles
+      defaultArticles
     };
   }
 </script>
@@ -28,7 +30,11 @@
 <script>
   import MainNavigation from './_navigation.svelte';
   import ArticlesList from 'components/article/list.svelte';
-  import { user } from './_stores.js';
 
-  export let articles;
+  export let defaultArticles;
+
+  $: {
+    articlesStore.reset();
+    articlesStore.addArticles(defaultArticles);
+  }
 </script>

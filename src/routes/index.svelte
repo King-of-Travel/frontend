@@ -3,30 +3,52 @@
 </svelte:head>
 
 <main class="center-content">
-  <MainNavigation tab="articles" filterPeriodTop="week" />
+  <MainNavigation />
+
   <ArticlesList
-    {articles}
-    requestConfig="{{ path: 'articles/popular', query: 'period=week' }}"
+    {articlesStore}
+    articleDownloadOptions="{{ query: $page.query }}"
   />
 </main>
 
 <script context="module">
-  export async function preload() {
-    let getArticles = await this.fetch('/api/articles/popular?period=week');
+  import {
+    queryToGetTopArticle,
+    queryToGetNewArticle,
+    articlesStore
+  } from './_stores.js';
 
-    let articles = await getArticles.json();
+  export async function preload({ query: { sort, rating, period } }) {
+    let getArticles = await this.fetch(
+      `api/${
+        sort === 'new'
+          ? queryToGetNewArticle({ rating })
+          : queryToGetTopArticle({ period })
+      }`
+    );
+
+    let defaultArticles = await getArticles.json();
 
     return {
-      articles
+      defaultArticles
     };
   }
 </script>
 
 <script>
-  import MainNavigation from 'components/navigation/main/index.svelte';
+  import { stores } from '@sapper/app';
+
+  import MainNavigation from './_navigation.svelte';
   import ArticlesList from 'components/article/list.svelte';
 
-  export let articles;
+  export let defaultArticles;
+
+  let { page } = stores();
+
+  $: {
+    articlesStore.reset();
+    articlesStore.addArticles(defaultArticles);
+  }
 </script>
 
 <style>

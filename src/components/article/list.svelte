@@ -1,5 +1,5 @@
 <div bind:this="{containerElement}" class="container" role="feed">
-  {#each articles as article (article.id)}
+  {#each $articlesStore as article (article.id)}
     <ArticlePreview {article} class="article-preview" />
   {/each}
 
@@ -12,17 +12,22 @@
 
 <script>
   import { onMount } from 'svelte';
-  import { request } from 'api.js';
 
   import ArticlePreview from 'components/article/preview.svelte';
   import Icon from 'components/icon.svelte';
 
-  export let articles = [],
-    requestConfig;
+  export let articlesStore,
+    articleDownloadOptions = undefined;
 
   let containerElement;
 
   let isLoading = false;
+
+  $: {
+    if (articlesStore.isLoaded) {
+      removeInfiniteScrollArticles();
+    }
+  }
 
   onMount(() => {
     document.addEventListener('scroll', infiniteScrollArticles);
@@ -39,7 +44,7 @@
   function infiniteScrollArticles() {
     if (isLoading) return;
 
-    if (articles.length < 20) removeInfiniteScrollArticles();
+    if ($articlesStore.length < 20) removeInfiniteScrollArticles();
 
     let pageYoffset = window.pageYOffset + window.innerHeight;
     let containerOffset =
@@ -53,16 +58,7 @@
   async function loadingArticles() {
     isLoading = true;
 
-    let query = `?${requestConfig.query}&offset=${articles.length}`;
-    let getArticles = await request('GET', `${requestConfig.path}${query}`);
-
-    let newArticles = getArticles.data;
-
-    articles.push(...newArticles);
-
-    if (newArticles.length < 20) {
-      removeInfiniteScrollArticles();
-    }
+    await articlesStore.downloadFollowingArticles(articleDownloadOptions);
 
     isLoading = false;
   }
@@ -71,11 +67,5 @@
 <style>
   .container :global(.article-preview:not(:last-child)) {
     margin-bottom: 15px;
-  }
-
-  .loader {
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 </style>

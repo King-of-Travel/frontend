@@ -5,16 +5,13 @@
 </nav>
 
 {#if tab === 'articles'}
-  <ArticleFilters {filterCategory} {filterPeriodTop} {filterRatingNew} />
+  <ArticleFilters />
 {/if}
 
 <script>
-  import ArticleFilters from './filters.svelte';
+  import ArticleFilters from './_navigation-filters.svelte';
   import Tabs from 'components/tabs/index.svelte';
   import TabItem from 'components/tabs/item-link.svelte';
 
-  export let tab = 'articles',
-    filterCategory = 'top',
-    filterPeriodTop = 'day',
-    filterRatingNew = 0;
+  export let tab = 'articles';
 </script>

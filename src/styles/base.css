@@ -21,6 +21,7 @@
   --base-panel: 179, 156, 208;
   --base-border-w: 3px;
   --base-border-r: 6px;
+  --text-side: 15px;
 }
 
 @custom-media --mobile (max-width: 940px);

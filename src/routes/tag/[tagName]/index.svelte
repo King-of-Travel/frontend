@@ -50,7 +50,7 @@
     grid-template-rows:
       repeat(2, min-content)
       1fr;
-    gap: 20px;
+    gap: var(--text-side);
     width: 100%;
     max-width: 900px;
     margin: 0 auto;

@@ -10,7 +10,6 @@
 <style>
   ul {
     padding: 0;
-    margin: 0 0 15px;
     list-style: none;
     border-bottom: var(--base-border-w) solid var(--base-border);
   }

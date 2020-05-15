@@ -162,7 +162,7 @@
   .form_buttons {
     display: grid;
     grid-template-columns: repeat(2, min-content);
-    gap: 10px;
+    gap: calc(var(--text-side) / 1.5);
     justify-content: center;
     margin-top: 20px;
   }

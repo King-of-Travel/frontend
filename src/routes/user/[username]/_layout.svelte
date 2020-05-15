@@ -17,9 +17,7 @@
     </div>
   </header>
 
-  <section>
-    <slot />
-  </section>
+  <slot />
 </main>
 
 <script context="module">
@@ -60,7 +58,7 @@
   main {
     display: grid;
     grid-template-rows: repeat(2, max-content);
-    gap: 20px;
+    gap: var(--text-side);
     width: 100%;
     max-width: 900px;
     margin: 0 auto;
@@ -69,7 +67,7 @@
   header {
     display: grid;
     grid-template-columns: repeat(2, auto);
-    gap: 15px;
+    gap: var(--text-side);
   }
 
   .left-block > h1 {

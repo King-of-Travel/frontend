@@ -3,10 +3,6 @@
 </nav>
 
 <style>
-  nav {
-    margin-bottom: 15px;
-  }
-
   nav :global(ul) {
     display: inline-block;
     padding: 0;

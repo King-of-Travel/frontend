@@ -24,7 +24,7 @@
 
 <style>
   h1 {
-    margin-bottom: 20px;
+    margin-bottom: var(--text-side);
     text-align: center;
   }
 

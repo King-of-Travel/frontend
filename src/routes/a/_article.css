@@ -25,7 +25,7 @@ article :global(img) {
 }
 
 article :global(ul, ol) {
-  padding: 0 20px;
+  padding: 0 var(--text-side);
 }
 
 article :global(.table-wrap) {

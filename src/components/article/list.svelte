@@ -1,4 +1,4 @@
-<div bind:this="{containerElement}" class="container" role="feed">
+<div bind:this="{containerElement}" class="article-container" role="feed">
   {#each $articlesStore as article (article.id)}
     <ArticlePreview {article} class="article-preview" />
   {/each}
@@ -65,7 +65,7 @@
 </script>
 
 <style>
-  .container :global(.article-preview:not(:last-child)) {
-    margin-bottom: 15px;
+  .article-container :global(.article-preview:not(:last-child)) {
+    margin-bottom: var(--text-side);
   }
 </style>

@@ -1,16 +1,18 @@
-<MainNavigation tab="trips" />
-<TripFilters {time} />
-<TripList
-  trips="{$trips}"
-  requestConfig="{{ path: 'user/trips', query: `username=${$user.username}&time=${time}` }}"
-  let:trip
->
-  {#if isCurrentUserProfile}
-    <TripItemWithMenu {trip} deleteTrip="{() => trips.deleteTrip(trip.id)}" />
-  {:else}
-    <TripItem {trip} />
-  {/if}
-</TripList>
+<section>
+  <MainNavigation tab="trips" />
+  <TripFilters {time} />
+  <TripList
+    trips="{$trips}"
+    requestConfig="{{ path: 'user/trips', query: `username=${$user.username}&time=${time}` }}"
+    let:trip
+  >
+    {#if isCurrentUserProfile}
+      <TripItemWithMenu {trip} deleteTrip="{() => trips.deleteTrip(trip.id)}" />
+    {:else}
+      <TripItem {trip} />
+    {/if}
+  </TripList>
+</section>
 
 <script>
   import { trips } from './_stores.js';
@@ -28,3 +30,11 @@
 
   let isCurrentUserProfile = getContext('isCurrentUserProfile');
 </script>
+
+<style>
+  section {
+    display: grid;
+    grid-template-rows: repeat(3, min-content);
+    grid-gap: var(--text-side);
+  }
+</style>

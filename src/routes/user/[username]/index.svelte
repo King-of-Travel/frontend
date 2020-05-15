@@ -2,12 +2,14 @@
   <title>Profile: {$user.username} / Top articles</title>
 </svelte:head>
 
-<MainNavigation tab="articles" />
+<section>
+  <MainNavigation tab="articles" />
 
-<ArticlesList
-  {articlesStore}
-  articleDownloadOptions="{{ username: $user.username }}"
-/>
+  <ArticlesList
+    {articlesStore}
+    articleDownloadOptions="{{ username: $user.username }}"
+  />
+</section>
 
 <script context="module">
   import { queryToGetNewArticle, articlesStore, user } from './_stores.js';
@@ -38,3 +40,11 @@
     articlesStore.addArticles(defaultArticles);
   }
 </script>
+
+<style>
+  section {
+    display: grid;
+    grid-template-rows: repeat(2, min-content);
+    gap: var(--text-side);
+  }
+</style>

@@ -3,6 +3,12 @@
 </nav>
 
 <style>
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--text-side);
+  }
+
   nav :global(ul) {
     display: inline-block;
     padding: 0;
@@ -18,12 +24,12 @@
 
   nav :global(li) {
     display: inline-block;
+    font-size: 0.8rem;
   }
 
   nav :global(a) {
     display: block;
     padding: 9px;
-    font-size: 0.8rem;
     font-weight: 600;
     color: var(--base-text);
     text-shadow: none;
@@ -34,7 +40,6 @@
     --background: none;
 
     padding: 9px;
-    font-size: 0.8rem;
     font-weight: 600;
     border-radius: 0;
   }
@@ -47,10 +52,6 @@
     pointer-events: none;
     cursor: default;
     background-color: var(--base-accent);
-  }
-
-  nav :global(ul:first-child) {
-    margin-right: 20px;
   }
 
   nav :global(button:disabled) {

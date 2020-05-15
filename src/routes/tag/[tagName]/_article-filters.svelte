@@ -1,17 +1,21 @@
 <LayoutFilters title="Article filters">
   <ul>
-    <button
-      on:click="{() => setQueryParameter('sort', undefined)}"
-      disabled="{isMainFilterByNewArticles}"
-    >
-      New
-    </button>
-    <button
-      on:click="{() => setQueryParameter('sort', 'top')}"
-      disabled="{!isMainFilterByNewArticles}"
-    >
-      Top
-    </button>
+    <li>
+      <button
+        on:click="{() => setQueryParameter('sort', undefined)}"
+        disabled="{isMainFilterByNewArticles}"
+      >
+        New
+      </button>
+    </li>
+    <li>
+      <button
+        on:click="{() => setQueryParameter('sort', 'top')}"
+        disabled="{!isMainFilterByNewArticles}"
+      >
+        Top
+      </button>
+    </li>
   </ul>
 
   <ul>

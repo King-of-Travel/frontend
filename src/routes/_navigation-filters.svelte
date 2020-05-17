@@ -1,89 +1,70 @@
 <LayoutFilters title="Article filters">
   <ul>
-    <li>
-      <button
-        on:click="{() => setQueryParameter('sort', null)}"
-        disabled="{!isNewArticleCategory}"
-      >
-        Top
-      </button>
-    </li>
-    <li>
-      <button
-        on:click="{() => setQueryParameter('sort', 'new')}"
-        disabled="{isNewArticleCategory}"
-      >
-        New
-      </button>
-    </li>
+    <FilterItemButton
+      on:click="{() => setQueryParameter('sort', null)}"
+      isActive="{!isNewArticleCategory}"
+    >
+      Top
+    </FilterItemButton>
+    <FilterItemButton
+      on:click="{() => setQueryParameter('sort', 'new')}"
+      isActive="{isNewArticleCategory}"
+    >
+      New
+    </FilterItemButton>
+    >
   </ul>
   <ul>
     {#if isNewArticleCategory}
-      <li>
-        <button
-          on:click="{() => setQueryParameter('rating', undefined)}"
-          disabled="{!rating}"
-        >
-          All
-        </button>
-      </li>
-      <li>
-        <button
-          on:click="{() => setQueryParameter('rating', 5)}"
-          disabled="{rating === 5}"
-        >
-          ≥ 5
-        </button>
-      </li>
-      <li>
-        <button
-          on:click="{() => setQueryParameter('rating', 10)}"
-          disabled="{rating === 10}"
-        >
-          ≥ 10
-        </button>
-      </li>
-      <li>
-        <button
-          on:click="{() => setQueryParameter('rating', 20)}"
-          disabled="{rating === 20}"
-        >
-          ≥ 20
-        </button>
-      </li>
+      <FilterItemButton
+        on:click="{() => setQueryParameter('rating', undefined)}"
+        isActive="{!rating}"
+      >
+        All
+      </FilterItemButton>
+      <FilterItemButton
+        on:click="{() => setQueryParameter('rating', 5)}"
+        isActive="{rating === 5}"
+      >
+        ≥ 5
+      </FilterItemButton>
+      <FilterItemButton
+        on:click="{() => setQueryParameter('rating', 10)}"
+        isActive="{rating === 10}"
+      >
+        ≥ 10
+      </FilterItemButton>
+      <FilterItemButton
+        on:click="{() => setQueryParameter('rating', 20)}"
+        isActive="{rating === 20}"
+      >
+        ≥ 20
+      </FilterItemButton>
     {:else}
-      <li>
-        <button
-          on:click="{() => setQueryParameter('period', 'day')}"
-          disabled="{period === 'day'}"
-        >
-          Day
-        </button>
-      </li>
-      <li>
-        <button
-          on:click="{() => setQueryParameter('period', undefined)}"
-          disabled="{period === 'week'}"
-        >
-          Week
-        </button>
-      </li>
-      <li>
-        <button
-          on:click="{() => setQueryParameter('period', 'month')}"
-          disabled="{period === 'month'}"
-        >
-          Month
-        </button>
-      </li>
-      <li>
-        <button
-          on:click="{() => setQueryParameter('period', 'year')}"
-          disabled="{period === 'year'}"
-        >
-          Year
-        </button>
-      </li>
+      <FilterItemButton
+        on:click="{() => setQueryParameter('period', 'day')}"
+        isActive="{period === 'day'}"
+      >
+        Day
+      </FilterItemButton>
+      <FilterItemButton
+        on:click="{() => setQueryParameter('period', undefined)}"
+        isActive="{period === 'week'}"
+      >
+        Week
+      </FilterItemButton>
+      <FilterItemButton
+        on:click="{() => setQueryParameter('period', 'month')}"
+        isActive="{period === 'month'}"
+      >
+        Month
+      </FilterItemButton>
+      <FilterItemButton
+        on:click="{() => setQueryParameter('period', 'year')}"
+        isActive="{period === 'year'}"
+      >
+        Year
+      </FilterItemButton>
     {/if}
   </ul>
 </LayoutFilters>
@@ -92,6 +73,7 @@
   import { stores } from '@sapper/app';
 
   import LayoutFilters from 'components/filter/main-layout.svelte';
+  import FilterItemButton from 'components/filter/item/button.svelte';
   import { setQueryParameter } from 'path-finder';
 
   let { page } = stores();

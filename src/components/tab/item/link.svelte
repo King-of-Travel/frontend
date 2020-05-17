@@ -1,11 +1,16 @@
 <li>
-  <a href="{isActive ? undefined : href}">
+  <a
+    href="{isActive ? undefined : href}"
+    aria-current="{isActive ? ariaCurrent : ''}"
+  >
     <slot />
   </a>
 </li>
 
 <script>
-  export let isActive, href;
+  export let isActive,
+    href,
+    ariaCurrent = 'page';
 </script>
 
 <style>

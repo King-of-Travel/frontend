@@ -1,19 +1,19 @@
 <nav>
-  <Tabs class="layout-navigation__container">
-    <TabItem isActive="{tab === 'articles'}" href="{baseUserHref}">
+  <TabList class="layout-navigation__container">
+    <TabLink isActive="{tab === 'articles'}" href="{baseUserHref}">
       Articles
-    </TabItem>
-    <TabItem isActive="{tab === 'trips'}" href="{baseUserHref}/trips">
+    </TabLink>
+    <TabLink isActive="{tab === 'trips'}" href="{baseUserHref}/trips">
       Trips
-    </TabItem>
-  </Tabs>
+    </TabLink>
+  </TabList>
 </nav>
 
 <script>
   import { getContext } from 'svelte';
 
-  import Tabs from 'components/tabs/index.svelte';
-  import TabItem from 'components/tabs/item-link.svelte';
+  import TabList from 'components/tab/list.svelte';
+  import TabLink from 'components/tab/item/link.svelte';
 
   export let tab = 'articles';
 

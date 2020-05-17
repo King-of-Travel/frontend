@@ -1,7 +1,7 @@
 <nav>
-  <Tabs>
-    <TabItem isActive="{tab === 'articles'}" href="/">Articles</TabItem>
-  </Tabs>
+  <TabList>
+    <TabLink isActive="{tab === 'articles'}" href="/">Articles</TabLink>
+  </TabList>
 </nav>
 
 {#if tab === 'articles'}
@@ -10,8 +10,8 @@
 
 <script>
   import ArticleFilters from './_navigation-filters.svelte';
-  import Tabs from 'components/tabs/index.svelte';
-  import TabItem from 'components/tabs/item-link.svelte';
+  import TabList from 'components/tab/list.svelte';
+  import TabLink from 'components/tab/item/link.svelte';
 
   export let tab = 'articles';
 </script>

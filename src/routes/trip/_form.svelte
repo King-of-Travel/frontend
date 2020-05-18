@@ -61,7 +61,7 @@
   }
 
   async function handleSubmit() {
-    let addTripReq = await request('POST', 'trip', $dataForm);
+    let addTripReq = await request('POST', 'trip', { body: $dataForm });
 
     if (!addTripReq.ok) {
       errors = addTripReq.data.errors;

@@ -70,11 +70,14 @@
 
   async function handleSubmit() {
     let data = $dataForm;
-    await request('POST', 'user', data);
+
+    await request('POST', 'user', { body: data });
 
     let loginReq = await request('POST', 'session', {
-      username: data.username,
-      password: data.password
+      body: {
+        username: data.username,
+        password: data.password
+      }
     });
 
     $session.user = loginReq.data;

@@ -38,14 +38,18 @@ function createArticle() {
      * and not creating a new one
      */
     if (articleStore.id) {
-      await request('POST', `article/edit?id=${articleStore.id}`, dataToSend);
+      await request('POST', `article/edit?id=${articleStore.id}`, {
+        body: dataToSend
+      });
 
       goto(`/a/${articleStore.id}`);
 
       return;
     }
 
-    let requestToCreateArticle = await request('POST', 'article', dataToSend);
+    let requestToCreateArticle = await request('POST', 'article', {
+      body: dataToSend
+    });
 
     goto(`/a/${requestToCreateArticle.data}`);
   }

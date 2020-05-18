@@ -1,5 +1,5 @@
 <a
-  href="/a/{article.id}"
+  href="/{article.id}"
   rel="prefetch"
   class="{className}"
   title="{article.title}"

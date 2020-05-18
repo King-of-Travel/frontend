@@ -42,7 +42,7 @@ function createArticle() {
         body: dataToSend
       });
 
-      goto(`/a/${articleStore.id}`);
+      goto(`/${articleStore.id}`);
 
       return;
     }
@@ -51,7 +51,7 @@ function createArticle() {
       body: dataToSend
     });
 
-    goto(`/a/${requestToCreateArticle.data}`);
+    goto(`/${requestToCreateArticle.data}`);
   }
 
   function addTag(tagName) {

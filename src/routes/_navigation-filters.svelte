@@ -12,7 +12,6 @@
     >
       New
     </FilterItemButton>
-    >
   </ul>
   <ul>
     {#if isNewArticleCategory}

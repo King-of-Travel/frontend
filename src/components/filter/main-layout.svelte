@@ -5,25 +5,16 @@
 <style>
   nav {
     display: flex;
-    flex-wrap: wrap;
-    gap: var(--text-side);
   }
 
   nav :global(ul) {
-    display: inline-block;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
-
-    /* Indent between inline elements */
-    font-size: 0;
+    display: inline-flex;
     list-style: none;
     border: var(--base-border-w) solid var(--base-accent);
     border-radius: var(--base-border-r);
   }
 
   nav :global(li) {
-    display: inline-block;
     font-size: 0.8rem;
   }
 
@@ -42,6 +33,10 @@
     padding: 9px;
     font-weight: 600;
     border-radius: 0;
+  }
+
+  nav :global(ul:not(:last-child)) {
+    margin-right: var(--text-side);
   }
 
   nav :global(a:hover, a:focus) {

@@ -9,7 +9,6 @@
 
 <style>
   ul {
-    padding: 0;
     list-style: none;
     border-bottom: var(--base-border-w) solid var(--base-border);
   }

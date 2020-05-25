@@ -1,7 +1,7 @@
 <div
   class="{`
     layout
-    ${segment === 'a' ? '' : 'layout_is-header-fixed'} 
+    ${isFixedHeader ? '' : 'layout_is-header-fixed'} 
   `}"
 >
   <Header />
@@ -10,10 +10,13 @@
 </div>
 
 <script>
+  import { stores } from '@sapper/app';
   import Header from 'components/header/index.svelte';
   import Footer from 'components/footer.svelte';
 
-  export let segment;
+  let { page } = stores();
+
+  $: isFixedHeader = $page.params && $page.params.articleId;
 </script>
 
 <style global>

@@ -1,7 +1,5 @@
-<svelte:options immutable="{true}" />
-
 <div bind:this="{containerElement}" class="container" role="feed">
-  {#each trips as trip (trip.id)}
+  {#each $tripsStore as trip (trip.id)}
     <slot {trip} />
   {/each}
 
@@ -14,16 +12,20 @@
 
 <script>
   import { onMount } from 'svelte';
-  import { request } from 'api.js';
 
   import Icon from 'components/icon.svelte';
 
-  export let trips = [],
-    requestConfig;
+  export let tripsStore, tripsDownloadOptions;
 
   let containerElement;
 
   let isLoading = false;
+
+  $: {
+    if (tripsStore.isLoaded || $tripsStore.length < 20) {
+      removeInfiniteScrollTrips();
+    }
+  }
 
   onMount(() => {
     document.addEventListener('scroll', infiniteScrollTrips);
@@ -37,33 +39,25 @@
     document.removeEventListener('scroll', infiniteScrollTrips);
   }
 
-  function infiniteScrollTrips() {
-    if (isLoading) return;
-
-    if (trips.length < 20) removeInfiniteScrollTrips();
+  async function infiniteScrollTrips() {
+    isLoading = true;
 
     let pageYoffset = window.pageYOffset + window.innerHeight;
+
     let containerOffset =
       containerElement.offsetTop + containerElement.clientHeight;
 
     if (pageYoffset + 300 >= containerOffset) {
       loadingTrips();
     }
+
+    isLoading = false;
   }
 
   async function loadingTrips() {
     isLoading = true;
 
-    let query = `?${requestConfig.query}&offset=${trips.length}`;
-    let getTrips = await request('GET', `${requestConfig.path}${query}`);
-
-    let newTrips = getTrips.data;
-
-    trips.push(...newTrips);
-
-    if (newTrips.length < 20) {
-      removeInfiniteScrollTrips();
-    }
+    await tripsStore.downloadFollowingTrips(tripsDownloadOptions);
 
     isLoading = false;
   }

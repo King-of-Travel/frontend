@@ -1,30 +1,34 @@
 <LayoutFilters title="Filter trips by time">
   <ul>
-    <FilterItemLink
+    <FilterItemButton
+      on:click="{() => setQueryParameter('time', 'past')}"
       isActive="{time === 'past'}"
-      href="{baseUserHref}/trips/past"
     >
       Past
-    </FilterItemLink>
-    <FilterItemLink
+    </FilterItemButton>
+    <FilterItemButton
+      on:click="{() => setQueryParameter('time', 'present')}"
       isActive="{time === 'present'}"
-      href="{baseUserHref}/trips/present"
     >
       Present
-    </FilterItemLink>
-    <FilterItemLink isActive="{time === 'future'}" href="{baseUserHref}/trips">
+    </FilterItemButton>
+    <FilterItemButton
+      on:click="{() => setQueryParameter('time', undefined)}"
+      isActive="{time === undefined}"
+    >
       Future
-    </FilterItemLink>
+    </FilterItemButton>
   </ul>
 </LayoutFilters>
 
 <script>
-  import { getContext } from 'svelte';
+  import { stores } from '@sapper/app';
+  import { setQueryParameter } from 'path-finder';
 
   import LayoutFilters from 'components/filter/main-layout.svelte';
-  import FilterItemLink from 'components/filter/item/link.svelte';
+  import FilterItemButton from 'components/filter/item/button.svelte';
 
-  export let time = 'future';
+  let { page } = stores();
 
-  let baseUserHref = getContext('baseUserHref');
+  $: time = $page.query.time;
 </script>

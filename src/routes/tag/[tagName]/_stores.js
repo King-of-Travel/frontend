@@ -12,12 +12,12 @@ export function queryFollowingArticles({
 }) {
   let searchParams = new URLSearchParams('');
 
-  searchParams.set('tag', encodeURIComponent(tagName));
-  searchParams.set('sort', sort);
-  searchParams.set('rating', rating);
-  searchParams.set('period', period);
-  searchParams.set('offset', offset);
-  searchParams.set('limit', limit);
+  searchParams.append('tag', encodeURIComponent(tagName));
+  searchParams.append('sort', sort);
+  searchParams.append('rating', rating);
+  searchParams.append('period', period);
+  searchParams.append('offset', offset);
+  searchParams.append('limit', limit);
 
   return `articles?${searchParams}`;
 }

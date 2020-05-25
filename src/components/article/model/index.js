@@ -2,39 +2,58 @@ import { writable } from 'svelte/store';
 import { get } from 'svelte/store';
 
 export function createStoreForArticles({ downloadArticles }) {
-  let articles = writable([]);
+  let defaultValue = () => ({
+    articles: [],
+    isLoading: false,
+    isLoaded: false
+  });
 
-  let isLoaded = false;
+  let articlesStore = writable(defaultValue());
+
+  function updateOneValue(name, value) {
+    articlesStore.update(store => {
+      store[name] = value;
+
+      return store;
+    });
+  }
 
   function addArticles(newArticles) {
-    articles.update(articles => {
-      return articles.concat(newArticles);
+    articlesStore.update(articlesStore => {
+      articlesStore.articles.push(...newArticles);
+
+      return articlesStore;
     });
   }
 
   function reset() {
-    articles.set([]);
+    articlesStore.set(defaultValue());
   }
 
   async function downloadFollowingArticles(options) {
-    if (isLoaded) return;
+    let store = get(articlesStore);
 
-    let offset = get(articles).length;
+    if (store.isLoaded || store.isLoading) return;
+
+    updateOneValue('isLoading', true);
+
+    let offset = store.articles.length;
 
     let newArticles = await downloadArticles({ offset, ...options });
 
     if (newArticles.length < 20) {
-      isLoaded = true;
+      updateOneValue('isLoaded', true);
     }
 
     addArticles(newArticles);
+
+    updateOneValue('isLoading', false);
   }
 
   return {
-    subscribe: articles.subscribe,
+    subscribe: articlesStore.subscribe,
     reset,
     addArticles,
-    downloadFollowingArticles,
-    isLoaded
+    downloadFollowingArticles
   };
 }

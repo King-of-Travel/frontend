@@ -1,9 +1,9 @@
 <div bind:this="{containerElement}" class="container" role="feed">
-  {#each $tripsStore as trip (trip.id)}
+  {#each $tripsStore.trips as trip (trip.id)}
     <slot {trip} />
   {/each}
 
-  {#if isLoading}
+  {#if $tripsStore.isLoading}
     <div class="loader" title="Download trips. Please wait">
       <Icon name="loader" />
     </div>
@@ -19,10 +19,8 @@
 
   let containerElement;
 
-  let isLoading = false;
-
   $: {
-    if (tripsStore.isLoaded || $tripsStore.length < 20) {
+    if ($tripsStore.isLoaded) {
       removeInfiniteScrollTrips();
     }
   }
@@ -40,7 +38,7 @@
   }
 
   async function infiniteScrollTrips() {
-    isLoading = true;
+    if ($tripsStore.isLoading) return;
 
     let pageYoffset = window.pageYOffset + window.innerHeight;
 
@@ -48,18 +46,8 @@
       containerElement.offsetTop + containerElement.clientHeight;
 
     if (pageYoffset + 300 >= containerOffset) {
-      loadingTrips();
+      tripsStore.downloadFollowingTrips(tripsDownloadOptions);
     }
-
-    isLoading = false;
-  }
-
-  async function loadingTrips() {
-    isLoading = true;
-
-    await tripsStore.downloadFollowingTrips(tripsDownloadOptions);
-
-    isLoading = false;
   }
 </script>
 

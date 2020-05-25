@@ -19,14 +19,42 @@ export function queryToGetFollowingTrips({
 }
 
 function createTripsStore() {
-  let trips = writable([]);
+  let defaultValue = () => ({
+    trips: [],
+    isLoading: false,
+    isLoaded: false
+  });
 
-  let isLoaded = false;
+  let tripsStore = writable(defaultValue());
+
+  function updateOneValue(name, value) {
+    tripsStore.update(store => {
+      store[name] = value;
+
+      return store;
+    });
+  }
+
+  function reset() {
+    tripsStore.set(defaultValue());
+  }
+
+  function addTrips(newTrips) {
+    tripsStore.update(tripsStore => {
+      tripsStore.trips.push(...newTrips);
+
+      return tripsStore;
+    });
+  }
 
   async function downloadFollowingTrips(options) {
-    if (isLoaded) return;
+    let store = get(tripsStore);
 
-    let offset = get(trips).length;
+    if (store.isLoaded || store.isLoading) return;
+
+    updateOneValue('isLoading', true);
+
+    let offset = store.trips.length;
 
     let newArticles = await request(
       'GET',
@@ -34,16 +62,12 @@ function createTripsStore() {
     );
 
     if (newArticles.data.length < 20) {
-      isLoaded = true;
+      updateOneValue('isLoaded', true);
     }
 
     addTrips(newArticles.data);
-  }
 
-  function addTrips(newTrips) {
-    trips.update(trips => {
-      return trips.concat(newTrips);
-    });
+    updateOneValue('isLoading', false);
   }
 
   async function deleteTrip(tripId) {
@@ -52,19 +76,20 @@ function createTripsStore() {
 
     await request('DELETE', `trip/${tripId}`);
 
-    trips.update(trips => {
-      let findIndex = trips.findIndex(trip => trip.id === tripId);
+    tripsStore.update(tripsStore => {
+      let findIndex = tripsStore.trips.findIndex(trip => trip.id === tripId);
 
-      return [...trips.slice(0, findIndex), ...trips.slice(findIndex + 1)];
+      tripsStore.trips = [
+        ...tripsStore.trips.slice(0, findIndex),
+        ...tripsStore.trips.slice(findIndex + 1)
+      ];
+
+      return tripsStore;
     });
   }
 
-  function reset() {
-    trips.set([]);
-  }
-
   return {
-    subscribe: trips.subscribe,
+    subscribe: tripsStore.subscribe,
     reset,
     addTrips,
     deleteTrip,

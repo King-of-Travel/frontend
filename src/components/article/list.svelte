@@ -1,9 +1,9 @@
 <div bind:this="{containerElement}" class="article-container" role="feed">
-  {#each $articlesStore as article (article.id)}
+  {#each $articlesStore.articles as article (article.id)}
     <ArticlePreview {article} class="article-preview" />
   {/each}
 
-  {#if isLoading}
+  {#if $articlesStore.isLoading}
     <div class="loader" title="Download articles. Please wait">
       <Icon name="loader" />
     </div>
@@ -21,10 +21,8 @@
 
   let containerElement;
 
-  let isLoading = false;
-
   $: {
-    if (articlesStore.isLoaded) {
+    if ($articlesStore.isLoaded) {
       removeInfiniteScrollArticles();
     }
   }
@@ -42,25 +40,15 @@
   }
 
   function infiniteScrollArticles() {
-    if (isLoading) return;
-
-    if ($articlesStore.length < 20) removeInfiniteScrollArticles();
+    if ($articlesStore.isLoading) return;
 
     let pageYoffset = window.pageYOffset + window.innerHeight;
     let containerOffset =
       containerElement.offsetTop + containerElement.clientHeight;
 
     if (pageYoffset + 300 >= containerOffset) {
-      loadingArticles();
+      articlesStore.downloadFollowingArticles(articleDownloadOptions);
     }
-  }
-
-  async function loadingArticles() {
-    isLoading = true;
-
-    await articlesStore.downloadFollowingArticles(articleDownloadOptions);
-
-    isLoading = false;
   }
 </script>
 

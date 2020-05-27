@@ -1,9 +1,9 @@
 <svelte:head>
-  <title>Add trip / King of Travel</title>
+  <title>Add a New Trip</title>
 </svelte:head>
 
 <main class="center-content">
-  <h1 class="title">Add trip</h1>
+  <h1 class="title">Add a New Trip</h1>
   <Form />
 </main>
 

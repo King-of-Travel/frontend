@@ -1,5 +1,5 @@
 <svelte:head>
-  <title>Profile: {$user.username} / Future trips</title>
+  <title>Trips / Profile: {$user.username}</title>
 </svelte:head>
 
 <section>

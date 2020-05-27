@@ -1,5 +1,5 @@
 <svelte:head>
-  <title>Change article: {article.title}</title>
+  <title>Editing: {$article.title}</title>
 </svelte:head>
 
 <Form />

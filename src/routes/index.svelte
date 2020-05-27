@@ -1,5 +1,5 @@
 <svelte:head>
-  <title>The best articles of the week</title>
+  <title>{$page.query.sort === 'new' ? 'New Articles' : 'Top Articles'}</title>
 </svelte:head>
 
 <main class="center-content">

@@ -1,9 +1,9 @@
 <svelte:head>
-  <title>Login / King of Travel</title>
+  <title>Sign in / King of Travel</title>
 </svelte:head>
 
 <main class="center-content">
-  <h1 class="title">Login</h1>
+  <h1 class="title">Sign in to King of Travel</h1>
   <Form />
 </main>
 

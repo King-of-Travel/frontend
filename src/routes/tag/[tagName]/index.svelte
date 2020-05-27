@@ -1,5 +1,5 @@
 <svelte:head>
-  <title>{tagName} - Search by tag</title>
+  <title>#{tagName} / Search by tag</title>
 </svelte:head>
 
 <main class="center-content">

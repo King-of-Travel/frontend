@@ -50,7 +50,7 @@
 
   <div class="form_group form_buttons">
     <button disabled="{!isFormValid}">
-      {isNewArticle ? 'Publish' : 'Edit'}
+      {isNewArticle ? 'Create' : 'Edit'}
     </button>
     <button
       on:click="{() => (isSettingsOpen = !isSettingsOpen)}"

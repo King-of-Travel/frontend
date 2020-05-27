@@ -1,5 +1,5 @@
 <svelte:head>
-  <title>{article.title} / King of Travel</title>
+  <title>{article.title}</title>
 </svelte:head>
 
 <main class="center-content">

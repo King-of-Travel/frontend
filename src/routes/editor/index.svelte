@@ -1,5 +1,5 @@
 <svelte:head>
-  <title>To write an article / King of Travel</title>
+  <title>Create a New Article</title>
 </svelte:head>
 
 <Form />

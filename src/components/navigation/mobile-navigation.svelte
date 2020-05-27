@@ -19,6 +19,8 @@
       </li>
       <li>
         <a href="/settings" rel="prefetch" class="button">Settings</a>
+      </li>
+      <li>
         <button on:click="{signout}" type="button" class="button">
           Sign out
         </button>

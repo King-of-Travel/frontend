@@ -107,14 +107,13 @@ export default {
       replace({
         'process.browser': false,
         'process.env.NODE_ENV': JSON.stringify(mode),
-        'process.env.URL_API': process.env.URL_API,
-        'process.env.USER_SESSIONS_NAME': process.env.USER_SESSIONS_NAME,
-        'process.env.USER_SESSIONS_SECRET': process.env.USER_SESSIONS_SECRET,
-        'process.env.USER_SESSIONS_DB_USERNAME':
-          process.env.USER_SESSIONS_DB_USERNAME,
-        'process.env.USER_SESSIONS_DB_NAME': process.env.USER_SESSIONS_DB_NAME,
-        'process.env.USER_SESSIONS_DB_PASSWORD':
-          process.env.USER_SESSIONS_DB_PASSWORD
+        'process.env.SESSIONS_DB_ROLE': process.env.SESSIONS_DB_ROLE,
+        'process.env.SESSIONS_DB_NAME': process.env.SESSIONS_DB_NAME,
+        'process.env.SESSIONS_DB_PASSWORD': process.env.SESSIONS_DB_PASSWORD,
+        'process.env.SESSIONS_DB_TABLE': process.env.SESSIONS_DB_TABLE,
+        'process.env.SESSIONS_SECRET': process.env.SESSIONS_SECRET,
+
+        'process.env.URL_PROXY_API': process.env.URL_PROXY_API
       }),
       svelte({
         generate: 'ssr',

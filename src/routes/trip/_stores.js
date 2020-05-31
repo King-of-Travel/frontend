@@ -8,7 +8,9 @@ export let dataForm = writable({
 });
 
 export let isFormValid = derived(dataForm, $data => {
-  if (!$data.countryCode || !$data.city) return false;
+  if (!$data.countryCode || !$data.city || !$data.startDate || !$data.endDate) {
+    return false;
+  }
 
   return true;
 });

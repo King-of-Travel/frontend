@@ -26,13 +26,12 @@
     </FieldWithLabel>
   </div>
   <div class="form_group">
-    <FieldWithLabel label="Date(optional)" id="date">
+    <FieldWithLabel label="Start and end date of the trip" id="date">
       <DatePicker
         options="{{ mode: 'range', onChange: changeDate }}"
         id="date"
         name="date-range"
-        label="Date(optional)"
-        placeholder="Choose a start and end date for your trip"
+        placeholder="Date"
       />
     </FieldWithLabel>
   </div>

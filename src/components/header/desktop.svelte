@@ -30,8 +30,14 @@
           <DropdownItem on:click="{signout}">Sign out</DropdownItem>
         </Dropdown>
       {:else}
-        <a href="/join" rel="prefetch" class="button">Sign up</a>
-        <a href="/login" rel="prefetch" class="button">Login</a>
+        <ul class="list">
+          <li>
+            <a href="/join" rel="prefetch" class="button">Sign up</a>
+          </li>
+          <li>
+            <a href="/login" rel="prefetch" class="button">Login</a>
+          </li>
+        </ul>
       {/if}
     </nav>
   </div>
@@ -66,8 +72,7 @@
   header > div {
     display: grid;
     grid-template-columns: 50px 1fr;
-    align-items: center;
-    justify-content: center;
+    gap: var(--text-side);
     max-width: 900px;
     height: 65px;
     padding: 0 15px;
@@ -81,10 +86,8 @@
   }
 
   .logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+    align-self: center;
+    line-height: 0;
   }
 
   .logo > img {
@@ -93,17 +96,16 @@
   }
 
   nav {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    align-self: center;
+    justify-self: flex-end;
   }
 
   .profile {
     --triangle-opacity: 1;
 
-    display: flex;
+    display: grid;
+    grid-template-columns: 20px 1fr;
     align-items: center;
-    justify-content: center;
     height: 30px;
   }
 
@@ -120,11 +122,17 @@
     opacity: var(--triangle-opacity);
   }
 
-  .button {
+  .list {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    gap: calc(var(--text-side) / 2);
+    list-style: none;
+  }
+
+  .list a {
     --background: transparent;
 
     padding: 5px 10px;
-    margin-left: 10px;
     font-weight: 400;
   }
 </style>

@@ -62,6 +62,7 @@
     overflow: hidden;
     background-color: rgba(0, 0, 0, 0.05);
     backdrop-filter: blur(2.5px);
+    will-change: transform;
   }
 
   .background::after {
@@ -75,6 +76,7 @@
     border-top: 1px solid var(--base-border);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    will-change: transform;
   }
 
   header {

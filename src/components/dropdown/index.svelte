@@ -54,7 +54,7 @@
     top: 100%;
     right: 0;
     left: auto;
-    z-index: 100;
+    z-index: 1;
     width: var(--width);
     padding: 10px 0;
     margin-top: 5px;

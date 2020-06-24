@@ -4,7 +4,8 @@
   <button
     on:click="{openingOrClosingCard}"
     transition:fly="{{ y: 50, duration: 500 }}"
-    aria-label="Open navigation"
+    aria-controls="mobile-menu"
+    aria-expanded="{isOpenNavigation ? true : false}"
     class="open-navigation"
   >
     <span>
@@ -22,7 +23,7 @@
       height="32"
       width="32"
     />
-    <button>
+    <button aria-controls="mobile-menu" aria-expanded="true">
       <span>
         Close
         <Icon name="chevron-down" size="18" />

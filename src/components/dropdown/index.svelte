@@ -1,4 +1,8 @@
-<details bind:this="{detailsElement}" style="--width: {width}" bind:open>
+<details
+  bind:this="{detailsElement}"
+  bind:open="{isOpenDropdown}"
+  style="--width: {width}"
+>
   <summary aria-label="{ariaLabel}" role="button">
     <slot name="summary" />
   </summary>
@@ -15,7 +19,7 @@
 
   let detailsElement;
 
-  let open = false;
+  let isOpenDropdown = false;
 
   onMount(() => {
     let previousTimeout;
@@ -24,7 +28,7 @@
       clearTimeout(previousTimeout);
       previousTimeout = setTimeout(() => {
         if (!detailsElement.contains(document.activeElement)) {
-          open = false;
+          isOpenDropdown = false;
         }
       }, 10);
     });

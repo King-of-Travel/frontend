@@ -15,7 +15,10 @@
   </button>
 {/if}
 
-<CardMenu bind:isOpen="{isOpenNavigation}" on:close="{openingOrClosingCard}">
+<CardMenu
+  on:closeMenu="{openingOrClosingCard}"
+  bind:isOpenMenu="{isOpenNavigation}"
+>
   <div slot="header" class="header">
     <img
       src="images/logo-64.png"

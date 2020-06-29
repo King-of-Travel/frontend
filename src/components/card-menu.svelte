@@ -1,4 +1,4 @@
-{#if isOpen}
+{#if isOpenMenu}
   <div
     bind:this="{contentElement}"
     transition:fly="{{ y: contentElement.offsetHeight, duration: 200 }}"
@@ -21,7 +21,7 @@
   import { createEventDispatcher } from 'svelte';
   import { fly, fade } from 'svelte/transition';
 
-  export let isOpen = false,
+  export let isOpenMenu = false,
     headerClass = undefined;
 
   let dispatch = createEventDispatcher();
@@ -31,7 +31,8 @@
   $: {
     let prevScroll = 0;
 
-    if (isOpen) {
+    /* Block the scroll page */
+    if (isOpenMenu) {
       prevScroll = window.scrollY;
 
       document.body.style.top = `-${prevScroll}px`;
@@ -43,7 +44,7 @@
   }
 
   function closeCard() {
-    dispatch('close');
+    dispatch('closeMenu');
   }
 </script>
 

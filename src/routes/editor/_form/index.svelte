@@ -15,7 +15,7 @@
   {#if isSettingsOpen}
     <div class="form_group settings-block">
       <div class="form_group">
-        <FieldWithLabel id="country" label="The country you are writing about">
+        <FieldLabel id="country" label="The country you are writing about">
           <FieldSelect
             bind:value="{$article.countryCode}"
             defaultSelected="{selectedCountry}"
@@ -25,12 +25,12 @@
             inputAttributes="{{ id: 'country', name: 'country' }}"
             placeholder="Russian Federation"
           />
-        </FieldWithLabel>
+        </FieldLabel>
 
       </div>
 
       <div class="form_group">
-        <FieldWithLabel label="The city you are writing about" id="city">
+        <FieldLabel label="The city you are writing about" id="city">
           <input
             bind:value="{$article.city}"
             id="city"
@@ -39,7 +39,7 @@
             autocomplete="off"
             maxlength="300"
           />
-        </FieldWithLabel>
+        </FieldLabel>
       </div>
 
       <div class="form_group">
@@ -67,8 +67,8 @@
   import { onMount } from 'svelte';
 
   import { article } from '../_stores.js';
-  import FieldWithLabel from 'components/form/field/label.svelte';
-  import FieldSelect from 'components/form/field/select.svelte';
+  import FieldLabel from 'components/form/label.svelte';
+  import FieldSelect from 'components/form/select.svelte';
   import Countries from 'components/locales/countries/en.json';
   import Icon from 'components/icon.svelte';
   import Tags from './tags.svelte';

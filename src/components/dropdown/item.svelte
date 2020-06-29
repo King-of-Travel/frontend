@@ -10,7 +10,7 @@
 
 <script>
   import { current_component } from 'svelte/internal';
-  import { getEventsAction } from 'components/utils.js';
+  import { getEventsAction } from 'utils/common.js';
 
   export let href = '',
     rel = undefined;

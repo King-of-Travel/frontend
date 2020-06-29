@@ -41,7 +41,7 @@
   import { goto, stores } from '@sapper/app';
   import { request } from 'api.js';
 
-  import FieldWithLabel from 'components/form/field/label.svelte';
+  import FieldWithLabel from 'components/form/label.svelte';
   import ListErrors from 'components/list-errors.svelte';
 
   const { session } = stores();

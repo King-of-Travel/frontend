@@ -31,7 +31,7 @@
     </button>
   </div>
   <div on:click="{openingOrClosingCard}">
-    <Navigation />
+    <MobileNavigation />
   </div>
 </CardMenu>
 
@@ -41,7 +41,7 @@
 
   import CardMenu from 'components/card-menu.svelte';
   import Icon from 'components/icon.svelte';
-  import Navigation from 'components/navigation/mobile-navigation.svelte';
+  import MobileNavigation from './mobile-navigation.svelte';
 
   $: isOpenNavigation = $fragment === '#mobile-navigation';
 

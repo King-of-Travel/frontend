@@ -64,7 +64,7 @@
   import { request } from 'api.js';
   import { dataForm, isFormValid } from './_stores';
   import AutoCheckField from './_auto-check.svelte';
-  import FieldWithLabel from 'components/form/field/label.svelte';
+  import FieldWithLabel from 'components/form/label.svelte';
 
   const { session } = stores();
 

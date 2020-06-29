@@ -8,7 +8,7 @@
   import { onMount } from 'svelte';
 
   import { dataForm, dataErrors } from './_stores';
-  import FieldWithLabel from 'components/form/field/label.svelte';
+  import FieldWithLabel from 'components/form/label.svelte';
 
   export let src,
     required = false,

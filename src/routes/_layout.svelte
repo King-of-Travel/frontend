@@ -4,19 +4,38 @@
     ${isFixedHeader ? '' : 'layout_is-header-fixed'} 
   `}"
 >
-  <Header />
+  {#if isDesktopVersion}
+    <DesktopHeader />
+  {:else}
+    <MobileMenu />
+  {/if}
+
   <slot />
+
   <Footer />
 </div>
 
 <script>
+  import { onMount } from 'svelte';
   import { stores } from '@sapper/app';
-  import Header from 'components/header/index.svelte';
-  import Footer from 'components/footer.svelte';
+
+  import DesktopHeader from 'components/layout/main/desktop-header.svelte';
+  import MobileMenu from 'components/layout/main/mobile-menu.svelte';
+  import Footer from 'components/layout/main/footer.svelte';
 
   let { page } = stores();
 
   $: isFixedHeader = $page.params && $page.params.articleId;
+
+  let isDesktopVersion = true;
+
+  onMount(() => {
+    let media = window.matchMedia('(min-width: 941px)');
+
+    media.addListener(e => (isDesktopVersion = e.matches));
+
+    isDesktopVersion = media.matches;
+  });
 </script>
 
 <style global>

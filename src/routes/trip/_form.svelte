@@ -46,9 +46,9 @@
   import { dataForm, isFormValid } from './_stores.js';
   import { request } from 'api.js';
 
-  import FieldWithLabel from 'components/form/field/label.svelte';
-  import FieldSelect from 'components/form/field/select.svelte';
-  import DatePicker from 'components/form/field/date-picker/index.svelte';
+  import FieldWithLabel from 'components/form/label.svelte';
+  import FieldSelect from 'components/form/select.svelte';
+  import DatePicker from 'components/form/date-picker/index.svelte';
   import ListErrors from 'components/list-errors.svelte';
   import Countries from 'components/locales/countries/en.json';
 

@@ -6,14 +6,12 @@
     "build": "sapper build --legacy",
     "export": "sapper export --legacy",
     "start": "node __sapper__/build",
-    "test": "set CI=true && npm run lint",
-    "lint": "npm run lint:js && npm run lint:css",
-    "lint:js": "eslint src/**/*",
-    "lint:css": "stylelint src/**/*.{css,svelte}"
+    "test": "set CI=true && npm run test:lint",
+    "test:lint": "eslint src/**/*.{svelte,js} && stylelint src/**/*.{svelte,css}"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run test"
+      "pre-commit": "npm test"
     }
   },
   "prettier": {

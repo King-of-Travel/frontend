@@ -24,14 +24,17 @@
   onMount(() => {
     let previousTimeout;
 
-    detailsElement.addEventListener('focusout', () => {
+    function hideDropdownIfFocusOut() {
       clearTimeout(previousTimeout);
+
       previousTimeout = setTimeout(() => {
         if (!detailsElement.contains(document.activeElement)) {
           isOpenDropdown = false;
         }
       }, 10);
-    });
+    }
+
+    detailsElement.addEventListener('focusout', hideDropdownIfFocusOut);
   });
 </script>
 

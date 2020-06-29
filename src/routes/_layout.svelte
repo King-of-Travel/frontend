@@ -30,11 +30,20 @@
   let isDesktopVersion = true;
 
   onMount(() => {
+    /* Determine which device the application is open on */
     let media = window.matchMedia('(min-width: 941px)');
 
-    media.addListener(e => (isDesktopVersion = e.matches));
-
     isDesktopVersion = media.matches;
+
+    function changeVersion(e) {
+      isDesktopVersion = e.matches;
+    }
+
+    media.addEventListener('change', changeVersion);
+
+    return () => {
+      media.removeEventListener('change', changeVersion);
+    };
   });
 </script>
 

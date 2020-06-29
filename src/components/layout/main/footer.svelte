@@ -1,6 +1,10 @@
 <footer></footer>
 
 <style>
+  footer {
+    grid-area: footer;
+  }
+
   @media (--mobile) {
     footer {
       /*

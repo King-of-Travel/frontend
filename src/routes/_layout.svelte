@@ -1,8 +1,5 @@
 <div
-  class="{`
-    layout
-    ${isFixedHeader ? '' : 'layout_is-header-fixed'} 
-  `}"
+  class="{isDesktopVersion && isFixedDesktopHeader ? 'header-fixed' : ''} layout"
 >
   {#if isDesktopVersion}
     <DesktopHeader />
@@ -25,7 +22,7 @@
 
   let { page } = stores();
 
-  $: isFixedHeader = $page.params && $page.params.articleId;
+  $: isFixedDesktopHeader = $page.params && !$page.params.articleId;
 
   let isDesktopVersion = true;
 
@@ -61,29 +58,18 @@
     height: 100%;
   }
 
-  .layout > header {
-    grid-area: header;
-    width: 100%;
-  }
-
   .layout > main {
     grid-area: main;
   }
 
-  .layout > footer {
-    grid-area: footer;
+  .layout.header-fixed {
+    padding-top: 65px;
   }
 
-  @media (--no-mobile) {
-    .layout_is-header-fixed {
-      padding-top: 65px;
-    }
-
-    .layout_is-header-fixed > header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-    }
+  .layout.header-fixed > header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
   }
 </style>

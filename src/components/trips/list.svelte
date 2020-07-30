@@ -1,19 +1,24 @@
-<div bind:this="{containerElement}" class="container" role="feed">
-  {#each $tripsStore.trips as trip (trip.id)}
-    <slot {trip} />
-  {/each}
+{#if $tripsStore.trips.length}
+  <div bind:this="{containerElement}" class="container" role="feed">
+    {#each $tripsStore.trips as trip (trip.id)}
+      <slot {trip} />
+    {/each}
 
-  {#if $tripsStore.isLoading}
-    <div class="loader" title="Download trips. Please wait">
-      <Icon name="loader" />
-    </div>
-  {/if}
-</div>
+    {#if $tripsStore.isLoading}
+      <div class="loader" title="Download trips. Please wait">
+        <Icon name="loader" />
+      </div>
+    {/if}
+  </div>
+{:else}
+  <ListFallback />
+{/if}
 
 <script>
   import { onMount } from 'svelte';
 
   import Icon from 'components/icon.svelte';
+  import ListFallback from './list-fallback.svelte';
 
   export let tripsStore, tripsDownloadOptions;
 

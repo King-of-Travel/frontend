@@ -1,20 +1,25 @@
-<div bind:this="{containerElement}" class="article-container" role="feed">
-  {#each $articlesStore.articles as article (article.id)}
-    <ArticlePreview {article} class="article-preview" />
-  {/each}
+{#if $articlesStore.articles.length}
+  <div bind:this="{containerElement}" class="article-container" role="feed">
+    {#each $articlesStore.articles as article (article.id)}
+      <ArticlePreview {article} class="article-preview" />
+    {/each}
 
-  {#if $articlesStore.isLoading}
-    <div class="loader" title="Download articles. Please wait">
-      <Icon name="loader" />
-    </div>
-  {/if}
-</div>
+    {#if $articlesStore.isLoading}
+      <div class="loader" title="Download articles. Please wait">
+        <Icon name="loader" />
+      </div>
+    {/if}
+  </div>
+{:else}
+  <ListFallback />
+{/if}
 
 <script>
   import { onMount } from 'svelte';
 
   import ArticlePreview from 'components/article/preview.svelte';
   import Icon from 'components/icon.svelte';
+  import ListFallback from './list-fallback.svelte';
 
   export let articlesStore,
     articleDownloadOptions = undefined;

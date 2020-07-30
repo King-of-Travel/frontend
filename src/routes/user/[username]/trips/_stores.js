@@ -27,7 +27,7 @@ function createTripsStore() {
 
   let tripsStore = writable(defaultValue());
 
-  function updateOneValue(name, value) {
+  function updateValue(name, value) {
     tripsStore.update(store => {
       store[name] = value;
 
@@ -40,11 +40,13 @@ function createTripsStore() {
   }
 
   function addTrips(newTrips) {
-    tripsStore.update(tripsStore => {
-      tripsStore.trips.push(...newTrips);
+    let store = get(tripsStore);
+    let trips = store.trips.concat(newTrips);
 
-      return tripsStore;
-    });
+    updateValue('trips', trips);
+
+    if (trips.length >= 20) return;
+    updateValue('isLoaded', true);
   }
 
   async function downloadFollowingTrips(options) {
@@ -52,7 +54,7 @@ function createTripsStore() {
 
     if (store.isLoaded || store.isLoading) return;
 
-    updateOneValue('isLoading', true);
+    updateValue('isLoading', true);
 
     let offset = store.trips.length;
 
@@ -62,12 +64,12 @@ function createTripsStore() {
     );
 
     if (newArticles.data.length < 20) {
-      updateOneValue('isLoaded', true);
+      updateValue('isLoaded', true);
     }
 
     addTrips(newArticles.data);
 
-    updateOneValue('isLoading', false);
+    updateValue('isLoading', false);
   }
 
   async function deleteTrip(tripId) {

@@ -27,22 +27,20 @@
   let containerElement;
 
   $: {
-    if ($articlesStore.isLoaded) {
+    if ($articlesStore.isLoaded && containerElement) {
       removeInfiniteScrollArticles();
     }
   }
 
   onMount(() => {
+    if (!containerElement) return;
+
     document.addEventListener('scroll', infiniteScrollArticles);
 
     return () => {
       removeInfiniteScrollArticles();
     };
   });
-
-  function removeInfiniteScrollArticles() {
-    document.removeEventListener('scroll', infiniteScrollArticles);
-  }
 
   function infiniteScrollArticles() {
     if ($articlesStore.isLoading) return;
@@ -54,6 +52,10 @@
     if (pageYoffset + 300 >= containerOffset) {
       articlesStore.downloadFollowingArticles(articleDownloadOptions);
     }
+  }
+
+  function removeInfiniteScrollArticles() {
+    document.removeEventListener('scroll', infiniteScrollArticles);
   }
 </script>
 

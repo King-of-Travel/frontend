@@ -25,22 +25,20 @@
   let containerElement;
 
   $: {
-    if ($tripsStore.isLoaded) {
+    if ($tripsStore.isLoaded && containerElement) {
       removeInfiniteScrollTrips();
     }
   }
 
   onMount(() => {
+    if (!containerElement) return;
+
     document.addEventListener('scroll', infiniteScrollTrips);
 
     return () => {
       removeInfiniteScrollTrips();
     };
   });
-
-  function removeInfiniteScrollTrips() {
-    document.removeEventListener('scroll', infiniteScrollTrips);
-  }
 
   async function infiniteScrollTrips() {
     if ($tripsStore.isLoading) return;
@@ -53,6 +51,10 @@
     if (pageYoffset + 300 >= containerOffset) {
       tripsStore.downloadFollowingTrips(tripsDownloadOptions);
     }
+  }
+
+  function removeInfiniteScrollTrips() {
+    document.removeEventListener('scroll', infiniteScrollTrips);
   }
 </script>
 

@@ -10,20 +10,22 @@ export function createStoreForArticles({ downloadArticles }) {
 
   let articlesStore = writable(defaultValue());
 
-  function updateOneValue(name, value) {
+  function updateValue(key, value) {
     articlesStore.update(store => {
-      store[name] = value;
+      store[key] = value;
 
       return store;
     });
   }
 
   function addArticles(newArticles) {
-    articlesStore.update(articlesStore => {
-      articlesStore.articles.push(...newArticles);
+    let store = get(articlesStore);
+    let articles = store.articles.concat(newArticles);
 
-      return articlesStore;
-    });
+    updateValue('articles', articles);
+
+    if (articles.length >= 20) return;
+    updateValue('isLoaded', true);
   }
 
   function reset() {
@@ -35,19 +37,19 @@ export function createStoreForArticles({ downloadArticles }) {
 
     if (store.isLoaded || store.isLoading) return;
 
-    updateOneValue('isLoading', true);
+    updateValue('isLoading', true);
 
     let offset = store.articles.length;
 
     let newArticles = await downloadArticles({ offset, ...options });
 
     if (newArticles.length < 20) {
-      updateOneValue('isLoaded', true);
+      updateValue('isLoaded', true);
     }
 
     addArticles(newArticles);
 
-    updateOneValue('isLoading', false);
+    updateValue('isLoading', false);
   }
 
   return {

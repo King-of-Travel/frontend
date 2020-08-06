@@ -2,9 +2,13 @@
   on:click="{() => (isShowMenu = !isShowMenu)}"
   title="Click to open the trip management menu."
   type="button"
-  class="button button_outlined"
+  class="button"
 >
-  <Item {...exclude($$props, ['deleteTrip'])} class="trips-item__container">
+  <Item
+    {...exclude($$props, ['deleteTrip'])}
+    active="{isShowMenu}"
+    className="trips-item__container"
+  >
     {#if isShowMenu}
       <div transition:fly="{{ x: 100, duration: 200 }}" class="control-menu">
         {#if isLoading}
@@ -39,8 +43,21 @@
 </script>
 
 <style>
-  .button_outlined {
+  .button {
+    --background: none;
+
     padding: 0;
+  }
+
+  .button:hover,
+  .button:focus {
+    --background: none;
+  }
+
+  .button:hover :global(.trips-item__container),
+  .button:focus :global(.trips-item__container) {
+    background-color: var(--base-hover);
+    border-color: var(--base-hover);
   }
 
   .control-menu {

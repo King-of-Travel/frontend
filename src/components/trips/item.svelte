@@ -1,6 +1,9 @@
 <svelte:options immutable="{true}" />
 
-<article {...exclude($$props, ['trip'])}>
+<article
+  {...exclude($$props, ['trip', 'className', 'active'])}
+  class="{rootClassName}"
+>
   <h3>
     <span title="Country">
       {Countries.find(country => country.value === trip.countryCode).label},
@@ -44,11 +47,14 @@
 
 <script>
   import { exclude } from 'common/exclude';
-  import { tripDateRange, articleCreatedAt } from 'date-formatting.js';
 
   import Countries from 'components/locales/countries/en.json';
+  import { tripDateRange, articleCreatedAt } from 'date-formatting.js';
+  import { cn } from 'utils/class-names';
 
-  export let trip;
+  export let trip, className, active;
+
+  $: rootClassName = cn(className, active && 'active');
 
   let startDate = new Date(trip.startDate);
   let endDate = new Date(trip.endDate);
@@ -73,7 +79,10 @@
     padding: 15px;
     overflow: hidden;
     font-size: 0.9rem;
+    font-weight: 400;
     text-align: left;
+    border: var(--base-border-w) solid var(--border-color, var(--base-border));
+    border-radius: var(--base-border-r);
   }
 
   hr {

@@ -1,4 +1,4 @@
-import { request } from 'api';
+import { request } from 'request/api';
 
 import { createStoreForArticles } from 'components/article/model';
 

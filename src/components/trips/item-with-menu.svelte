@@ -5,7 +5,7 @@
   class="button"
 >
   <Item
-    {...exclude($$props, ['deleteTrip'])}
+    {...excludeKeysFromObject($$props, ['deleteTrip'])}
     active="{isShowMenu}"
     className="trips-item__container"
   >
@@ -30,7 +30,7 @@
 
 <script>
   import { fly } from 'svelte/transition';
-  import { exclude } from 'common/exclude';
+  import { excludeKeysFromObject } from 'utils/exclude';
 
   import Item from './item.svelte';
   import Icon from 'components/icon.svelte';

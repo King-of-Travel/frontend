@@ -26,7 +26,7 @@
 </a>
 
 <script>
-  import { articleCreatedAt } from 'date-formatting.js';
+  import { articleCreatedAt } from 'utils/date-formatting';
 
   import Icon from 'components/icon.svelte';
 

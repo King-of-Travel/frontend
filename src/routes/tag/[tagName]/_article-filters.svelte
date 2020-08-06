@@ -72,9 +72,9 @@
 <script>
   import { stores } from '@sapper/app';
 
-  import LayoutFilters from 'components/filter/main-layout.svelte';
   import FilterItemButton from 'components/filter/item/button.svelte';
-  import { setQueryParameter } from 'path-finder';
+  import LayoutFilters from 'components/filter/main-layout.svelte';
+  import { setQueryParameter } from 'navigation/query';
 
   let { page } = stores();
 

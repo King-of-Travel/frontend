@@ -61,7 +61,7 @@
 <script>
   import { goto, stores } from '@sapper/app';
 
-  import { request } from 'api.js';
+  import { request } from 'request/api';
   import { dataForm, isFormValid } from './_stores';
   import AutoCheckField from './_auto-check.svelte';
   import FieldWithLabel from 'components/form/label.svelte';

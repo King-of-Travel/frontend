@@ -1,7 +1,7 @@
 import { writable, get } from 'svelte/store';
 import { goto } from '@sapper/app';
 
-import { request } from 'api.js';
+import { request } from 'request/api';
 
 function createArticle() {
   let store = writable(createDefaultValue());

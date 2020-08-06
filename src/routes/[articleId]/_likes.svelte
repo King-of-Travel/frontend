@@ -13,7 +13,7 @@
 <script>
   import { getContext } from 'svelte';
   import { stores } from '@sapper/app';
-  import { request } from 'api.js';
+  import { request } from 'request/api';
 
   import Icon from 'components/icon.svelte';
 

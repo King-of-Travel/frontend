@@ -1,7 +1,7 @@
 <svelte:options immutable="{true}" />
 
 <article
-  {...exclude($$props, ['trip', 'className', 'active'])}
+  {...excludeKeysFromObject($$props, ['trip', 'className', 'active'])}
   class="{rootClassName}"
 >
   <h3>
@@ -46,10 +46,10 @@
 </article>
 
 <script>
-  import { exclude } from 'common/exclude';
+  import { excludeKeysFromObject } from 'utils/exclude';
 
   import Countries from 'components/locales/countries/en.json';
-  import { tripDateRange, articleCreatedAt } from 'date-formatting.js';
+  import { tripDateRange, articleCreatedAt } from 'utils/date-formatting';
   import { cn } from 'utils/class-names';
 
   export let trip, className, active;

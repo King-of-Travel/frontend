@@ -39,7 +39,7 @@
 
 <script>
   import { goto, stores } from '@sapper/app';
-  import { request } from 'api.js';
+  import { request } from 'request/api';
 
   import FieldWithLabel from 'components/form/label.svelte';
   import ListErrors from 'components/list-errors.svelte';

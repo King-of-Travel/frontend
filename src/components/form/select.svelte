@@ -1,13 +1,13 @@
 <div>
   <Select
-    {...exclude($$props, ['value', 'defaultSelected'])}
+    {...excludeKeysFromObject($$props, ['value', 'defaultSelected'])}
     bind:selectedValue
   />
 </div>
 
 <script>
   import Select from 'svelte-select';
-  import { exclude } from 'common/exclude';
+  import { excludeKeysFromObject } from 'utils/exclude';
 
   export let value,
     defaultSelected = null;

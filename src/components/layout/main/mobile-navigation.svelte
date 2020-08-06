@@ -38,7 +38,7 @@
 
 <script>
   import { stores, goto } from '@sapper/app';
-  import { request } from 'api.js';
+  import { request } from 'request/api';
 
   let { session } = stores();
 

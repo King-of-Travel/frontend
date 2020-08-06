@@ -40,7 +40,7 @@
 
 <script>
   import { fly } from 'svelte/transition';
-  import { fragment } from 'path-finder';
+  import { fragment } from 'navigation/fragment';
 
   import CardMenu from 'components/card-menu.svelte';
   import Icon from 'components/icon.svelte';

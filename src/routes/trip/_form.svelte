@@ -44,7 +44,7 @@
 <script>
   import { goto } from '@sapper/app';
   import { dataForm, isFormValid } from './_stores.js';
-  import { request } from 'api.js';
+  import { request } from 'request/api';
 
   import FieldWithLabel from 'components/form/label.svelte';
   import FieldSelect from 'components/form/select.svelte';

@@ -1,6 +1,6 @@
 import { writable, get } from 'svelte/store';
 
-import { request } from 'api.js';
+import { request } from 'request/api';
 
 export function queryToGetFollowingTrips({
   username,

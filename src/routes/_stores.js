@@ -1,5 +1,4 @@
 import { request } from 'request/api';
-
 import { createStoreForArticles } from 'components/article/model';
 
 export function queryToGetTopArticle({ period = 'week', offset = 0 }) {

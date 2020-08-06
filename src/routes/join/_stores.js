@@ -1,4 +1,5 @@
 import { writable, derived } from 'svelte/store';
+
 import { checkFieldForErrors } from 'utils/validator';
 
 export const dataForm = writable({ username: '', email: '', password: '' });

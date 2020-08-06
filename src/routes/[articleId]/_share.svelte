@@ -10,8 +10,7 @@
 {/if}
 
 <script>
-  import { getContext } from 'svelte';
-  import { onMount } from 'svelte';
+  import { getContext, onMount } from 'svelte';
 
   import Icon from 'components/icon.svelte';
 

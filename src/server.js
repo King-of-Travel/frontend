@@ -1,7 +1,7 @@
+import * as sapper from '@sapper/server';
 import sirv from 'sirv';
 import polka from 'polka';
 import compression from 'compression';
-import * as sapper from '@sapper/server';
 
 import { createSessionConnection } from 'server/session';
 import { createApiProxy } from 'server/api-proxy';

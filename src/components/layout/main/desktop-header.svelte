@@ -45,8 +45,8 @@
 
 <script>
   import { stores, goto } from '@sapper/app';
-  import { request } from 'request/api';
 
+  import { request } from 'request/api';
   import Dropdown from 'components/dropdown/index.svelte';
   import DropdownItem from 'components/dropdown/item.svelte';
 

@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
-import { request } from 'request/api';
 
+import { request } from 'request/api';
 import { createStoreForArticles } from 'components/article/model';
 
 export let user = writable();

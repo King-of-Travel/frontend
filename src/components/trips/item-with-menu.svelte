@@ -30,10 +30,11 @@
 
 <script>
   import { fly } from 'svelte/transition';
+
+  import Icon from 'components/icon.svelte';
   import { excludeKeysFromObject } from 'utils/exclude';
 
   import Item from './item.svelte';
-  import Icon from 'components/icon.svelte';
 
   export let deleteTrip;
 

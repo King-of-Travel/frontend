@@ -66,12 +66,13 @@
 <script>
   import { onMount } from 'svelte';
 
-  import { article } from '../_stores.js';
   import FieldLabel from 'components/form/label.svelte';
   import FieldSelect from 'components/form/select.svelte';
   import Countries from 'components/locales/countries/en.json';
   import Icon from 'components/icon.svelte';
+
   import Tags from './tags.svelte';
+  import { article } from '../_stores.js';
 
   let isNewArticle = $article.id ? false : true;
 

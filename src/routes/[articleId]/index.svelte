@@ -99,9 +99,10 @@
 
 <script>
   import { setContext } from 'svelte';
-  import { articleCreatedAt } from 'utils/date-formatting';
 
+  import { articleCreatedAt } from 'utils/date-formatting';
   import Countries from 'components/locales/countries/en.json';
+
   import Likes from './_likes.svelte';
   import Share from './_share.svelte';
 

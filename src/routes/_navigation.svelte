@@ -9,9 +9,10 @@
 {/if}
 
 <script>
-  import ArticleFilters from './_navigation-filters.svelte';
   import TabList from 'components/tab/list.svelte';
   import TabLink from 'components/tab/item/link.svelte';
+
+  import ArticleFilters from './_navigation-filters.svelte';
 
   export let tab = 'articles';
 </script>

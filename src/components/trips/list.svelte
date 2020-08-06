@@ -18,6 +18,7 @@
   import { onMount } from 'svelte';
 
   import Icon from 'components/icon.svelte';
+
   import ListFallback from './list-fallback.svelte';
 
   export let tripsStore, tripsDownloadOptions;

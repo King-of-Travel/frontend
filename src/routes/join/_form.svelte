@@ -62,9 +62,10 @@
   import { goto, stores } from '@sapper/app';
 
   import { request } from 'request/api';
+  import FieldWithLabel from 'components/form/label.svelte';
+
   import { dataForm, isFormValid } from './_stores';
   import AutoCheckField from './_auto-check.svelte';
-  import FieldWithLabel from 'components/form/label.svelte';
 
   const { session } = stores();
 

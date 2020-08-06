@@ -13,8 +13,8 @@
 <script>
   import { getContext } from 'svelte';
   import { stores } from '@sapper/app';
-  import { request } from 'request/api';
 
+  import { request } from 'request/api';
   import Icon from 'components/icon.svelte';
 
   let { likes, id: articleId } = getContext('article');

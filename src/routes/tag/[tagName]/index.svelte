@@ -34,6 +34,7 @@
 
 <script>
   import ArticlesList from 'components/article/list.svelte';
+
   import ArticleFilters from './_article-filters.svelte';
 
   export let tagName, defaultArticles;

@@ -30,8 +30,9 @@
 </script>
 
 <script>
-  import MainNavigation from './_navigation.svelte';
   import ArticlesList from 'components/article/list.svelte';
+
+  import MainNavigation from './_navigation.svelte';
 
   export let defaultArticles;
 

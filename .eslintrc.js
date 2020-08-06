@@ -1,6 +1,6 @@
 module.exports = {
   extends: 'eslint:recommended',
-  plugins: ['svelte3', 'prefer-let'],
+  plugins: ['svelte3', 'prefer-let', 'import'],
   parser: 'babel-eslint',
   rules: {
     'comma-dangle': ['error', 'never'],
@@ -26,7 +26,46 @@ module.exports = {
     'object-shorthand': 'error',
     'require-yield': 'error',
     'arrow-spacing': 'error',
-    'arrow-parens': ['error', 'as-needed']
+    'arrow-parens': ['error', 'as-needed'],
+    'import/first': 2,
+    'import/no-duplicates': 2,
+    'import/newline-after-import': 1,
+    'import/no-named-default': 2,
+    'import/order': [
+      'error',
+      {
+        groups: [
+          ['builtin', 'external'],
+          'internal',
+          ['index', 'sibling', 'parent'],
+          'object'
+        ],
+        pathGroups: [
+          {
+            pattern: 'components/**/*',
+            group: 'internal'
+          },
+          {
+            pattern: 'navigation/**/*',
+            group: 'internal'
+          },
+          {
+            pattern: 'request/**/*',
+            group: 'internal'
+          },
+          {
+            pattern: 'utils/**/*',
+            group: 'internal'
+          },
+          {
+            pattern: 'server/**/*',
+            group: 'internal'
+          }
+        ],
+        pathGroupsExcludedImportTypes: ['builtin'],
+        'newlines-between': 'always'
+      }
+    ]
   },
   overrides: [
     {

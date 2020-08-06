@@ -24,7 +24,8 @@
 </section>
 
 <script context="module">
-  import { queryToGetFollowingTrips } from './_stores.js';
+  // eslint-disable-next-line import/order
+  import { queryToGetFollowingTrips, tripsStore } from './_stores.js';
 
   export async function preload({ params: { username }, query: { time } }) {
     let getTrips = await this.fetch(
@@ -43,13 +44,13 @@
   import { getContext } from 'svelte';
   import { stores } from '@sapper/app';
 
-  import MainNavigation from '../_navigation.svelte';
-  import TripFilters from './_filters.svelte';
   import TripList from 'components/trips/list.svelte';
   import TripItem from 'components/trips/item.svelte';
   import TripItemWithMenu from 'components/trips/item-with-menu.svelte';
+
+  import TripFilters from './_filters.svelte';
   import { user } from '../_stores.js';
-  import { tripsStore } from './_stores.js';
+  import MainNavigation from '../_navigation.svelte';
 
   export let defaultTrips;
 

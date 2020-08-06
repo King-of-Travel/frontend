@@ -40,10 +40,11 @@
 
 <script>
   import { fly } from 'svelte/transition';
-  import { fragment } from 'navigation/fragment';
 
+  import { fragment } from 'navigation/fragment';
   import CardMenu from 'components/card-menu.svelte';
   import Icon from 'components/icon.svelte';
+
   import MobileNavigation from './mobile-navigation.svelte';
 
   $: isOpenNavigation = $fragment === '#mobile-navigation';

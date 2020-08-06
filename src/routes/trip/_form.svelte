@@ -43,14 +43,15 @@
 
 <script>
   import { goto } from '@sapper/app';
-  import { dataForm, isFormValid } from './_stores.js';
-  import { request } from 'request/api';
 
   import FieldWithLabel from 'components/form/label.svelte';
   import FieldSelect from 'components/form/select.svelte';
   import DatePicker from 'components/form/date-picker/index.svelte';
   import ListErrors from 'components/list-errors.svelte';
   import Countries from 'components/locales/countries/en.json';
+  import { request } from 'request/api';
+
+  import { dataForm, isFormValid } from './_stores.js';
 
   let errors = {};
 

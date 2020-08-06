@@ -34,8 +34,9 @@
 <script>
   import { fade } from 'svelte/transition';
 
-  import { article } from '../_stores.js';
   import FieldWithLabel from 'components/form/label.svelte';
+
+  import { article } from '../_stores.js';
 
   $: tags = [...$article.tags];
 

@@ -27,7 +27,6 @@
 
 <script>
   import { articleCreatedAt } from 'utils/date-formatting';
-
   import Icon from 'components/icon.svelte';
 
   export let article, className;

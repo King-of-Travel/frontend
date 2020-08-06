@@ -47,7 +47,6 @@
 
 <script>
   import { excludeKeysFromObject } from 'utils/exclude';
-
   import Countries from 'components/locales/countries/en.json';
   import { tripDateRange, articleCreatedAt } from 'utils/date-formatting';
   import { cn } from 'utils/class-names';

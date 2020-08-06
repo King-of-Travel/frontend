@@ -12,6 +12,7 @@
 </main>
 
 <script context="module">
+  // eslint-disable-next-line import/order
   import {
     queryToGetTopArticle,
     queryToGetNewArticle,
@@ -38,8 +39,9 @@
 <script>
   import { stores } from '@sapper/app';
 
-  import MainNavigation from './_navigation.svelte';
   import ArticlesList from 'components/article/list.svelte';
+
+  import MainNavigation from './_navigation.svelte';
 
   export let defaultArticles;
 

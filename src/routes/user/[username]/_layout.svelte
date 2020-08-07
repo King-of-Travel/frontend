@@ -1,15 +1,15 @@
 <main class="center-content">
   <header>
     <div class="left-block">
-      <h1 title="Nickname">{$user.username}</h1>
+      <h1 title="Nickname">{userData.username}</h1>
       <div class="meta">
         Registered:
-        {@html articleCreatedAt($user.createdAt)}
+        {@html articleCreatedAt(userData.createdAt)}
       </div>
     </div>
 
     <div class="right-block">
-      {#if isCurrentUserProfile}
+      {#if userData.isCurrentUserProfile}
         <a href="/settings" rel="prefetch" class="button button_outlined">
           Settings
         </a>
@@ -24,35 +24,30 @@
   export async function preload(page, session) {
     let { username } = page.params;
 
-    let getUserData = await this.fetch(`/api/user?username=${username}`);
+    let getUserDataRequest = await this.fetch(`/api/user?username=${username}`);
 
-    if (!getUserData.ok) return this.error(404, 'User not found');
+    if (!getUserDataRequest.ok) return this.error(404, 'User not found');
 
-    let userData = await getUserData.json();
+    let userData = await getUserDataRequest.json();
 
-    let isCurrentUserProfile =
+    userData.isCurrentUserProfile =
       userData.id === (session.user && session.user.id);
 
-    return {
-      userData,
-      isCurrentUserProfile
-    };
+    return { userData };
   }
 </script>
 
 <script>
-  import { setContext } from 'svelte';
-
   import { articleCreatedAt } from 'utils/date-formatting';
 
-  import { user } from './_stores.js';
+  import { userStore } from './_stores.js';
 
-  export let userData, isCurrentUserProfile;
+  export let userData;
 
-  user.set(userData);
-
-  setContext('baseUserHref', `user/${$user.username}`);
-  setContext('isCurrentUserProfile', isCurrentUserProfile);
+  $: {
+    userStore.reset();
+    userStore.addData(userData);
+  }
 </script>
 
 <style>

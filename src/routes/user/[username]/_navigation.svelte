@@ -10,14 +10,14 @@
 </nav>
 
 <script>
-  import { getContext } from 'svelte';
-
   import TabList from 'components/tab/list.svelte';
   import TabLink from 'components/tab/item/link.svelte';
 
+  import { userStore } from './_stores';
+
   export let tab = 'articles';
 
-  let baseUserHref = getContext('baseUserHref');
+  $: baseUserHref = `user/${$userStore.username}`;
 </script>
 
 <style>

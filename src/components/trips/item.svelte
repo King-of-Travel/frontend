@@ -51,7 +51,9 @@
   import { tripDateRange, articleCreatedAt } from 'utils/date-formatting';
   import { cn } from 'utils/class-names';
 
-  export let trip, className, active;
+  export let trip,
+    className = undefined,
+    active = false;
 
   $: rootClassName = cn(className, active && 'active');
 

@@ -1,5 +1,5 @@
 <svelte:head>
-  <title>Articles / Profile: {$user.username}</title>
+  <title>Articles / Profile: {$userStore.username}</title>
 </svelte:head>
 
 <section>
@@ -7,12 +7,12 @@
 
   <ArticlesList
     {articlesStore}
-    articleDownloadOptions="{{ username: $user.username }}"
+    articleDownloadOptions="{{ username: $userStore.username }}"
   />
 </section>
 
 <script context="module">
-  import { queryToGetNewArticle, articlesStore, user } from './_stores.js';
+  import { queryToGetNewArticle, articlesStore, userStore } from './_stores.js';
 
   export async function preload(page) {
     let { username } = page.params;

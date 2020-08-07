@@ -1,5 +1,5 @@
 <svelte:head>
-  <title>Trips / Profile: {$user.username}</title>
+  <title>Trips / Profile: {$userStore.username}</title>
 </svelte:head>
 
 <section>
@@ -12,7 +12,7 @@
     tripsDownloadOptions="{{ username: $page.params.username, time: $page.query.time }}"
     let:trip
   >
-    {#if isCurrentUserProfile}
+    {#if $userStore.isCurrentUserProfile}
       <TripItemWithMenu
         {trip}
         deleteTrip="{() => tripsStore.deleteTrip(trip.id)}"
@@ -41,7 +41,6 @@
 </script>
 
 <script>
-  import { getContext } from 'svelte';
   import { stores } from '@sapper/app';
 
   import TripList from 'components/trips/list.svelte';
@@ -49,7 +48,7 @@
   import TripItemWithMenu from 'components/trips/item-with-menu.svelte';
 
   import TripFilters from './_filters.svelte';
-  import { user } from '../_stores.js';
+  import { userStore } from '../_stores.js';
   import MainNavigation from '../_navigation.svelte';
 
   export let defaultTrips;
@@ -60,8 +59,6 @@
     tripsStore.reset();
     tripsStore.addTrips(defaultTrips);
   }
-
-  let isCurrentUserProfile = getContext('isCurrentUserProfile');
 </script>
 
 <style>

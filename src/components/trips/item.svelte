@@ -23,9 +23,9 @@
       The trip will begin in {currentDateToEndDate}
       {#if currentDateToEndDate > 1}days{:else}day{/if}
     {/if}
-
-    <hr align="left" />
   </div>
+
+  <hr align="left" />
 
   <div class="meta">
     <div>
@@ -73,8 +73,8 @@
   article {
     position: relative;
     display: grid;
-    grid-template-rows: repeat(2, auto);
-    gap: 6px;
+    grid-template-rows: repeat(4, min-content);
+    gap: 5px;
     padding: 15px;
     overflow: hidden;
     font-size: 0.9rem;
@@ -85,7 +85,6 @@
   }
 
   hr {
-    width: 100%;
     max-width: 200px;
   }
 

@@ -1,7 +1,7 @@
 <LayoutFilters title="Article filters">
   <ul>
     <FilterItemButton
-      on:click="{() => setQueryParameter('sort', null)}"
+      on:click="{() => setQueryParameter('sort', 'top')}"
       isActive="{!isNewArticleCategory}"
     >
       Top
@@ -16,8 +16,8 @@
   <ul>
     {#if isNewArticleCategory}
       <FilterItemButton
-        on:click="{() => setQueryParameter('rating', undefined)}"
-        isActive="{!rating}"
+        on:click="{() => setQueryParameter('rating', 0)}"
+        isActive="{rating === 0}"
       >
         All
       </FilterItemButton>
@@ -47,7 +47,7 @@
         Day
       </FilterItemButton>
       <FilterItemButton
-        on:click="{() => setQueryParameter('period', undefined)}"
+        on:click="{() => setQueryParameter('period', 'week')}"
         isActive="{period === 'week'}"
       >
         Week
@@ -78,6 +78,6 @@
   let { page } = stores();
 
   $: isNewArticleCategory = $page.query.sort === 'new';
-  $: rating = +$page.query.rating;
+  $: rating = +$page.query.rating || 0;
   $: period = $page.query.period || 'week';
 </script>

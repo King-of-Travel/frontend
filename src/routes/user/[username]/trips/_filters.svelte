@@ -13,8 +13,8 @@
       Present
     </FilterItemButton>
     <FilterItemButton
-      on:click="{() => setQueryParameter('time', undefined)}"
-      isActive="{time === undefined}"
+      on:click="{() => setQueryParameter('time', 'future')}"
+      isActive="{time === 'future'}"
     >
       Future
     </FilterItemButton>
@@ -30,5 +30,5 @@
 
   let { page } = stores();
 
-  $: time = $page.query.time;
+  $: time = $page.query.time || 'future';
 </script>

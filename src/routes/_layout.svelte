@@ -32,14 +32,31 @@
 
     isDesktopVersion = media.matches;
 
-    function changeVersion(e) {
-      isDesktopVersion = e.matches;
+    function changeSiteDisplayVersion(e) {
+      if (e) {
+        isDesktopVersion = e.matches;
+        return;
+      }
+
+      isDesktopVersion = !isDesktopVersion;
     }
 
-    media.addEventListener('change', changeVersion);
+    try {
+      media.addEventListener('change', changeSiteDisplayVersion);
+
+      return () => {
+        media.removeEventListener('change', changeSiteDisplayVersion);
+      };
+    } catch {
+      media.addListener(changeSiteDisplayVersion);
+    }
 
     return () => {
-      media.removeEventListener('change', changeVersion);
+      try {
+        media.removeEventListener('change', changeSiteDisplayVersion);
+      } catch {
+        media.removeListener(changeSiteDisplayVersion);
+      }
     };
   });
 </script>
